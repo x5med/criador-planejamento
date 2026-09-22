@@ -10,7 +10,7 @@ export async function GET() {
     configured,
     provider: configured ? "gemini" : "demo",
     model: configured
-      ? process.env.GEMINI_MODEL?.trim() || "gemini-2.5-flash"
+      ? process.env.GEMINI_MODEL?.trim() || "gemini-3.6-flash"
       : "demonstração local",
   });
 }

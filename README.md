@@ -53,4 +53,4 @@ No MVP, sessões e planos ficam no `localStorage` do navegador. O servidor receb
 
 ## Modelo
 
-O padrão é `gemini-2.5-flash`, configurável por `GEMINI_MODEL`. A integração usa saída JSON estruturada e validação Zod antes de enviar o resultado ao cliente.
+O padrão é `gemini-3.6-flash`, configurável por `GEMINI_MODEL`. A integração usa saída JSON estruturada e validação Zod antes de enviar o resultado ao cliente. Falhas transitórias de capacidade recebem novas tentativas automáticas e, se persistirem, o app mantém a jornada disponível no modo demonstrativo.
