@@ -1,0 +1,57 @@
+{
+  "date": "2026-09-30T17:05:36.243Z",
+  "baseURL": "http://localhost:3000",
+  "results": [
+    {
+      "name": "Official SVG geometry, contour/fill progression and beginning/middle/final captures",
+      "pass": true,
+      "evidence": {
+        "beginning": {
+          "ms": 104.89999997615814,
+          "dash": [
+            0.977115,
+            0.993549,
+            0.999889,
+            1
+          ],
+          "fill": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "middle": {
+          "ms": 750.8999999761581,
+          "dash": [
+            0.0623654,
+            0.104422,
+            0.157626,
+            0.221002
+          ],
+          "fill": [
+            0.0925675,
+            0.0190391,
+            0,
+            0
+          ]
+        },
+        "final": {
+          "ms": 1750.7999999821186,
+          "dash": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "fill": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      }
+    }
+  ]
+}

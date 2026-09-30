@@ -18,7 +18,9 @@ O [mapa funcional](docs/feature-map.md) relaciona cada tela às regras do métod
 
 O [PRD do front end e novo design system](docs/prd-frontend-design-system.md) define a experiência proposta, requisitos e critérios de aceite. O [guia do design system X5 Business](design/figma/README.md) reúne as telas no Figma, tokens nativos, componentes, protótipo e prévias.
 
-O novo design está implementado na abertura, entrevista e nas cinco vistas do plano, com Sora, marca SVG X5, cards chip e layouts para desktop e celular. O [guia da implementação](design/implementation/README.md) registra os componentes e a referência visual; o [relatório de verificação](docs/frontend-verification.md) documenta os testes de preservação dos fluxos e a comparação com o Figma.
+O novo design está implementado na abertura, entrevista e nas cinco vistas do plano, com Sora, marca SVG X5, cards chip e layouts para desktop e celular. A entrada passa pelo esqueleto de login inspirado no Metrics. “Explorar demonstração” abre a apresentação do sistema; “Gerar planejamento” abre o formulário de contexto. O [guia da implementação](design/implementation/README.md) registra os componentes e a referência visual; o [relatório de verificação](docs/frontend-verification.md) documenta os testes de preservação dos fluxos e a comparação com o Figma.
+
+O [pré-loader X5](design/implementation/preloader/README.md) anima o SVG oficial do Grupo X5 em React com Motion enquanto o conteúdo está carregando. A animação se repete até a conclusão real e fica estática para quem prefere movimento reduzido.
 
 ## Rodar localmente
 
@@ -31,6 +33,8 @@ npm run dev
 ```
 
 Abra `http://localhost:3000`.
+
+`/` direciona para `/login`, uma prévia visual com os campos de credenciais e o botão Entrar desativados. A demonstração segue para `/inicio`, onde o fluxo de planejamento funciona e as sessões locais são retomadas. A autenticação e o banco de dados ainda não foram implementados; o login não protege rotas nem APIs. Veja os pontos de integração futura na [arquitetura](docs/architecture.md).
 
 Para usar Gemini de verdade, preencha `GEMINI_API_KEY` em `.env.local`. Sem a chave, todas as telas continuam funcionando com respostas demonstrativas claramente identificadas.
 

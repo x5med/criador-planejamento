@@ -1,0 +1,117 @@
+/* Metrics access layout using the shared X5 light design tokens. */
+.x5-access {
+  color-scheme:light;
+  --access-page:var(--color-canvas);
+  --access-surface:var(--color-surface);
+  --access-ink:var(--color-ink);
+  --access-muted:var(--color-muted);
+  --access-accent:var(--color-focus);
+  --access-border:var(--color-border);
+  --access-shadow:0 4px 6px rgb(17 17 17 / 7%);
+  position:relative;
+  isolation:isolate;
+  display:grid;
+  place-items:center;
+  min-height:100dvh;
+  overflow:clip;
+  padding:48px 24px;
+  background:var(--access-page);
+  color:var(--access-ink);
+  font-family:var(--font-sans),sans-serif;
+}
+.x5-access__center { position:relative; z-index:3; width:min(420px,100%); }
+.x5-access__brand { display:grid; justify-items:center; margin-bottom:32px; }
+.x5-access__brand .brand { gap:14px; }
+.x5-access__brand .brand-logo { width:128px; height:74px; }
+.x5-access__brand .brand-copy strong { font-size:17px; line-height:24px; }
+.x5-access__card { padding:34px; border-radius:30px; background:var(--access-surface); box-shadow:var(--access-shadow); }
+.x5-access__eyebrow { display:table; margin-bottom:12px; padding:5px 9px; border-radius:var(--radius-pill); background:var(--color-accent-soft); color:var(--access-accent); font-size:8px; font-weight:600; letter-spacing:.1em; }
+.x5-access__card h1 { margin:0; font-size:26px; font-weight:500; line-height:1.25; letter-spacing:-.045em; }
+.x5-access__card header > p { margin:12px 0 28px; color:var(--access-muted); font-size:12px; line-height:1.7; }
+.x5-access__fields { min-width:0; margin:0; padding:0; border:0; display:grid; gap:18px; }
+.x5-access__field { display:grid; gap:9px; min-width:0; }
+.x5-access__field > label { font-size:12px; font-weight:500; }
+.x5-access__input { display:flex; align-items:center; min-height:50px; padding:3px 4px 3px 16px; border:1px solid var(--access-border); border-radius:14px; background:var(--access-page); }
+.x5-access__input > input { width:100%; min-width:0; min-height:42px; border:0; outline:0; background:transparent; color:var(--access-ink); font:inherit; font-size:14px; opacity:1; cursor:not-allowed; -webkit-text-fill-color:var(--access-muted); }
+.x5-access__input > input::placeholder { color:var(--access-muted); opacity:.8; }
+.x5-access__password-icon { display:grid; place-items:center; flex:0 0 44px; height:44px; color:var(--access-muted); }
+.x5-access__submit { display:flex; align-items:center; justify-content:center; gap:12px; min-height:50px; padding:12px 18px; border:0; border-radius:25px; background:var(--access-ink); color:var(--access-surface); font:inherit; font-size:13px; font-weight:500; }
+.x5-access__submit:disabled { background:var(--color-border); color:var(--access-muted); opacity:1; cursor:not-allowed; }
+.x5-access__support { margin-top:26px; padding-top:20px; border-top:1px solid var(--access-border); text-align:center; }
+.x5-access__support p { margin:0; color:var(--access-muted); font-size:11px; line-height:1.9; }
+.x5-access__demo { display:flex; align-items:center; justify-content:center; gap:12px; min-height:50px; padding:12px 18px; margin-top:18px; border-radius:25px; background:var(--color-accent); color:var(--access-ink); font-size:13px; font-weight:500; transition:background 180ms ease,box-shadow 180ms ease; }
+.x5-access__demo svg { transition:transform 180ms ease; }
+.x5-access__demo:hover { background:var(--color-accent-soft); box-shadow:0 4px 12px #11111118; }
+.x5-access__demo:hover svg { transform:translateX(3px); }
+.x5-access__security { display:flex; align-items:center; justify-content:center; gap:7px; margin:24px 0 0; color:var(--access-muted); font-size:9px; line-height:1.6; text-align:center; }
+.x5-access :is(button,a):focus-visible { outline:2px solid var(--access-accent); outline-offset:4px; }
+/* Opaque form card sits above the connection paths. Controls remain interactive. */
+.x5-access__connections { position:absolute; z-index:2; inset:0; pointer-events:none; }
+.x5-access__explore { display:none; }
+.x5-access__branches { position:absolute; top:50%; display:grid; gap:18px; width:calc((100% - 420px) / 2); transform:translateY(-40%); }
+.x5-access__branches--left { left:0; padding-left:clamp(24px,4vw,72px); }
+.x5-access__branches--right { right:0; padding-right:clamp(24px,4vw,72px); }
+.x5-access__branch { position:relative; display:flex; min-height:44px; align-items:center; }
+.x5-access__branch[data-open=true] { z-index:3; }
+.x5-access__module { position:relative; z-index:1; display:inline-flex; align-items:center; gap:9px; min-height:44px; padding:10px 14px; border:1px solid transparent; border-radius:24px; background:var(--access-surface); color:var(--access-ink); box-shadow:var(--access-shadow); font-family:inherit; font-size:11px; white-space:nowrap; cursor:pointer; pointer-events:auto; transition:border-color 180ms ease,background 180ms ease,transform 180ms ease; }
+.x5-access__module > svg { flex-shrink:0; }
+.x5-access__module-chevron { opacity:.55; transition:transform 180ms ease; }
+.x5-access__module:hover,.x5-access__module[aria-expanded=true] { border-color:var(--access-accent); background:var(--color-accent-soft); transform:translateY(-2px); }
+.x5-access__module[aria-expanded=true] .x5-access__module-chevron { transform:rotate(180deg); opacity:1; }
+.x5-access__branch svg { color:var(--access-accent); }
+.x5-access__branch::after { content:""; position:absolute; z-index:0; left:30px; right:-24px; top:50%; height:28px; border-bottom:1px solid color-mix(in srgb,var(--access-accent) 22%,transparent); border-radius:0 0 0 90%; transition:opacity 180ms ease; }
+.x5-access__branch:nth-child(1)::after { height:54px; }
+.x5-access__branch:nth-child(3)::after { top:auto; bottom:50%; border-bottom:0; border-top:1px solid color-mix(in srgb,var(--access-accent) 22%,transparent); border-radius:90% 0 0 0; }
+.x5-access__branch:nth-child(n+4)::after { top:auto; bottom:50%; height:54px; border-bottom:0; border-top:1px solid color-mix(in srgb,var(--access-accent) 22%,transparent); border-radius:90% 0 0 0; }
+.x5-access__branches--left .x5-access__branch:nth-child(even) { padding-left:28px; }
+.x5-access__branches--right .x5-access__branch { justify-content:flex-end; }
+.x5-access__branches--right .x5-access__branch:nth-child(odd) { padding-right:28px; }
+.x5-access__branches--right .x5-access__branch::after { left:-24px; right:30px; transform:scaleX(-1); }
+.x5-access__connections:has(.x5-access__branch:hover,:focus-visible) .x5-access__branch::after { opacity:0; }
+.x5-access__popover { position:absolute; top:calc(100% + 10px); left:0; width:min(260px,100%); padding:10px 16px 16px; border:1px solid var(--access-border); border-radius:20px; background:var(--access-surface); box-shadow:0 12px 28px rgb(17 17 17 / 12%); pointer-events:auto; animation:access-module-reveal 180ms ease-out both; }
+.x5-access__popover::before { content:""; position:absolute; height:12px; bottom:100%; left:0; right:0; }
+.x5-access__branches--right .x5-access__popover { left:auto; right:0; }
+.x5-access__branch:nth-child(n+3) .x5-access__popover { top:auto; bottom:calc(100% + 10px); }
+.x5-access__branch:nth-child(n+3) .x5-access__popover::before { bottom:auto; top:100%; }
+.x5-access__popover header { display:flex; align-items:center; justify-content:space-between; gap:4px; }
+.x5-access__popover strong { min-width:0; font-size:12px; font-weight:600; overflow-wrap:anywhere; }
+.x5-access__popover header button { display:grid; place-items:center; width:44px; height:44px; flex:0 0 44px; margin-right:-10px; border:0; border-radius:50%; background:transparent; color:var(--access-muted); }
+.x5-access__popover header button:hover { background:var(--access-page); }
+.x5-access__popover p { margin:4px 0 14px; font-size:11px; line-height:1.8; color:var(--access-muted); }
+.x5-access__popover ul { display:grid; gap:8px; margin:0 0 16px; padding:0; list-style:none; }
+.x5-access__popover li { display:flex; align-items:center; gap:8px; font-size:10px; line-height:1.6; }
+.x5-access__popover li::before { content:""; flex:0 0 4px; height:4px; border-radius:50%; background:var(--access-accent); }
+.x5-access__popover small { display:block; padding-top:12px; border-top:1px solid var(--access-border); color:var(--access-muted); font-size:9px; line-height:1.7; }
+@keyframes access-module-reveal { from { opacity:0; transform:translateY(-5px); } to { opacity:1; transform:translateY(0); } }
+@media (max-width:1050px) {
+  .x5-access { align-content:center; }
+  .x5-access__connections { position:relative; inset:auto; width:min(420px,100%); margin-top:24px; pointer-events:auto; }
+  .x5-access__explore { display:flex; justify-content:center; align-items:center; gap:8px; width:100%; min-height:44px; padding:8px; border:0; border-radius:14px; background:transparent; color:var(--access-muted); font:inherit; font-size:11px; cursor:pointer; }
+  .x5-access__explore:hover { background:var(--access-surface); }
+  .x5-access__explore[aria-expanded=true] svg { transform:rotate(180deg); }
+  .x5-access__modules { display:none; }
+  .x5-access__connections[data-expanded=true] .x5-access__modules { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:12px; }
+  .x5-access__branches { display:contents; }
+  .x5-access__connections .x5-access__branch { display:block; min-width:0; padding:0; }
+  .x5-access__branch::after { display:none; }
+  .x5-access__module { width:100%; text-align:left; white-space:normal; gap:7px; padding:10px; font-size:10px; }
+  .x5-access__module-chevron { margin-left:auto; }
+  .x5-access__popover { position:relative; top:auto; width:100%; margin-top:10px; padding:8px 12px 12px; }
+  .x5-access__branch:nth-child(n+3) .x5-access__popover { top:auto; bottom:auto; }
+  .x5-access__popover::before { display:none; }
+  .x5-access__popover header { align-items:flex-start; }
+  .x5-access__popover strong { padding-top:12px; font-size:11px; }
+  .x5-access__popover p { font-size:11px; }
+}
+@media (max-width:480px) {
+  .x5-access { padding:30px 16px; }
+  .x5-access__brand { margin-bottom:26px; }
+  .x5-access__brand .brand-logo { width:110px; height:63px; }
+  .x5-access__brand .brand-copy strong { font-size:16px; }
+  .x5-access__card { padding:28px 24px; }
+  .x5-access__card h1 { font-size:24px; }
+  .x5-access__input > input { font-size:16px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .x5-access *,.x5-access *::after { transition:none; animation:none; }
+}

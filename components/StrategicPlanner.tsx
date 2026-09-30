@@ -1,7 +1,6 @@
 "use client";
 
-import Image from "next/image";
-import { LoaderCircle } from "lucide-react";
+import { AnimatedGroupLogo } from "./AnimatedGroupLogo";
 import { useCallback, useEffect, useState } from "react";
 import { Landing, Interview } from "@/components/PlannerJourney";
 import { PlanDashboard } from "@/components/PlannerResults";
@@ -230,17 +229,9 @@ export function StrategicPlanner() {
 
   if (!hydrated) {
     return (
-      <div className="app-loading">
-        <Image
-          className="brand-logo"
-          src="/brand/grupo-x5.svg"
-          alt="Grupo X5"
-          width={100}
-          height={57}
-          unoptimized
-          priority
-        />
-        <LoaderCircle className="spin" size={22} />
+      <div className="app-loading" role="status" aria-live="polite">
+        <div className="x5-loading-mark"><AnimatedGroupLogo /></div>
+        <span className="sr-only">Carregando seu planejamento.</span>
       </div>
     );
   }

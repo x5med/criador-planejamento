@@ -1,0 +1,27 @@
+.preloader-content { min-height:100dvh; }
+.x5-preloader {
+  position:fixed;
+  z-index:1000;
+  inset:0;
+  display:grid;
+  place-items:center;
+  min-width:320px;
+  background:var(--color-canvas);
+  color:var(--color-ink);
+  opacity:1;
+  transition:opacity 220ms ease;
+}
+.x5-preloader[data-phase="pending"] { animation:preloader-release 1ms step-end 6500ms forwards; }
+.x5-preloader[data-phase="leaving"] { opacity:0; pointer-events:none; }
+.x5-preloader__mark { width:min(360px,80vw); aspect-ratio:890/507; }
+.x5-preloader__logo { display:block; width:100%; height:100%; overflow:visible; }
+.x5-loading-mark { width:min(200px,60vw); aspect-ratio:890/507; color:var(--color-ink); }
+.x5-loading-mark > img { display:block; width:100%; height:auto; }
+/* If hydration fails, the server-rendered cover still releases the usable page. */
+@keyframes preloader-release { to { visibility:hidden; pointer-events:none; } }
+@media (prefers-reduced-motion:reduce) {
+  .x5-preloader { transition:none; }
+  .x5-preloader__logo { opacity:1 !important; }
+  .x5-logo-fill { opacity:1 !important; }
+  .x5-logo-outline { opacity:0 !important; }
+}

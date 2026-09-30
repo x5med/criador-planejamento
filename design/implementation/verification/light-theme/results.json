@@ -1,0 +1,86 @@
+{
+  "date": "2026-09-30T15:54:55.133Z",
+  "baseURL": "http://localhost:3000",
+  "results": [
+    {
+      "name": "Login 1440px remains X5 light under dark OS preference; modules and CTA work",
+      "pass": true
+    },
+    {
+      "name": "Login 390px remains X5 light under dark OS preference; modules and CTA work",
+      "pass": true
+    },
+    {
+      "name": "WebM alpha final preloader frame has visible black logo and no rectangular background",
+      "pass": true,
+      "evidence": {
+        "src": "http://localhost:3000/brand/preloader/x5-reveal.webm",
+        "corners": [
+          [
+            231,
+            235,
+            228,
+            255
+          ],
+          [
+            231,
+            235,
+            228,
+            255
+          ],
+          [
+            231,
+            235,
+            228,
+            255
+          ],
+          [
+            231,
+            235,
+            228,
+            255
+          ]
+        ],
+        "darkPixels": 25991
+      }
+    },
+    {
+      "name": "MP4 fallback final preloader frame has visible black logo and no rectangular background",
+      "pass": true,
+      "evidence": {
+        "src": "http://localhost:3000/brand/preloader/x5-reveal.mp4",
+        "corners": [
+          [
+            231,
+            235,
+            228,
+            255
+          ],
+          [
+            231,
+            235,
+            228,
+            255
+          ],
+          [
+            231,
+            235,
+            228,
+            255
+          ],
+          [
+            231,
+            235,
+            228,
+            255
+          ]
+        ],
+        "darkPixels": 26077
+      }
+    },
+    {
+      "name": "Saved plan remains light under dark OS preference and has no theme switch",
+      "pass": true
+    }
+  ]
+}

@@ -1,51 +1,47 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, BrainCircuit, Check, CheckCheck, ChevronDown, Clock3, HelpCircle, LoaderCircle, Menu, Plus, ShieldCheck, Sparkles, X } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, BrainCircuit, Check, CheckCheck, ChevronDown, Clock3, HelpCircle, LoaderCircle, Menu, Plus, Sparkles, X } from "lucide-react";
 import { type FormEvent, useEffect, useRef, useState } from "react";
 import { AiBadge, Brand, type ProviderStatus } from "@/components/PlannerPrimitives";
+import { AnimatedGroupLogo } from "./AnimatedGroupLogo";
+import { NewPlanDialog } from "@/components/NewPlanDialog";
 import { PHASES, type CoachResponse, type PlannerSession } from "@/lib/types";
 
 type StartData = { organization: string; sector: string; horizon: string; challenge: string };
-const horizons = ["Próximos 12 meses", "Próximos 24 meses", "Próximos 36 meses", "Ano de 2027"];
 const methodDescriptions = ["Contexto e evidências", "Escolhas e renúncias", "Resultados e iniciativas", "Pessoas e governança"];
 
 export function Landing({ status, onStart, loading }: { status: ProviderStatus | null; onStart: (data: StartData) => Promise<void>; loading: boolean }) {
-  const [form, setForm] = useState<StartData>({ organization: "", sector: "", horizon: horizons[0], challenge: "" });
-  const [showMethod, setShowMethod] = useState(false);
-  const submit = (event: FormEvent) => { event.preventDefault(); void onStart(form); };
+  const [showForm, setShowForm] = useState(false);
   return (
-    <main className="landing-shell view-enter">
+    <main className="landing-shell landing-intro view-enter">
       <div className="landing-glass">
         <header className="landing-nav">
           <Brand />
-          <div className="landing-nav-right"><AiBadge status={status} /><span>Método X5 · Evidência, escolha e execução</span></div>
-          <button className="journey-icon-button landing-mobile-menu" type="button" aria-label="Mostrar o método X5" aria-expanded={showMethod} aria-controls="landing-method" onClick={() => setShowMethod(value => !value)}>{showMethod ? <X size={20} /> : <Menu size={20} />}</button>
+          <div className="landing-intro-nav"><AiBadge status={status} /><Link href="/login" className="secondary-button">Acessar conta</Link></div>
         </header>
         <div className="landing-mobile-status"><AiBadge status={status} /></div>
         <section className="landing-hero">
           <div className="hero-copy">
             <span className="eyebrow hero-eyebrow"><span className="desktop-label">Um novo ciclo começa com uma boa pergunta</span><span className="mobile-label">Novo ciclo · Novas escolhas</span></span>
             <h1><span className="hero-title-line">Transforme contexto</span><br className="desktop-break" /><span className="hero-title-line">em direção.</span></h1>
-            <p className="hero-lead"><span className="desktop-lead">Uma entrevista guiada para construir escolhas claras, resultados mensuráveis e um plano que cabe na sua realidade.</span><span className="mobile-lead">Uma entrevista guiada para construir um plano que cabe na sua realidade.</span></p>
+            <p className="hero-lead">O X5 Planejamento usa uma entrevista guiada por IA para entender sua organização, definir prioridades e transformar escolhas em um plano de ação.</p>
             <div className="hero-proof"><span>Decisões com evidência</span><span>OKRs e iniciativas</span><span>Donos e cadências</span></div>
-            <div id="landing-method" className={`method-card ${showMethod ? "is-revealed" : ""}`}>
-              <span className="eyebrow">Da reflexão à prática</span><h2>Quatro perguntas.<br />Uma direção.</h2>
-              <ol>{PHASES.slice(1).map((phase, index) => <li key={phase.id}><div><strong>{phase.title}</strong><small>{methodDescriptions[index]}</small></div><span>{String(index + 1).padStart(2, "0")}</span></li>)}</ol>
-            </div>
+            <div className="landing-intro-action"><button type="button" className="primary-button" onClick={() => setShowForm(true)}>Gerar planejamento <ArrowRight size={18} /></button><p>Comece pelo contexto da sua organização.</p></div>
           </div>
-          <form className="start-card" onSubmit={submit}>
-            <div className="start-card-head"><span className="eyebrow">Novo planejamento</span><h2><span className="desktop-heading">Conte um pouco<br />sobre a organização.</span><span className="mobile-heading">Vamos começar.</span></h2><p>Este contexto orienta a primeira pergunta.</p></div>
-            <label><span className="desktop-label">Nome da organização</span><span className="mobile-label">Organização</span><input required autoComplete="organization" placeholder="Ex.: Clínica Horizonte" value={form.organization} onChange={event => setForm(current => ({ ...current, organization: event.target.value }))} /></label>
-            <label><span className="desktop-label">Setor de atuação</span><span className="mobile-label">Setor</span><input required placeholder="Ex.: Saúde e bem-estar" value={form.sector} onChange={event => setForm(current => ({ ...current, sector: event.target.value }))} /></label>
-            <fieldset className="horizon-field"><legend>Horizonte do plano</legend><div className="horizon-segments">{horizons.slice(0, 3).map((horizon, index) => <label key={horizon} className={form.horizon === horizon ? "is-selected" : ""}><input type="radio" name="horizon" value={horizon} checked={form.horizon === horizon} onChange={() => setForm(current => ({ ...current, horizon }))} /><span>{(index + 1) * 12} meses</span></label>)}</div><label className={`calendar-horizon ${form.horizon === horizons[3] ? "is-selected" : ""}`}><input type="radio" name="horizon" value={horizons[3]} checked={form.horizon === horizons[3]} onChange={() => setForm(current => ({ ...current, horizon: horizons[3] }))} /><span>Ano de 2027</span></label></fieldset>
-            <label><span className="desktop-label">Qual é o desafio central?</span><span className="mobile-label">Desafio central</span><textarea required rows={3} placeholder="O que precisa mudar ao final deste planejamento?" value={form.challenge} onChange={event => setForm(current => ({ ...current, challenge: event.target.value }))} /></label>
-            <button type="submit" className="primary-button start-button" disabled={loading}>{loading ? <><LoaderCircle className="spin" size={18} /> Preparando entrevista</> : <>Começar planejamento <ArrowRight size={18} /></>}</button>
-            <p className="privacy-note"><ShieldCheck size={16} /><span className="desktop-label">Respostas salvas neste navegador.<br />Com a IA ativa, o contexto será enviado para gerar respostas.</span><span className="mobile-label">Salvo neste navegador. Com a IA ativa, o contexto será enviado para gerar respostas.</span></p>
-          </form>
+          <section id="landing-method" className="method-card" aria-labelledby="landing-method-title">
+              <span className="eyebrow">Da reflexão à prática</span><h2 id="landing-method-title">Quatro perguntas.<br />Uma direção.</h2>
+              <ol>{PHASES.slice(1).map((phase, index) => <li key={phase.id}><div><strong>{phase.title}</strong><small>{methodDescriptions[index]}</small></div><span>{String(index + 1).padStart(2, "0")}</span></li>)}</ol>
+          </section>
         </section>
-        <footer className="landing-footer"><span className="desktop-footer">X5 Planejamento — escolhas que viram execução.</span><span className="mobile-footer">X5 · Evidência, escolha e execução.</span><span className="footer-extra">Sem cadastro para experimentar.</span></footer>
+        <section className="landing-deliverables" aria-labelledby="landing-deliverables-title">
+          <h2 id="landing-deliverables-title">O que você constrói aqui</h2>
+          <div><article><BrainCircuit size={22} aria-hidden="true" /><h3>Um diagnóstico claro</h3><p>Organize fatos, hipóteses e lacunas para entender o ponto de partida.</p></article><article><CheckCheck size={22} aria-hidden="true" /><h3>Escolhas que dão foco</h3><p>Defina prioridades, objetivos e resultados que você pode acompanhar.</p></article><article><Clock3 size={22} aria-hidden="true" /><h3>Um plano para executar</h3><p>Conecte iniciativas, responsáveis e os primeiros 90 dias. Exporte o plano para compartilhar.</p></article></div>
+        </section>
+        <footer className="landing-footer"><span>X5 Planejamento — escolhas que viram execução.</span><span className="footer-extra">Valide as recomendações com sua equipe.</span></footer>
       </div>
+      {showForm && <NewPlanDialog status={status} onStart={onStart} loading={loading} onClose={() => setShowForm(false)} />}
     </main>
   );
 }
@@ -122,7 +118,7 @@ export function Interview({ session, status, loading, error, onAnswer, onCoach, 
             {error && <div className="error-banner" role="alert"><HelpCircle size={17} /><span>{error}</span></div>}
             <div className="question-layout"><div className="question-column">
               <form className="question-card" onSubmit={submit} aria-busy={loading}>
-                {loading || !question ? <div className="question-loading" role="status"><BrainCircuit size={30} /><h2>A IA está preparando a próxima pergunta…</h2><p>Cruzando suas respostas com as lacunas do método.</p><LoaderCircle className="spin" size={20} /></div> : <><div className="question-meta"><span className="eyebrow">{question.title}</span><span className="question-number">Pergunta {String(session.answers.length + 1).padStart(2, "0")}</span></div><h2 id="current-question">{question.prompt}</h2><p className="question-helper" id="question-help">{question.helper}</p>{question.answerType === "select" ? <div className="option-grid" role="group" aria-labelledby="current-question">{question.options.map(option => <button type="button" key={option} className={answer === option ? "is-selected" : ""} aria-pressed={answer === option} onClick={() => setAnswer(option)}><span>{answer === option && <Check size={15} />}</span>{option}</button>)}</div> : <textarea rows={6} autoFocus aria-labelledby="current-question" aria-describedby="question-help answer-guidance" value={answer} onChange={event => setAnswer(event.target.value)} placeholder="Responda com fatos, números e exemplos. Se não souber, registre o que precisa ser validado." />}<div className="answer-meta"><small id="answer-guidance">Se não souber, registre o que precisa ser validado.</small><small>{answer.length} caracteres</small></div><div className="question-footer"><button type="button" className="help-button" disabled={coachLoading} onClick={() => void askCoach()}>Me ajude a responder {coachLoading ? <LoaderCircle className="spin" size={17} /> : <Sparkles size={17} />}</button><button type="submit" className="primary-button" disabled={!answer.trim() || loading}>Salvar e continuar <ArrowRight size={18} /></button></div></>}
+                {loading || !question ? <div className="question-loading" role="status"><div className="x5-loading-mark">{loading ? <AnimatedGroupLogo /> : <Image src="/brand/grupo-x5.svg" alt="Grupo X5" width={200} height={114} unoptimized />}</div><h2>{loading ? "A IA está preparando seu planejamento…" : "Não foi possível carregar a pergunta."}</h2><p>{loading ? "Cruzando suas respostas com as lacunas do método." : "Confira a mensagem abaixo antes de continuar."}</p></div> : <><div className="question-meta"><span className="eyebrow">{question.title}</span><span className="question-number">Pergunta {String(session.answers.length + 1).padStart(2, "0")}</span></div><h2 id="current-question">{question.prompt}</h2><p className="question-helper" id="question-help">{question.helper}</p>{question.answerType === "select" ? <div className="option-grid" role="group" aria-labelledby="current-question">{question.options.map(option => <button type="button" key={option} className={answer === option ? "is-selected" : ""} aria-pressed={answer === option} onClick={() => setAnswer(option)}><span>{answer === option && <Check size={15} />}</span>{option}</button>)}</div> : <textarea rows={6} autoFocus aria-labelledby="current-question" aria-describedby="question-help answer-guidance" value={answer} onChange={event => setAnswer(event.target.value)} placeholder="Responda com fatos, números e exemplos. Se não souber, registre o que precisa ser validado." />}<div className="answer-meta"><small id="answer-guidance">Se não souber, registre o que precisa ser validado.</small><small>{answer.length} caracteres</small></div><div className="question-footer"><button type="button" className="help-button" disabled={coachLoading} onClick={() => void askCoach()}>Me ajude a responder {coachLoading ? <LoaderCircle className="spin" size={17} /> : <Sparkles size={17} />}</button><button type="submit" className="primary-button" disabled={!answer.trim() || loading}>Salvar e continuar <ArrowRight size={18} /></button></div></>}
               </form>
               {coach && <div className="coach-card view-enter" role="region" aria-label="Assistente de resposta"><div className="coach-head"><strong><Sparkles size={18} /> Vamos organizar sua resposta</strong><button type="button" className="journey-icon-button" onClick={() => setCoach(null)} aria-label="Fechar ajuda"><X size={17} /></button></div><p>{coach.guidance}</p><ol>{coach.suggestedStructure.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span>{item}</li>)}</ol><p className="coach-caution">{coach.caution}</p></div>}
               <details className="mobile-why"><summary>Por que isso importa? <ChevronDown size={17} /></summary><p>{question?.whyItMatters ?? "A pergunta ajuda a reduzir uma incerteza material do plano."}</p></details>

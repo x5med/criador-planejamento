@@ -1,9 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { createContext, useContext, useId, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
-import { ArrowLeft, ArrowUpRight, Check, CheckCheck, FileJson, FileText, Menu, Moon, Plus, Sun, X } from "lucide-react";
+import { useId, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
+import { ArrowLeft, ArrowUpRight, Check, CheckCheck, FileJson, FileText, Menu, Plus, X } from "lucide-react";
 import { AiBadge, Brand, ChipCard, type ProviderStatus } from "@/components/PlannerPrimitives";
+import { PlannerAgenda } from "./PlannerAgenda";
 import { planToMarkdown } from "@/lib/markdown";
 import type { PlannerSession, StrategicPlan } from "@/lib/types";
 import assetGeometry from "@/public/design/plan/asset-geometry.json";
@@ -27,14 +28,10 @@ const directionLabels: Record<StrategicPlan["strategicChoices"]["ansoffDirection
   penetracao_de_mercado: "Penetração de mercado", desenvolvimento_de_produto: "Desenvolvimento de produto",
   desenvolvimento_de_mercado: "Desenvolvimento de mercado", diversificacao: "Diversificação", portfolio_misto: "Portfólio misto",
 };
-const ResultTheme = createContext(false);
 // Figma exports keep their native root dimensions; images are never stretched.
 function Asset({ name }: { name: string }) {
-  const dark = useContext(ResultTheme);
-  const darkAssets: Record<string, string> = { "716d7": "c983e", "c061b": "e9b53", "3b04f": "4d2f8", "edaeb": "5815c", "bef41": "54862", "dcbc3": "1402c", "81aa5": "7ca28", "4b00a": "a49a7" };
-  const file = dark ? darkAssets[name] || name : name;
-  const size = (assetGeometry as Record<string, { width: number; height: number }>)[file];
-  return <Image className="result-asset" src={`/design/plan/${file}.svg`} alt="" aria-hidden="true" unoptimized width={size.width} height={size.height} />;
+  const size = (assetGeometry as Record<string, { width: number; height: number }>)[name];
+  return <Image className="result-asset" src={`/design/plan/${name}.svg`} alt="" aria-hidden="true" unoptimized width={size.width} height={size.height} />;
 }
 function Tag({ children, tone = "" }: { children: ReactNode; tone?: string }) { return <span className={`result-tag ${tone}`}>{children}</span>; }
 function CardTitle({ children, badge }: { children: ReactNode; badge?: ReactNode }) { return <div className="result-card-title"><h2>{children}</h2>{badge && <Tag>{badge}</Tag>}</div>; }
@@ -45,7 +42,6 @@ export function PlanDashboard({ session, status, onBack, onNew }: { session: Pla
   const plan = session.plan as StrategicPlan;
   const [tab, setTab] = useState<PlanTab>("overview");
   const [drawer, setDrawer] = useState(false);
-  const [dark, setDark] = useState(false);
   const [showMethod, setShowMethod] = useState(false);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const drawerRef = useRef<HTMLDialogElement>(null);
@@ -73,15 +69,15 @@ export function PlanDashboard({ session, status, onBack, onNew }: { session: Pla
     chooseTab(next.id);
     event.currentTarget.querySelector<HTMLButtonElement>(`[data-plan-tab="${next.id}"]`)?.focus();
   };
-  const navigation = (mobile = false, placement = "desktop") => <nav className={mobile ? "result-bottom-nav" : "result-side-nav"} aria-label="Seções do plano" role="tablist" onKeyDown={navKey}>{tabs.map(item => <button key={item.id} type="button" role="tab" id={`${navId}-${mobile ? "mobile-" : placement === "drawer" ? "drawer-" : ""}${item.id}`} aria-selected={tab === item.id} aria-controls={`${navId}-panel`} tabIndex={tab === item.id ? 0 : -1} data-plan-tab={item.id} className={tab === item.id ? "is-active" : ""} onClick={() => chooseTab(item.id)}><Asset name={mobile ? dark && tab !== item.id ? ({overview:"93e0b",diagnosis:"7ca28",choices:"3a662",execution:"a49a7",governance:"1402c"})[item.id] : item.mobile : dark ? tab === item.id ? item.id === "overview" ? "93e0b" : item.icon : ({overview:"d9bde",diagnosis:"7ca28",choices:"3a662",execution:"a49a7",governance:"1402c"})[item.id] : tab === item.id ? item.selected : item.icon} /><span>{item.label}</span>{!mobile && tab === item.id && <ArrowUpRight size={14} className="result-nav-arrow" />}</button>)}</nav>;
+  const navigation = (mobile = false, placement = "desktop") => <nav className={mobile ? "result-bottom-nav" : "result-side-nav"} aria-label="Seções do plano" role="tablist" onKeyDown={navKey}>{tabs.map(item => <button key={item.id} type="button" role="tab" id={`${navId}-${mobile ? "mobile-" : placement === "drawer" ? "drawer-" : ""}${item.id}`} aria-selected={tab === item.id} aria-controls={`${navId}-panel`} tabIndex={tab === item.id ? 0 : -1} data-plan-tab={item.id} className={tab === item.id ? "is-active" : ""} onClick={() => chooseTab(item.id)}><Asset name={mobile ? item.mobile : tab === item.id ? item.selected : item.icon} /><span>{item.label}</span>{!mobile && tab === item.id && <ArrowUpRight size={14} className="result-nav-arrow" />}</button>)}</nav>;
   const openMethod = () => { setShowMethod(true); methodRef.current?.showModal(); };
-  const sidebar = (inDrawer = false) => <><Brand theme={dark ? "dark" : "light"} /><div className="result-organization"><span className="result-avatar">{plan.meta.organization.split(/\s+/).slice(0, 2).map(s => s[0]).join("").toUpperCase()}</span><div><strong>{plan.meta.organization}</strong><small>Ciclo estratégico · {plan.meta.horizon}</small></div></div><span className="result-nav-label">Seu planejamento</span>{navigation(false, inDrawer ? "drawer" : "desktop")}<div className="result-sidebar-footer"><div className="result-saved"><strong><CheckCheck size={17} /> Salvo neste navegador</strong><p>Retome de onde parou neste dispositivo.</p></div><button type="button" className="secondary-button result-new" onClick={onNew}>Novo plano <Plus size={17} /></button><button type="button" className="result-method" onClick={openMethod}><Asset name="c061b" /> Como funciona o método</button></div></>;
+  const sidebar = (inDrawer = false) => <><Brand /><div className="result-organization"><span className="result-avatar">{plan.meta.organization.split(/\s+/).slice(0, 2).map(s => s[0]).join("").toUpperCase()}</span><div><strong>{plan.meta.organization}</strong><small>Ciclo estratégico · {plan.meta.horizon}</small></div></div><span className="result-nav-label">Seu planejamento</span>{navigation(false, inDrawer ? "drawer" : "desktop")}<div className="result-sidebar-footer"><div className="result-saved"><strong><CheckCheck size={17} /> Salvo neste navegador</strong><p>Retome de onde parou neste dispositivo.</p></div><button type="button" className="secondary-button result-new" onClick={onNew}>Novo plano <Plus size={17} /></button><button type="button" className="result-method" onClick={openMethod}><Asset name="c061b" /> Como funciona o método</button></div></>;
   const exportControl = <details className="result-export"  onKeyDown={e => { if (e.key === "Escape") e.currentTarget.open = false; }}><summary className="primary-button">Exportar plano <Asset name="716d7" /></summary><div className="result-export-options"><button type="button" onClick={event => download("md", event.currentTarget)}><FileText size={18} /> Markdown</button><button type="button" onClick={event => download("json", event.currentTarget)}><FileJson size={18} /> JSON</button></div></details>;
-  return <ResultTheme.Provider value={dark}><main className={`result-stage ${dark ? "result-dark" : ""}`}>
+  return <main className="result-stage">
     <div className="result-app">
       <aside className="result-sidebar">{sidebar()}</aside>
       <div className="result-workspace">
-        <header className="result-topbar"><div className="result-mobile-brand"><Brand theme={dark ? "dark" : "light"} /></div><span className="result-breadcrumb">Workspace/ <b>Plano estratégico</b></span><div className="result-top-actions"><AiBadge status={status} /><button className="icon-button result-theme" type="button" aria-label={dark ? "Ativar tema claro" : "Ativar tema escuro"} aria-pressed={dark} onClick={() => setDark(!dark)}>{dark ? <Sun size={18} /> : <Moon size={18} />}</button><button className="icon-button result-desktop-help" type="button" aria-label="Como funciona o método" onClick={openMethod}><Asset name="3b04f" /></button><span className="result-x5-symbol"><Image src="/brand/grupo-x5-white.svg" alt="" width={27} height={16} unoptimized /></span><button className="icon-button result-mobile-menu" type="button" aria-label="Abrir menu do planejamento" aria-expanded={drawer} onClick={() => { setDrawer(true); drawerRef.current?.showModal(); }}><Menu size={20} /></button></div></header>
+        <header className="result-topbar"><div className="result-mobile-brand"><Brand /></div><span className="result-breadcrumb">Workspace/ <b>Plano estratégico</b></span><div className="result-top-actions"><AiBadge status={status} /><button className="icon-button result-desktop-help" type="button" aria-label="Como funciona o método" onClick={openMethod}><Asset name="3b04f" /></button><span className="result-x5-symbol"><Image src="/brand/grupo-x5-white.svg" alt="" width={27} height={16} unoptimized /></span><button className="icon-button result-mobile-menu" type="button" aria-label="Abrir menu do planejamento" aria-expanded={drawer} onClick={() => { setDrawer(true); drawerRef.current?.showModal(); }}><Menu size={20} /></button></div></header>
         <div className="result-mobile-status"><AiBadge status={status} /><span>Ciclo · {plan.meta.horizon}</span></div>
         <div className="result-content">
           <div className="result-page-heading"><div><span className="eyebrow">{tab === "overview" ? <><span className="result-desktop-only">{headings[tab][0]}</span><span className="result-mobile-only">{plan.meta.organization}</span></> : headings[tab][0]}</span><h1 ref={titleRef} tabIndex={-1}>{headings[tab][1]}</h1><p>{tab === "overview" ? `${plan.meta.organization} · Planejamento ${plan.meta.horizon}` : headings[tab][2]}</p></div><div className="result-heading-action">{tab === "diagnosis" ? <button className="secondary-button" type="button" onClick={onBack}>Voltar à entrevista <ArrowLeft size={18} /></button> : (tab === "overview" || tab === "execution") ? exportControl : null}</div></div>
@@ -89,7 +85,7 @@ export function PlanDashboard({ session, status, onBack, onNew }: { session: Pla
             {tab === "overview" && <OverviewTab plan={plan} onDiagnosis={() => chooseTab("diagnosis")} />}
             {tab === "diagnosis" && <DiagnosisTab plan={plan} onChoices={() => chooseTab("choices")} />}
             {tab === "choices" && <ChoicesTab plan={plan} />}
-            {tab === "execution" && <ExecutionTab plan={plan} />}
+            {tab === "execution" && <ExecutionTab plan={plan} onGovernance={() => { chooseTab("governance"); requestAnimationFrame(() => titleRef.current?.focus()); }} />}
             {tab === "governance" && <GovernanceTab plan={plan} />}
           </section>
           <div className="result-mobile-export">{tab === "overview" && exportControl}</div>
@@ -101,7 +97,7 @@ export function PlanDashboard({ session, status, onBack, onNew }: { session: Pla
     {navigation(true)}
     <dialog className="result-drawer" ref={drawerRef} onClose={() => setDrawer(false)} onClick={event => { if (event.target === event.currentTarget) { event.currentTarget.close(); setDrawer(false); } }}><button className="icon-button result-dialog-close" type="button" aria-label="Fechar menu" onClick={() => { drawerRef.current?.close(); setDrawer(false); }}><X size={20} /></button><div>{sidebar(true)}</div></dialog>
     <dialog className="result-method-dialog" ref={methodRef} onClose={() => setShowMethod(false)}><button className="icon-button result-dialog-close" type="button" aria-label="Fechar explicação" onClick={() => methodRef.current?.close()}><X size={20} /></button>{showMethod && <><span className="eyebrow">Método X5</span><h2>Da evidência à execução.</h2><p>O planejamento reúne diagnóstico, escolhas, objetivos com resultados-chave, iniciativas e governança. Hipóteses e lacunas ficam explícitas para orientar as próximas validações.</p><p>A qualidade indica a consistência do plano gerado. Confirme dados, metas, custos e responsáveis com a equipe.</p><button type="button" className="primary-button" onClick={() => methodRef.current?.close()}>Entendi <Check size={18} /></button></>}</dialog>
-  </main></ResultTheme.Provider>;
+  </main>;
 }
 
 function OverviewTab({ plan, onDiagnosis }: { plan: StrategicPlan; onDiagnosis: () => void }) {
@@ -136,9 +132,37 @@ function ChoicesTab({ plan }: { plan: StrategicPlan }) {
   </div>;
 }
 
-function ExecutionTab({ plan }: { plan: StrategicPlan }) {
+function ExecutionTab({ plan, onGovernance }: { plan: StrategicPlan; onGovernance: () => void }) {
+  const [view, setView] = useState<"plan" | "agenda">("plan");
+  const id = useId();
+  const options = [{ id: "plan", label: "Plano de ação" }, { id: "agenda", label: "Agenda" }] as const;
+  const openInitiative = (index: number) => {
+    setView("plan");
+    requestAnimationFrame(() => {
+      const target = document.getElementById(`execution-initiative-${index}`);
+      target?.focus({ preventScroll: true });
+      target?.scrollIntoView({ block: "center", behavior: "instant" });
+    });
+  };
+  return <div className="result-stack">
+    <div className="execution-switch" role="tablist" aria-label="Visualização da execução" onKeyDown={event => {
+      if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+      event.preventDefault();
+      const next = event.key === "Home" ? "plan" : event.key === "End" ? "agenda" : view === "plan" ? "agenda" : "plan";
+      setView(next);
+      event.currentTarget.querySelector<HTMLButtonElement>(`[data-execution-view="${next}"]`)?.focus();
+    }}>
+      {options.map(option => <button key={option.id} type="button" role="tab" id={`${id}-${option.id}`} aria-controls={`${id}-content`} aria-selected={view === option.id} tabIndex={view === option.id ? 0 : -1} data-execution-view={option.id} onClick={() => setView(option.id)}>{option.label}</button>)}
+    </div>
+    <section id={`${id}-content`} role="tabpanel" aria-labelledby={`${id}-${view}`}>
+      {view === "agenda" ? <PlannerAgenda plan={plan} onOpenInitiative={openInitiative} onOpenGovernance={onGovernance} /> : <ExecutionPlan plan={plan} />}
+    </section>
+  </div>;
+}
+
+function ExecutionPlan({ plan }: { plan: StrategicPlan }) {
   return <div className="result-stack">{plan.objectives.map(objective => <article className="result-card result-objective" key={objective.id}><div className="result-objective-heading"><div><div className="result-tags"><Tag tone="lime">Objetivo {objective.id}</Tag><small>Dono: {objective.owner}</small></div><h2>{objective.title}</h2><p>{objective.rationale}</p></div><Asset name="c1db8" /></div><div className="result-table-scroll" tabIndex={0} aria-label={`Resultados-chave de ${objective.title}`}><table className="result-kr-table"><thead><tr><th>Resultado-chave</th><th>Baseline</th><th>Meta</th><th>Prazo</th><th>Dono</th></tr></thead><tbody>{objective.keyResults.map(kr => <tr key={kr.id}><td><strong>{kr.id} · {kr.metric}</strong><small>Fonte: {kr.source} · {kr.frequency}</small></td><td>{kr.baseline}</td><td><b>{kr.target}</b> {kr.unit}</td><td>{kr.dueDate}</td><td>{kr.owner}</td></tr>)}</tbody></table></div><p className="result-inline-icon result-kr-caution"><Asset name="baf5c" /> Metas e baselines precisam de confirmação antes de virar compromisso.</p></article>)}
-    <div className="result-overview-grid"><article className="result-card"><CardTitle badge="5W2H">Iniciativas prioritárias</CardTitle><div className="result-initiatives">{plan.initiatives.map(item => <article key={item.id}><div className="result-tags"><Tag tone="ink">{item.id}</Tag><Tag>{item.linkedKr}</Tag></div><h3>{item.title}</h3><p>{item.why}</p><p>{item.how}</p><dl className="result-detail-list"><div><dt>Responsável</dt><dd>{item.owner}</dd></div><div><dt>Prazo</dt><dd>{item.startDate} → {item.endDate}</dd></div><div><dt>Custo</dt><dd>{item.cost}</dd></div><div><dt>Dependências</dt><dd>{item.dependencies.length ? item.dependencies.join("; ") : "Nenhuma informada"}</dd></div></dl></article>)}</div></article><div className="result-stack"><article className="result-card result-lime"><span className="eyebrow">O plano precisa caber no caixa</span><h2>Investir com premissas claras.</h2><Bullets items={plan.financialPlan.assumptions} /></article><article className="result-card"><CardTitle>Três cenários</CardTitle><div className="result-scenarios">{plan.financialPlan.scenarios.map(scenario => <div key={scenario.name}><Tag tone={scenario.name === "adverso" ? "gap" : scenario.name === "favoravel" ? "lime" : ""}>{scenario.name === "favoravel" ? "Favorável" : scenario.name === "adverso" ? "Adverso" : "Base"}</Tag><h3>{scenario.description}</h3><p>{scenario.expectedImpact}</p></div>)}</div></article></div></div>
+    <div className="result-overview-grid"><article className="result-card"><CardTitle badge="5W2H">Iniciativas prioritárias</CardTitle><div className="result-initiatives">{plan.initiatives.map((item, index) => <article key={item.id} id={`execution-initiative-${index}`} tabIndex={-1}><div className="result-tags"><Tag tone="ink">{item.id}</Tag><Tag>{item.linkedKr}</Tag></div><h3>{item.title}</h3><p>{item.why}</p><p>{item.how}</p><dl className="result-detail-list"><div><dt>Responsável</dt><dd>{item.owner}</dd></div><div><dt>Prazo</dt><dd>{item.startDate} → {item.endDate}</dd></div><div><dt>Custo</dt><dd>{item.cost}</dd></div><div><dt>Dependências</dt><dd>{item.dependencies.length ? item.dependencies.join("; ") : "Nenhuma informada"}</dd></div></dl></article>)}</div></article><div className="result-stack"><article className="result-card result-lime"><span className="eyebrow">O plano precisa caber no caixa</span><h2>Investir com premissas claras.</h2><Bullets items={plan.financialPlan.assumptions} /></article><article className="result-card"><CardTitle>Três cenários</CardTitle><div className="result-scenarios">{plan.financialPlan.scenarios.map(scenario => <div key={scenario.name}><Tag tone={scenario.name === "adverso" ? "gap" : scenario.name === "favoravel" ? "lime" : ""}>{scenario.name === "favoravel" ? "Favorável" : scenario.name === "adverso" ? "Adverso" : "Base"}</Tag><h3>{scenario.description}</h3><p>{scenario.expectedImpact}</p></div>)}</div></article></div></div>
     <article className="result-card result-financial-alert"><Asset name="a93f9" /><div><h3>Alertas financeiros</h3><Bullets items={plan.financialPlan.alerts} /></div></article>
   </div>;
 }

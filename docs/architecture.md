@@ -18,6 +18,9 @@ Gemini API (@google/genai)
 
 ## Decisões
 
+- **Entrada:** `/` redireciona para `/login`; “Explorar demonstração” navega para `/inicio`. Sem sessão salva, a página apresenta o sistema e abre o formulário de contexto somente após “Gerar planejamento”. Com sessão salva, o controlador retoma a entrevista ou o plano.
+- **Login visual:** o componente de apresentação segue o layout do Metrics. Campos e ação Entrar estão desativados. Nenhuma credencial é capturada, enviada ou persistida; não há sessão autenticada, cookie de acesso ou proteção de rotas.
+
 - **Next.js:** uma aplicação e suas rotas server-side no mesmo deploy.
 - **TypeScript + Zod:** validação de entrada e da resposta da IA.
 - **Saída estruturada:** schema menor e específico para evitar JSON inconsistente.
@@ -34,3 +37,7 @@ Gemini API (@google/genai)
 - saída do modelo passa por validação antes da renderização.
 
 Antes de uso público com dados reais, adicionar autenticação, consentimento, política de retenção, rate limiting persistente, monitoramento de custo e revisão de privacidade.
+
+## Integração futura do login
+
+O esqueleto em `components/LoginPreview.tsx` está separado do controlador de planejamento. A próxima etapa deve conectar o formulário a um provedor de autenticação pelo servidor, criar a sessão e autorizar acesso nas rotas e APIs. Somente depois disso os campos e Entrar devem ser habilitados e a entrada pública de demonstração revista. O armazenamento local atual é uma sessão de trabalho, não uma identidade autenticada.

@@ -1,6 +1,6 @@
 # PRD — Front end e novo design system do X5 Planejamento
 
-**Versão:** 0.7 · **Data:** 30/09/2026 · **Status:** proposta com telas no Figma para revisão · **Prioridade:** P0 = necessário para lançamento; P1 = próximo incremento; P2 = evolução.
+**Versão:** 0.9 · **Data:** 30/09/2026 · **Status:** design implementado, com pré-loader, revisão da entrada e esqueleto de login · **Prioridade:** P0 = necessário para lançamento; P1 = próximo incremento; P2 = evolução.
 
 ## 1. Resumo e decisão de produto
 
@@ -10,7 +10,7 @@ Este PRD especifica **a experiência e o contrato de interface**. A direção vi
 
 ## 2. Contexto verificado no repositório
 
-- O MVP é uma aplicação Next.js 16, React 19 e TypeScript, com uma página que alterna entre abertura, entrevista e painel de plano. A UI está concentrada em `components/StrategicPlanner.tsx` e `app/globals.css`.
+- O MVP é uma aplicação Next.js 16, React 19 e TypeScript. `/` redireciona para o login visual em `/login`; o acesso demonstrativo leva a `/inicio`. O controlador `components/StrategicPlanner.tsx` alterna entre apresentação, entrevista e plano; a apresentação está dividida em componentes próprios.
 - Há cinco fases: Contexto, Onde estamos, Para onde vamos, Como vamos e Com quem vamos. A entrevista oferece pergunta adaptativa, ajuda para responder, histórico, lacunas, prontidão e geração do plano após pelo menos cinco respostas.
 - O plano possui cinco vistas: Visão geral, Diagnóstico, Escolhas, Execução e Governança. Inclui qualidade, evidências/hipóteses/lacunas, SWOT, avenidas, tese, OKRs, iniciativas, cenários financeiros, riscos e primeiros 90 dias.
 - A sessão é salva em `localStorage`; há modo Gemini e modo demonstração. O usuário pode iniciar um novo plano e exportar Markdown ou JSON. Não há autenticação, banco ou colaboração.
@@ -39,6 +39,7 @@ As metas de usabilidade são **critérios propostos**, não uma medição da ver
 - Comunicação precisa de salvamento local, provedor de IA, modo demonstração, erros e limites de confiança.
 - Apresentação legível de dados densos, inclusive tabelas de KRs, SWOT, cenários e riscos.
 - Preservação das funções existentes: começar, responder, pedir ajuda, gerar, revisar, exportar, retomar e iniciar novo plano.
+- Esqueleto visual do login com referência no Metrics, sem autenticação ou banco de dados, e formulário de contexto aberto somente pelo CTA inicial.
 
 ### Fora do escopo deste PRD
 
@@ -56,8 +57,8 @@ Autenticação, contas, colaboração, edição estrutural do plano gerado, banc
 
 | ID | Prioridade | Requisito e critério de aceitação |
 |---|---|---|
-| FE-01 | P0 | **Abertura:** explicar em uma tela o benefício, as quatro partes do método e a natureza da entrevista. CTA principal leva ao formulário; nenhum depoimento, número ou selo de segurança sem evidência verificável. |
-| FE-02 | P0 | **Criação:** pedir organização, setor, horizonte e desafio central com rótulos persistentes, ajuda concisa, validação junto ao campo e valores preservados enquanto a primeira pergunta carrega. O horizonte usa seleção única entre 12, 24 e 36 meses, com estado selecionado anunciado e operação por teclado. A interface explicita que os dados ficam neste navegador. |
+| FE-01 | P0 | **Abertura:** apresentar o que é o X5 Planejamento, as quatro partes do método e as entregas em `/inicio`, sem formulário visível. O botão “Gerar planejamento” abre o formulário em diálogo. Não usar depoimento, número ou selo de segurança sem evidência verificável. |
+| FE-02 | P0 | **Criação:** pedir organização, setor, horizonte e desafio central com rótulos persistentes, ajuda concisa e validação. O horizonte usa seleção única entre 12, 24 e 36 meses e “Ano de 2027”, com estado selecionado anunciado e operação por teclado. Cancelar ou Esc fecha o diálogo sem iniciar uma sessão e devolve o foco ao CTA. A interface explicita o salvamento neste navegador e o envio de contexto à IA quando ativa. |
 | FE-03 | P0 | **Retomada:** ao abrir o app com sessão local válida, restaurar pergunta, respostas, fase e plano sem pedir dados novamente. Em sessão corrompida, oferecer recuperação clara e caminho para começar de novo; evitar tela vazia. |
 | FE-04 | P0 | **Orientação da entrevista:** mostrar fase atual, cinco fases, quantidade de respostas e prontidão com texto, não apenas barra ou anel. Fases concluídas e atual são distinguíveis sem depender só de cor. |
 | FE-05 | P0 | **Pergunta adaptativa:** mostrar pergunta, contexto, exemplo/ajuda e por que importa. Renderizar corretamente os tipos retornados pela API (`textarea`, `text`, `number`, `select`), com semântica, validação e entrada adequadas. |
@@ -76,6 +77,8 @@ Autenticação, contas, colaboração, edição estrutural do plano gerado, banc
 | FE-18 | P0 | **Estados globais:** projetar inicialização, carregamento da pergunta, carregamento da ajuda, geração, vazio, erro de rede/API, resposta demonstrativa e plano pronto. Cada estado indica o que acontece e a próxima ação possível. |
 | FE-19 | P1 | **Navegação persistente:** permitir voltar a uma vista do plano por URL/estado restaurável, quando houver desenho técnico para persistir a seleção sem expor dados sensíveis na URL. |
 | FE-20 | P1 | **Comparação de versões:** avaliar somente depois de existir modelo de versões e regra de alteração do plano. |
+| FE-21 | P0 | **Login — esqueleto:** a entrada `/` direciona a `/login`, com layout baseado no Metrics, marca Grupo X5 e módulos de planejamento. E-mail, senha e Entrar ficam desativados, sem capturar credenciais. Uma indicação de login em breve acompanha “Explorar demonstração”, que leva a `/inicio`. Não criar sessão autenticada, cookies, chamadas de autenticação ou alegação de proteção. A integração real com autenticação e banco fica para etapa posterior. |
+| FE-22 | P0 | **Loading:** animar o SVG oficial do Grupo X5 com Motion para React, usando o vídeo somente como referência visual. Repetir contorno e preenchimento enquanto documento/fontes, rota ou solicitação de pergunta/plano estiverem pendentes. A conclusão real determina a saída; não impor duração mínima nem encerrar por término do ciclo. Não exibir botão de pular ou percentual fictício. Com movimento reduzido, manter logo estática durante a espera. Não reproduzir mídia X5 MED. |
 
 ## 6. Requisitos do design system
 
@@ -88,10 +91,10 @@ Autenticação, contas, colaboração, edição estrutural do plano gerado, banc
 | DS-03 | P0 | Criar escala tipográfica para display, H1–H4, corpo, legenda e dados; definir pesos, line-height, comprimento de linha e comportamento de quebra. Corpo deve permanecer legível a 200% de zoom; textos extensos do plano não podem ser cortados. |
 | DS-04 | P0 | Definir escala de espaçamento e grid responsivo, com áreas de leitura e densidade apropriadas para entrevista e painel. A largura de linha de texto corrido e as colunas de dados devem responder ao conteúdo, não a um número fixo de cartões. |
 | DS-05 | P0 | Entregar estados `default`, `hover`, `focus-visible`, `active/selected`, `disabled`, `loading`, `success` e `error` para controles aplicáveis, com especificação de teclado, toque e leitor de tela. |
-| DS-06 | P0 | Documentar tema claro como base do workspace e tratamento coerente da abertura. Um tema escuro completo é P1 e só entra se todos os pares semânticos e estados passarem na auditoria de contraste. |
+| DS-06 | P0 | Usar exclusivamente o tema claro em login, pré-loader, abertura e workspace, inclusive com preferência escura no sistema operacional. Não exibir alternância de tema. Compartilhar os tokens de cor do design system. |
 | DS-07 | P0 | Usar ícones SVG consistentes (biblioteca atual: Lucide), acompanhados de texto ou nome acessível quando a ação não for óbvia. Ícones decorativos ficam ocultos da árvore de acessibilidade. |
 | DS-08 | P0 | Criar documentação com catálogo de tokens, variantes, estados, exemplos corretos/incorretos e orientação de conteúdo. Os nomes de tokens devem indicar função, não cor física (`--color-action-primary`, por exemplo). |
-| DS-09 | P0 | Concentrar o material translúcido na navegação, nas barras e nos controles. Oferecer superfície sólida em redução de transparência; manter contraste dos rótulos em tema claro e escuro. O controle segmentado tem segmentos equivalentes, seleção persistente e alvos de pelo menos 44 × 44 px. |
+| DS-09 | P0 | Concentrar o material translúcido na navegação, nas barras e nos controles. Oferecer superfície sólida em redução de transparência; manter contraste dos rótulos no tema claro. O controle segmentado tem segmentos equivalentes, seleção persistente e alvos de pelo menos 44 × 44 px. |
 | DS-10 | P0 | Usar cards chip nos indicadores da visão geral: corpo preto, recorte superior arredondado, numerais Sora SemiBold e faixas da paleta X5: lima para prioridades, menta para objetivos, lima claro para qualidade e coral suave para lacunas. As oito variantes no Figma cobrem quatro métricas em Desktop e Mobile. Rótulo, valor e descrição devem acompanhar os dados reais; a barra e os pontos não podem divergir do valor. Cor e decoração não substituem a informação textual. A grade se reorganiza sem cortar conteúdo ou provocar rolagem horizontal da página. |
 
 ### 6.2 Componentes obrigatórios
@@ -150,7 +153,7 @@ Pesquisa de validação: testar um fluxo com dados incompletos, um com modo demo
 2. **P0 — Fundações:** tokens semânticos, tipografia, grid, conteúdo, componentes base e catálogo com estados acessíveis.
 3. **P0 — Fluxos:** abertura/criação, entrevista completa, plano nas cinco vistas, estados de falha/demonstração, exportação e novo plano.
 4. **P0 — Validação:** revisão de conteúdo, testes de usabilidade, teclado/leitor de tela, responsividade, contraste, regressão funcional e performance. Corrigir bloqueios antes de substituir a interface atual.
-5. **P1:** tema escuro completo, navegação persistente por vista e refinamentos após métricas reais.
+5. **P1:** navegação persistente por vista e refinamentos após métricas reais.
 
 **Definição de pronto P0:** cada requisito P0 possui estado e variante documentados; os fluxos existentes funcionam com Gemini e demonstração; a auditoria WCAG 2.2 AA não encontra bloqueios nas jornadas principais; casos de erro/retomada são verificáveis; build, lint e typecheck passam; há registro de decisões de marca e dos resultados dos testes de usabilidade.
 
@@ -158,9 +161,9 @@ Pesquisa de validação: testar um fluxo com dados incompletos, um com modo demo
 
 | Tema | Decisão necessária antes do design final |
 |---|---|
-| Marca | Logo Grupo X5 fornecida em PNG transparente e aplicada no produto e no Figma; SVG vetorizado guardado como referência. Manter contraste nos temas claro e escuro, com descritor Planejamento, preto, verde-lima, branco e Sora. Validar a proposta visual com usuários. |
+| Marca | Logo Grupo X5 fornecida em PNG transparente e aplicada no produto e no Figma; SVG vetorizado guardado como referência. Manter contraste no tema claro, com descritor Planejamento, preto, verde-lima, branco e Sora. Validar a proposta visual com usuários. |
 | Perfil de uso | Validar se o usuário primário é liderança de pequena empresa, consultor ou time corporativo; isso afeta densidade e tom. |
-| Tema | Figma inclui uma visão geral escura e modos Light/Dark nos tokens principais. Expandir e validar o tema escuro nas demais vistas continua P1. |
+| Tema | O produto usa apenas tema claro por decisão do usuário. A referência escura do Figma é histórica e não faz parte da implementação. |
 | Salvamento | Definir comportamento de rascunho ainda não enviado e o texto exato de falha do `localStorage`; a versão atual persiste respostas submetidas, não cada tecla. |
 | Proveniência | Decidir como marcar o plano demonstrativo também nos arquivos exportados sem alterar o schema JSON existente. |
 | Edição | Retorno da vista do plano à entrevista hoje descarta o plano gerado; qualquer edição/regeneração exige regra de versão e alerta específico. |
@@ -174,3 +177,16 @@ Pesquisa de validação: testar um fluxo com dados incompletos, um com modo demo
 - Acessibilidade: [W3C — WCAG 2.2](https://www.w3.org/TR/WCAG22/).
 - Materiais e controles: [Apple HIG — Materials](https://developer.apple.com/design/human-interface-guidelines/materials) e [Segmented controls](https://developer.apple.com/design/human-interface-guidelines/segmented-controls).
 - Performance: [web.dev — Core Web Vitals](https://web.dev/articles/vitals/).
+
+## Agenda (incremento implementado)
+
+| ID | Prioridade | Requisito |
+|---|---|---|
+| AG-01 | P0 | Disponibilizar Agenda dentro de Execução, mantendo Plano de ação e exportações. |
+| AG-02 | P0 | Oferecer visões semanal, mensal e de 90 dias, período anterior/próximo, Hoje e Início do plano. |
+| AG-03 | P0 | Projetar iniciativas e marcos a partir dos dados existentes, com filtro por tipo e responsável e detalhes vinculados à origem. |
+| AG-04 | P0 | Identificar como estimadas as datas relativas calculadas a partir de generatedAt. Manter sem data os itens ambíguos, inválidos ou sem referência confiável. |
+| AG-05 | P0 | Exibir cadências em A agendar, sem criar reuniões, datas ou horários fictícios. |
+| AG-06 | P0 | Distinguir situação do prazo de status de execução; não presumir conclusão ou atraso operacional. |
+| AG-07 | P0 | Manter tema claro X5, navegação por teclado, diálogo com Esc e restauração de foco, e layout sem overflow em celular. |
+| AG-08 | P0 | Preservar esquema/API, persistência e exportações do plano. Agenda é visualização dos dados existentes; agendamento compartilhado e integração externa não fazem parte deste incremento. |

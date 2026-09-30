@@ -4,7 +4,9 @@
 
 | Etapa | Interface | Inteligência | Saída |
 |---|---|---|---|
-| Início | nome da organização, setor e horizonte | define contexto e decisão | sessão local |
+| Login visual (`/login`) | layout do Metrics com marca X5, credenciais desativadas e acesso à demonstração | autenticação ainda não implementada | navegação para `/inicio`, sem criar conta ou sessão autenticada |
+| Início (`/inicio`) | apresentação do sistema, método e botão Gerar planejamento | explica a jornada e as entregas | abre o formulário de contexto |
+| Novo planejamento | diálogo com organização, setor, horizonte e desafio | define contexto e decisão | sessão local ao enviar o formulário |
 | Contexto | pergunta adaptativa | delimita escopo, restrições e decisores | contrato do plano |
 | Onde estamos | perguntas de evidência | separa fatos, hipóteses e lacunas | diagnóstico e SWOT |
 | Para onde vamos | perguntas de escolha | gera e prioriza avenidas | tese, prioridades e não-objetivos |
@@ -37,7 +39,8 @@
 ## Estados e persistência
 
 - A sessão é salva automaticamente no navegador.
-- Recarregar a página restaura entrevista ou plano.
+- Recarregar `/inicio` restaura entrevista ou plano; abrir `/` mostra o login visual, sem apagar a sessão existente.
+- Fechar o formulário inicial com Cancelar, Esc ou o botão de fechar retorna à apresentação sem criar sessão.
 - “Novo plano” limpa apenas a sessão desta aplicação.
 - Exportar JSON preserva a estrutura para integrações futuras.
 
@@ -50,3 +53,11 @@
 - integração automática com ERP, CRM ou contabilidade.
 
 Esses itens estão desacoplados da experiência principal e podem ser adicionados sem alterar o contrato do plano.
+
+## Agenda de execução
+
+Em **Execução → Agenda**, o calendário reutiliza iniciativas, marcos dos primeiros 90 dias e cadências de governança do plano salvo. Há visões semanal, mensal e de 90 dias, seleção de dia, filtros por tipo/responsável e detalhes com acesso à iniciativa ou à governança de origem.
+
+Datas explícitas são respeitadas. Prazos relativos reconhecidos são estimados a partir de `meta.generatedAt`, considerando dia 1 como a data de referência, e identificados como estimativas na interface. Prazos ambíguos/inválidos e cadências sem data permanecem em **A agendar**. Uma frequência semanal ou mensal não cria automaticamente um compromisso.
+
+“Prazo passado” compara datas e não afirma que a atividade está incompleta. O andamento real ainda não é registrado. A visualização não altera o plano, o armazenamento da sessão ou os arquivos exportados; não envia convites nem integra calendários externos.

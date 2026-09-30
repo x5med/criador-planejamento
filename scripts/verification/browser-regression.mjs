@@ -22,7 +22,7 @@ const plan = demo.exports.buildDemoPlan(contextData, seedAnswers);
 plan.meta.generatedAt = "2026-09-30";
 const nextQuestion = demo.exports.getDemoInterview("context", [], []).question;
 const session = { id: "regression-session", ...contextData, phase: "context", question: nextQuestion, answers: seedAnswers, askedQuestionIds: [nextQuestion.id], readiness: 67, missingTopics: ["Baseline financeiro", "Fonte comercial"], provider: "demo", createdAt: baseTime, updatedAt: baseTime, plan: null };
-const output = path.resolve(root, process.env.TEST_OUTPUT || "design/implementation/verification");
+const output = path.resolve(root, process.env.TEST_OUTPUT || "design/implementation/verification/entry-login");
 fs.mkdirSync(output, { recursive: true });
 const results = [];
 const browser = await chromium.launch({ executablePath: process.env.CHROME_PATH || "C:/Program Files/Google/Chrome/Application/chrome.exe", headless: true });
@@ -34,11 +34,12 @@ async function check(name, run) {
   try { const evidence = await run(); results.push({ name, pass: true, evidence }); console.log(`PASS ${name}`); }
   catch (error) { results.push({ name, pass: false, error: String(error.stack || error) }); console.log(`FAIL ${name}: ${error.message}`); }
 }
-async function makePage({ width = 1440, height = 1000, saved = null, provider = "demo", reducedMotion = "no-preference" } = {}) {
+async function makePage({ width = 1440, height = 1000, saved = null, provider = "demo", reducedMotion = "no-preference", routePath = "/inicio" } = {}) {
   const browserContext = await browser.newContext({ viewport: { width, height }, acceptDownloads: true, reducedMotion });
   const page = await browserContext.newPage();
   page.setDefaultTimeout(7000);
-  const requests = [], errors = [];
+  const requests = [], errors = [], mutations = [];
+  page.on("request", request => { if (!["GET", "HEAD"].includes(request.method())) mutations.push({ url: request.url(), method: request.method() }); });
   page.on("pageerror", error => errors.push(error.message));
   if (saved) await page.addInitScript(({ key, saved }) => { if (!localStorage.getItem(key)) localStorage.setItem(key, typeof saved === "string" ? saved : JSON.stringify(saved)); }, { key: storageKey, saved });
   await page.route("**/api/status", route => route.fulfill({ json: { configured: provider === "gemini", provider, model: provider === "gemini" ? "qa-model" : "demonstração local" } }));
@@ -47,15 +48,26 @@ async function makePage({ width = 1440, height = 1000, saved = null, provider = 
     return route.fulfill({ json: body.mode === "coach" ? demo.exports.getDemoCoach(nextQuestion) : demo.exports.getDemoInterview(body.phase, body.answers, body.askedQuestionIds) });
   });
   await page.route("**/api/plan", route => { requests.push(route.request().postDataJSON()); return route.fulfill({ json: { plan, provider: "demo" } }); });
-  await page.goto(baseURL);
+  await page.goto(`${baseURL}${routePath}`);
   await page.locator("main").waitFor();
   await page.evaluate(() => document.fonts.ready);
-  return { page, browserContext, requests, errors };
+  return { page, browserContext, requests, errors, mutations };
 }
 async function savedSession(page) { return page.evaluate(key => JSON.parse(localStorage.getItem(key)), storageKey); }
 async function visibleText(page, text) { const exact = page.getByText(text, { exact: true }).filter({ visible: true }); await (await exact.count() ? exact : page.getByText(text).filter({ visible: true })).first().waitFor({ state: "visible" }); }
 async function switchTab(page, tab) { await page.getByRole("tab", { name: tab, exact: true }).first().click(); }
 async function openExports(page) { if (!await page.getByRole("button", { name: "JSON", exact: true }).isVisible()) await page.locator("details.result-export:visible > summary").click(); }
+async function openStartForm(page) {
+  const cta = page.getByRole("button", { name: "Gerar planejamento", exact: true }).first();
+  const opener = await cta.elementHandle();
+  await cta.click(); await page.getByRole("textbox", { name: /organização/i }).waitFor(); return opener;
+}
+async function fillStartForm(page, data = contextData) {
+  await page.getByRole("textbox", { name: /organização/i }).fill(data.organization);
+  await page.getByRole("textbox", { name: /setor/i }).fill(data.sector);
+  await page.getByRole("radio", { name: "24 meses", exact: true }).check();
+  await page.getByRole("textbox", { name: /desafio central/i }).fill(data.challenge);
+}
 async function overflow(page) {
   return page.evaluate(() => ({ width: innerWidth, document: document.documentElement.scrollWidth, offenders: [...document.querySelectorAll("main *")].filter(el => { const r = el.getBoundingClientRect(), c = getComputedStyle(el); return c.display !== "none" && c.visibility !== "hidden" && r.width > 0 && (r.left < -1 || r.right > innerWidth + 1) && !el.closest(".kr-table-wrap,.plan-tabs,.tabs-scroll"); }).map(el => ({ tag: el.tagName, class: el.className, text: el.textContent?.slice(0, 50), rect: { x: el.getBoundingClientRect().x, width: el.getBoundingClientRect().width } })).slice(0, 15) }));
 }
@@ -72,24 +84,102 @@ await check("Backend and library SHA256 unchanged", async () => {
   for (const item of baseline) assert.equal(crypto.createHash("sha256").update(fs.readFileSync(path.join(root, item.path))).digest("hex").toUpperCase(), item.sha256, item.path);
   return `${baseline.length} files`;
 });
-await check("Session controller preserved exactly", async () => {
+await check("Session persistence and request logic preserved", async () => {
   const before = fs.readFileSync(path.join(root, "design/implementation/baseline/StrategicPlanner.tsx.txt"), "utf8");
   const after = fs.readFileSync(path.join(root, "components/StrategicPlanner.tsx"), "utf8");
   const marker = "export function StrategicPlanner()";
-  const normalized = after.slice(after.indexOf(marker)).replace('src="/brand/grupo-x5.svg"', 'src="/grupo-x5.png"');
-  assert.equal(normalized.replace(/\r\n/g, "\n"), before.slice(before.indexOf(marker)).replace(/\r\n/g, "\n"));
-  return "Exact original controller after normalizing line endings and only the explicitly requested loading-logo SVG path";
+  const logic = source => source.slice(source.indexOf(marker), source.indexOf("  if (!hydrated)")).replace(/\r\n/g, "\n");
+  assert.equal(logic(after), logic(before));
+  return "Original session, persistence and request logic unchanged; loading presentation follows the approved UI";
 });
-await check("Provider live status, landing validation and complete start payload", async () => {
+await check("Root redirects to visual login without authentication or persistence; demo link opens homepage", async () => {
+  const { page, browserContext, requests, mutations, errors } = await makePage({ routePath: "/" });
+  assert.equal(new URL(page.url()).pathname, "/login");
+  assert.equal(await page.getByRole("textbox", { name: /e-?mail/i }).isDisabled(), true);
+  assert.equal(await page.getByLabel(/senha/i).isDisabled(), true);
+  assert.equal(await page.getByRole("button", { name: "Entrar", exact: true }).isDisabled(), true);
+  const moduleTrigger = page.getByRole("button", { name: "Entrevista guiada", exact: true });
+  await moduleTrigger.focus(); await page.keyboard.press("Enter");
+  await page.getByRole("region", { name: "Entrevista guiada", exact: true }).waitFor();
+  await page.getByRole("button", { name: "Fechar detalhes de Entrevista guiada", exact: true }).focus();
+  await page.keyboard.press("Escape");
+  await page.getByRole("region", { name: "Entrevista guiada", exact: true }).waitFor({ state: "hidden" });
+  assert.equal(await moduleTrigger.evaluate(element => document.activeElement === element), true);
+  assert.equal(await savedSession(page), null); assert.equal(await page.evaluate(() => localStorage.length), 0); assert.deepEqual(mutations, []);
+  const demoLink = page.getByRole("link", { name: "Explorar demonstração", exact: true });
+  assert.equal(await demoLink.getAttribute("href"), "/inicio"); await demoLink.click();
+  await page.getByRole("button", { name: "Gerar planejamento", exact: true }).first().waitFor();
+  assert.equal(new URL(page.url()).pathname, "/inicio");
+  assert.equal(await page.getByRole("textbox", { name: /organização/i }).count(), 0, "Homepage must not display planning form before CTA");
+  assert.equal(requests.length, 0); assert.deepEqual(mutations, []); assert.equal(await savedSession(page), null); assert.equal(errors.length, 0); await browserContext.close();
+});
+for (const width of [1440, 390, 320]) {
+  await check(`Visual login responsive ${width}px has disabled credentials and no overflow`, async () => {
+    const { page, browserContext, mutations, errors } = await makePage({ width, routePath: "/login" });
+    assert.equal(await page.getByRole("textbox", { name: /e-?mail/i }).isDisabled(), true); assert.equal(await page.getByLabel(/senha/i).isDisabled(), true);
+    assert.equal(await page.getByRole("button", { name: "Entrar", exact: true }).isDisabled(), true);
+    assert.ok((await overflow(page)).document <= width + 1); assert.match(await page.locator("main").evaluate(el => getComputedStyle(el).fontFamily), /Sora/i);
+    assert.deepEqual(await loadedImages(page), []); await screenshot(page, `login-${width}`);
+    if (width < 600) {
+      const explore = page.getByRole("button", { name: "Conheça os módulos", exact: true });
+      await explore.click(); assert.equal(await explore.getAttribute("aria-expanded"), "true");
+      const moduleButton = page.getByRole("button", { name: "Diagnóstico", exact: true });
+      await moduleButton.click(); await page.getByRole("region", { name: "Diagnóstico", exact: true }).waitFor();
+      assert.ok((await overflow(page)).document <= width + 1);
+      // Full-page screenshots temporarily resize Chrome and intentionally dismiss
+      // the popover. Capture its element without modifying viewport dimensions.
+      await page.getByRole("region", { name: "Diagnóstico", exact: true }).screenshot({ path: path.join(output, `login-${width}-module.png`), animations: "disabled" });
+      await page.getByRole("button", { name: "Fechar detalhes de Diagnóstico", exact: true }).click();
+      await page.getByRole("region", { name: "Diagnóstico", exact: true }).waitFor({ state: "hidden" });
+      assert.equal(await moduleButton.evaluate(element => document.activeElement === element), true);
+      await explore.click(); assert.equal(await explore.getAttribute("aria-expanded"), "false");
+    }
+    assert.equal(await page.evaluate(() => localStorage.length), 0); assert.deepEqual(mutations, []); assert.equal(errors.length, 0); await browserContext.close();
+  });
+}
+await check("Login module popovers fit desktop transition widths", async () => {
+  for (const width of [1051, 1100, 1200]) {
+    const { page, browserContext, mutations, errors } = await makePage({ width, routePath: "/login" });
+    assert.ok((await overflow(page)).document <= width + 1);
+    const card = await page.locator(".x5-access__card").boundingBox();
+    for (const label of ["Entrevista guiada", "Cenários financeiros"]) {
+      const moduleButton = page.getByRole("button", { name: label, exact: true });
+      await moduleButton.focus(); await page.keyboard.press("Enter");
+      const panel = page.getByRole("region", { name: label, exact: true }); await panel.waitFor();
+      const box = await panel.boundingBox();
+      assert.ok(box.x >= -1 && box.x + box.width <= width + 1);
+      assert.ok(box.x + box.width <= card.x + 1 || box.x >= card.x + card.width - 1, "Desktop popover must not overlap the login card");
+      await page.getByRole("button", { name: `Fechar detalhes de ${label}`, exact: true }).focus(); await page.keyboard.press("Escape");
+      await panel.waitFor({ state: "hidden" });
+    }
+    assert.deepEqual(mutations, []); assert.equal(await page.evaluate(() => localStorage.length), 0); assert.equal(errors.length, 0); await browserContext.close();
+  }
+});
+await check("Homepage explains product before CTA; modal cancellation/focus and all horizons remain local", async () => {
+  for (const width of [1440, 390, 320]) {
+    const { page, browserContext, requests, errors } = await makePage({ width });
+    assert.equal(await page.getByRole("textbox", { name: /organização/i }).count(), 0);
+    assert.equal(await savedSession(page), null); assert.equal(requests.length, 0);
+    const opener = await openStartForm(page);
+    for (const horizon of ["12 meses", "24 meses", "36 meses", "Ano de 2027"]) {
+      const radio = page.getByRole("radio", { name: horizon, exact: true }); await radio.check(); assert.equal(await radio.isChecked(), true);
+    }
+    await page.getByRole("textbox", { name: /organização/i }).fill("Rascunho temporário");
+    await page.keyboard.press("Escape"); await page.getByRole("textbox", { name: /organização/i }).waitFor({ state: "hidden" });
+    await page.waitForFunction(element => document.activeElement === element, opener);
+    await openStartForm(page); await page.getByRole("button", { name: "Cancelar", exact: true }).click();
+    await page.getByRole("textbox", { name: /organização/i }).waitFor({ state: "hidden" }); await page.waitForFunction(element => document.activeElement === element, opener);
+    assert.equal(await savedSession(page), null); assert.equal(requests.length, 0); assert.equal(errors.length, 0); await browserContext.close();
+  }
+});
+await check("Provider live status, modal validation and complete start payload", async () => {
   const { page, browserContext, requests, errors } = await makePage({ provider: "gemini" });
+  await openStartForm(page);
   await page.getByText("Gemini conectado", { exact: true }).first().waitFor();
-  assert.match(await page.locator(".ai-badge").first().getAttribute("title"), /qa-model/);
+  assert.match(await page.locator(".ai-badge").filter({ visible: true }).first().getAttribute("title"), /qa-model/);
   await page.getByRole("button", { name: /Começar planejamento/ }).click();
   assert.equal(requests.length, 0, "Empty required fields must not submit");
-  await page.getByRole("textbox", { name: /organização/i }).fill(contextData.organization);
-  await page.getByRole("textbox", { name: /setor/i }).fill(contextData.sector);
-  if (await page.getByRole("radio", { name: "24 meses", exact: true }).count()) await page.getByRole("radio", { name: "24 meses", exact: true }).check(); else await page.getByLabel("Horizonte", { exact: true }).selectOption(contextData.horizon);
-  await page.getByRole("textbox", { name: /desafio central/i }).fill(contextData.challenge);
+  await fillStartForm(page);
   await page.getByRole("button", { name: /Começar planejamento/ }).click();
   await visibleText(page, nextQuestion.prompt);
   assert.deepEqual(requests[0].context, contextData);
@@ -142,7 +232,7 @@ await check("Select question preserves chosen answer in request; coaching failur
 });
 await check("Malformed stored JSON is discarded safely", async () => {
   const { page, browserContext, errors } = await makePage({ saved: "{invalid" });
-  await page.getByRole("textbox", { name: /organização/i }).waitFor();
+  await page.getByRole("button", { name: "Gerar planejamento", exact: true }).first().waitFor();
   assert.equal(await savedSession(page), null); assert.equal(errors.length, 0); await browserContext.close();
 });
 await check("Generation gate, failure state, successful plan payload", async () => {
@@ -190,11 +280,11 @@ await check("Back to interview and reset confirmation preserve/cancel then erase
   page.once("dialog", dialog => dialog.dismiss()); await page.getByRole("button", { name: "Novo plano", exact: true }).first().click();
   assert.equal((await savedSession(page)).id, session.id);
   page.once("dialog", dialog => dialog.accept()); await page.getByRole("button", { name: "Novo plano", exact: true }).first().click();
-  await page.getByRole("textbox", { name: /organização/i }).waitFor(); assert.equal(await savedSession(page), null); await browserContext.close();
+  await page.getByRole("button", { name: "Gerar planejamento", exact: true }).first().waitFor(); assert.equal(await savedSession(page), null); await browserContext.close();
 });
 for (const width of [1440, 390, 320]) {
-  await check(`Responsive overflow and font ${width}px landing/interview/five tabs`, async () => {
-    for (const [name, saved] of [["landing", null], ["interview", session], ["overview", { ...session, plan }]]) {
+  await check(`Responsive overflow and font ${width}px homepage/modal/interview/five tabs`, async () => {
+    for (const [name, saved] of [["homepage", null], ["interview", session], ["overview", { ...session, plan }]]) {
       const { page, browserContext, errors } = await makePage({ width, saved });
       const names = name === "overview" ? Object.keys(tabContent) : [name];
       for (const screenName of names) {
@@ -206,6 +296,11 @@ for (const width of [1440, 390, 320]) {
         const details = await overflow(page); assert.ok(details.document <= width + 1, JSON.stringify({ screenName, ...details }));
         const family = await page.locator("main").evaluate(el => getComputedStyle(el).fontFamily); assert.match(family, /Sora/i);
         if (width !== 1440 || name !== "overview") await screenshot(page, `${width}-${screenName.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replaceAll(" ", "-")}`);
+      }
+      if (!saved) {
+        await openStartForm(page);
+        const bounds = await page.getByRole("dialog").boundingBox(); assert.ok(bounds.x >= -1 && bounds.x + bounds.width <= width + 1);
+        await screenshot(page, `${width}-planning-modal`);
       }
       assert.equal(errors.length, 0); await browserContext.close();
     }
@@ -219,14 +314,16 @@ await check("Mobile drawer keyboard dismissal and focus restoration", async () =
   assert.equal(await open.evaluate(el => document.activeElement === el), true);
   await browserContext.close();
 });
-await check("Dashboard keyboard tabs, theme and mobile menu keep session data", async () => {
+await check("Dashboard keyboard tabs and mobile menu keep session data in light theme", async () => {
   const { page, browserContext } = await makePage({ saved: { ...session, plan } });
   const original = await savedSession(page);
   await page.getByRole("tab", { name: "Visão geral", exact: true }).focus(); await page.keyboard.press("ArrowDown");
   assert.equal(await page.getByRole("tab", { name: "Diagnóstico", exact: true }).getAttribute("aria-selected"), "true");
   await page.keyboard.press("End"); assert.equal(await page.getByRole("tab", { name: "Governança", exact: true }).getAttribute("aria-selected"), "true");
-  await page.getByRole("button", { name: "Ativar tema escuro", exact: true }).click(); await page.getByRole("button", { name: "Ativar tema claro", exact: true }).waitFor();
-  await screenshot(page, "desktop-dark-governanca");
+  assert.equal(await page.getByRole("button", { name: /Ativar tema (escuro|claro)/ }).count(), 0);
+  assert.equal(await page.locator(".result-dark,.result-theme").count(), 0);
+  assert.equal(await page.locator(".result-stage").evaluate(el => getComputedStyle(el).color), "rgb(17, 17, 17)");
+  await screenshot(page, "desktop-light-governanca");
   assert.deepEqual(await savedSession(page), original);
   await page.setViewportSize({ width: 390, height: 1000 });
   const menu = page.getByRole("button", { name: "Abrir menu do planejamento", exact: true }); await menu.click();
@@ -243,6 +340,7 @@ await check("Normal motion enters views and hover moves action icon", async () =
   const { page, browserContext } = await makePage();
   const entrance = await page.locator("main").evaluate(el => ({ name: getComputedStyle(el).animationName, duration: parseFloat(getComputedStyle(el).animationDuration) }));
   assert.notEqual(entrance.name, "none"); assert.ok(entrance.duration > 0);
+  await openStartForm(page);
   const button = page.getByRole("button", { name: /Começar planejamento/ });
   const icon = button.locator("svg").last();
   const before = await icon.evaluate(el => getComputedStyle(el).transform);
@@ -252,7 +350,7 @@ await check("Normal motion enters views and hover moves action icon", async () =
   assert.notEqual(after, before); await browserContext.close();
   return entrance;
 });
-await check("All rendered image assets load in journey, five tabs and dark theme", async () => {
+await check("All rendered image assets load in journey and five light theme tabs", async () => {
   for (const saved of [null, session, { ...session, plan }]) {
     const { page, browserContext, errors } = await makePage({ saved });
     const screens = saved?.plan ? Object.keys(tabContent) : [null];
@@ -264,36 +362,38 @@ await check("All rendered image assets load in journey, five tabs and dark theme
     }
     if (saved?.plan) {
       await switchTab(page, "Visão geral");
-      await page.getByRole("button", { name: "Ativar tema escuro", exact: true }).click();
+      assert.equal(await page.getByRole("button", { name: /Ativar tema (escuro|claro)/ }).count(), 0);
+      assert.equal(await page.locator(".result-dark,.result-theme").count(), 0);
       assert.deepEqual(await loadedImages(page), []);
-      await screenshot(page, "final-overview-dark");
+      await screenshot(page, "final-overview-light");
       await page.setViewportSize({ width: 390, height: 1144 });
       assert.deepEqual(await loadedImages(page), []);
-      await screenshot(page, "final-mobile-dark");
+      await screenshot(page, "final-mobile-light");
     }
     assert.equal(errors.length, 0); await browserContext.close();
   }
 });
-await check("Final dark actions remain legible and mobile surface stays transparent", async () => {
+await check("Final light actions remain legible without a dark mode option", async () => {
   const { page, browserContext } = await makePage({ saved: { ...session, plan } });
-  await page.getByRole("button", { name: "Ativar tema escuro", exact: true }).click();
+  assert.equal(await page.getByRole("button", { name: /Ativar tema (escuro|claro)/ }).count(), 0);
+  assert.equal(await page.locator(".result-dark,.result-theme").count(), 0);
   const newPlan = page.locator(".result-new").filter({ visible: true });
   const originalColor = await newPlan.evaluate(el => getComputedStyle(el).color);
   const rgb = color => color.match(/[\d.]+/g).slice(0, 3).map(Number);
-  assert.ok(rgb(originalColor).every(value => value > 220), "Dark new plan action must have light text");
+  assert.equal(originalColor, "rgb(17, 17, 17)", "Light new plan action must have dark text");
   await newPlan.hover();
-  await page.waitForFunction(el => getComputedStyle(el).backgroundColor === "rgb(57, 67, 46)", await newPlan.elementHandle());
+  await page.waitForFunction(el => getComputedStyle(el).backgroundColor === "rgb(237, 248, 192)", await newPlan.elementHandle());
   const hover = await newPlan.evaluate(el => ({ color: getComputedStyle(el).color, background: getComputedStyle(el).backgroundColor }));
   const luminance = color => rgb(color).map(value => value / 255).map(value => value <= .04045 ? value / 12.92 : ((value + .055) / 1.055) ** 2.4).reduce((sum, value, index) => sum + value * [.2126, .7152, .0722][index], 0);
-  const contrast = (luminance(hover.color) + .05) / (luminance(hover.background) + .05);
-  assert.ok(contrast >= 4.5, `Dark new plan hover contrast ${contrast}`);
+  const contrast = (Math.max(luminance(hover.color), luminance(hover.background)) + .05) / (Math.min(luminance(hover.color), luminance(hover.background)) + .05);
+  assert.ok(contrast >= 4.5, `Light new plan hover contrast ${contrast}`);
   await openExports(page); const json = page.getByRole("button", { name: "JSON", exact: true }); await json.hover();
   await page.waitForFunction(el => getComputedStyle(el).color === "rgb(17, 17, 17)", await json.elementHandle());
   await page.locator("details.result-export:visible > summary").click(); await page.mouse.move(0, 0);
-  assert.deepEqual(await loadedImages(page), []); await screenshot(page, "final-dark-actions-desktop");
+  assert.deepEqual(await loadedImages(page), []); await screenshot(page, "final-light-actions-desktop");
   await page.setViewportSize({ width: 390, height: 1144 });
   assert.equal(await page.locator(".result-app").evaluate(el => getComputedStyle(el).backgroundColor), "rgba(0, 0, 0, 0)");
-  assert.deepEqual(await loadedImages(page), []); await screenshot(page, "final-dark-actions-mobile");
+  assert.deepEqual(await loadedImages(page), []); await screenshot(page, "final-light-actions-mobile");
   await browserContext.close(); return { newPlanColor: originalColor, newPlanHoverContrast: contrast };
 });
 await check("SVG logo contains native paths and enlarged light/dark previews render", async () => {
@@ -307,8 +407,8 @@ await check("SVG logo contains native paths and enlarged light/dark previews ren
     await page.screenshot({ path: path.join(output, `logo-svg-enlarged-${theme}.png`) }); await browserContext.close();
   }
 });
-await check("Figma comparison viewports captured", async () => {
-  for (const [name, width, height, saved] of [["figma-landing-desktop",1496,1235,null],["figma-interview-desktop",1496,1342,session],["figma-landing-mobile",390,1123,null],["figma-interview-mobile",390,1144,session],["figma-overview-desktop",1496,1462,{ ...session, plan }]]) {
+await check("Homepage and Figma workspace comparison viewports captured", async () => {
+  for (const [name, width, height, saved] of [["homepage-desktop",1496,1235,null],["figma-interview-desktop",1496,1342,session],["homepage-mobile",390,1123,null],["figma-interview-mobile",390,1144,session],["figma-overview-desktop",1496,1462,{ ...session, plan }]]) {
     const { page, browserContext } = await makePage({ width, height, saved }); await screenshot(page, name); await browserContext.close();
   }
 });

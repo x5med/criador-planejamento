@@ -1,0 +1,35 @@
+{
+  "date": "2026-09-30T17:36:30.856Z",
+  "baseURL": "http://localhost:3000",
+  "results": [
+    {
+      "name": "Agenda date contracts: explicit/relative ranges, invalid dates, missing anchors and cadence immutability",
+      "pass": true,
+      "evidence": {
+        "eventCount": 8,
+        "scheduled": 4,
+        "anchor": "2026-09-30"
+      }
+    },
+    {
+      "name": "Type/owner filters, event details and source links preserve source data and keyboard focus",
+      "pass": true
+    },
+    {
+      "name": "Unscheduled cadences/invalid dates stay visible; empty agenda and invalid anchor do not invent dates",
+      "pass": true
+    },
+    {
+      "name": "Month/week/90-day views, previous/next, Today and plan anchor show correct ranges",
+      "pass": true
+    },
+    {
+      "name": "Mobile 390/320px views and detail dialogs have no page overflow or lost items",
+      "pass": true
+    },
+    {
+      "name": "Original action plan and JSON/Markdown exports remain complete after Agenda navigation",
+      "pass": true
+    }
+  ]
+}

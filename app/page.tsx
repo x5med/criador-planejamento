@@ -1,5 +1,5 @@
-import { StrategicPlanner } from "@/components/StrategicPlanner";
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return <StrategicPlanner />;
+  redirect("/login");
 }

@@ -1,9 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { Sora } from "next/font/google";
+import { AppPreloader } from "@/components/AppPreloader";
 
 import "./globals.css";
 import "./journey.css";
 import "./results.css";
+import "./agenda.css";
+import "./preloader.css";
 
 const sora = Sora({
   variable: "--font-sans",
@@ -28,7 +31,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="pt-BR">
       <body className={sora.variable}>
-        {children}
+        <AppPreloader>{children}</AppPreloader>
       </body>
     </html>
   );

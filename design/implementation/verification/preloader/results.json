@@ -1,0 +1,99 @@
+{
+  "date": "2026-09-30T15:47:33.183Z",
+  "baseURL": "http://localhost:3000",
+  "results": [
+    {
+      "name": "Real muted playback finishes and releases visual login; navigation does not replay; reload does",
+      "pass": true,
+      "evidence": {
+        "metadata": {
+          "duration": 2.4,
+          "muted": true,
+          "loop": false,
+          "playsInline": true,
+          "src": "http://localhost:3000/brand/preloader/x5-reveal.webm"
+        },
+        "frameCount": 84,
+        "finalMediaTime": 2.371
+      }
+    },
+    {
+      "name": "Reduced motion skips overlay and never requests video sources",
+      "pass": true
+    },
+    {
+      "name": "skip immediately releases preloader and restores application access",
+      "pass": true
+    },
+    {
+      "name": "Escape immediately releases preloader and restores application access",
+      "pass": true
+    },
+    {
+      "name": "blocked video failure never blocks application beyond timeout",
+      "pass": true,
+      "evidence": {
+        "elapsedMs": 564,
+        "media": [
+          "http://localhost:3000/brand/preloader/x5-reveal.webm"
+        ]
+      }
+    },
+    {
+      "name": "stalled video failure never blocks application beyond timeout",
+      "pass": true,
+      "evidence": {
+        "elapsedMs": 7176,
+        "media": [
+          "http://localhost:3000/brand/preloader/x5-reveal.webm"
+        ]
+      }
+    },
+    {
+      "name": "Mobile 390px video fits viewport and logo frame stays visible",
+      "pass": true,
+      "evidence": {
+        "x": 39,
+        "y": 309.328125,
+        "width": 312,
+        "height": 225.328125
+      }
+    },
+    {
+      "name": "Mobile 320px video fits viewport and logo frame stays visible",
+      "pass": true,
+      "evidence": {
+        "x": 32,
+        "y": 329.5625,
+        "width": 256,
+        "height": 184.875
+      }
+    },
+    {
+      "name": "Beginning middle and final X5 video frames captured on dark centered surface",
+      "pass": true
+    },
+    {
+      "name": "fallback video failure never blocks application beyond timeout",
+      "pass": true,
+      "evidence": {
+        "elapsedMs": 3099,
+        "media": [
+          "http://localhost:3000/brand/preloader/x5-reveal.webm",
+          "http://localhost:3000/brand/preloader/x5-reveal.mp4"
+        ]
+      }
+    },
+    {
+      "name": "missing video failure never blocks application beyond timeout",
+      "pass": true,
+      "evidence": {
+        "elapsedMs": 7191,
+        "media": [
+          "http://localhost:3000/brand/preloader/x5-reveal.webm",
+          "http://localhost:3000/brand/preloader/x5-reveal.mp4"
+        ]
+      }
+    }
+  ]
+}

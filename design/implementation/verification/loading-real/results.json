@@ -1,0 +1,36 @@
+{
+  "date": "2026-09-30T17:17:18.497Z",
+  "baseURL": "http://localhost:3000",
+  "results": [
+    {
+      "name": "Ready cached resources do not wait for a 2.4s brand cycle",
+      "pass": true,
+      "evidence": {
+        "releasedAfterLoadMs": 33
+      }
+    },
+    {
+      "name": "Real font loading keeps official SVG looping beyond 3s; completion releases immediately",
+      "pass": true,
+      "evidence": {
+        "heldFontCount": 1,
+        "pendingMs": 3107.899999976158,
+        "releasedAfterMs": 319
+      }
+    },
+    {
+      "name": "Reduced motion displays a static official SVG during real mobile loading",
+      "pass": true,
+      "evidence": {
+        "x": 39,
+        "y": 411.125,
+        "width": 312,
+        "height": 177.734375
+      }
+    },
+    {
+      "name": "Pending interview API uses same SVG until response resolves",
+      "pass": true
+    }
+  ]
+}

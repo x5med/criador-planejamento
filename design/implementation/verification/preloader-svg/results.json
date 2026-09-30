@@ -1,0 +1,96 @@
+{
+  "date": "2026-09-30T16:04:11.003Z",
+  "baseURL": "http://localhost:3000",
+  "results": [
+    {
+      "name": "Official SVG geometry, contour/fill progression and beginning/middle/final captures",
+      "pass": true,
+      "evidence": {
+        "beginning": {
+          "ms": 268.40000000596046,
+          "dash": [
+            0.830647,
+            0.885531,
+            0.929881,
+            0.963373
+          ],
+          "fill": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "middle": {
+          "ms": 754.9000000059605,
+          "dash": [
+            0.0608621,
+            0.102551,
+            0.154879,
+            0.21791
+          ],
+          "fill": [
+            0.0952738,
+            0.0202431,
+            0,
+            0
+          ]
+        },
+        "final": {
+          "ms": 1757.0999999940395,
+          "dash": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "fill": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "name": "SVG ends after 2.4s plus fade; navigation does not replay; reload repeats",
+      "pass": true,
+      "evidence": {
+        "elapsedMs": 2638.199999988079
+      }
+    },
+    {
+      "name": "Mobile 390px SVG logo remains visible and contained",
+      "pass": true,
+      "evidence": {
+        "x": 39,
+        "y": 411.125,
+        "width": 312,
+        "height": 177.734375
+      }
+    },
+    {
+      "name": "Mobile 320px SVG logo remains visible and contained",
+      "pass": true,
+      "evidence": {
+        "x": 32,
+        "y": 427.078125,
+        "width": 256,
+        "height": 145.828125
+      }
+    },
+    {
+      "name": "Reduced motion skips SVG animation and requests no media",
+      "pass": true
+    },
+    {
+      "name": "skip releases SVG and restores app access",
+      "pass": true
+    },
+    {
+      "name": "Escape releases SVG and restores app access",
+      "pass": true
+    }
+  ]
+}
