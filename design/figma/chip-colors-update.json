@@ -1,0 +1,457 @@
+{
+  "fileKey": "o19AXjLOrcFxDc4VMnpuG8",
+  "date": "2026-09-30",
+  "mutatedNodeIds": [
+    "VariableID:60:333",
+    "VariableID:60:335",
+    "VariableID:60:337",
+    "VariableID:60:339",
+    "VariableID:60:341",
+    "60:482",
+    "60:652"
+  ],
+  "palette": [
+    {
+      "id": "VariableID:60:333",
+      "name": "chip/black",
+      "target": "VariableID:9:5",
+      "hex": "#111111"
+    },
+    {
+      "id": "VariableID:60:335",
+      "name": "chip/palette/focus",
+      "target": "VariableID:9:11",
+      "hex": "#D8F36A"
+    },
+    {
+      "id": "VariableID:60:337",
+      "name": "chip/palette/results",
+      "target": "VariableID:41:317",
+      "hex": "#A8E4DA"
+    },
+    {
+      "id": "VariableID:60:339",
+      "name": "chip/palette/quality",
+      "target": "VariableID:9:12",
+      "hex": "#EDF8C0"
+    },
+    {
+      "id": "VariableID:60:341",
+      "name": "chip/palette/gaps",
+      "target": "VariableID:9:15",
+      "hex": "#F9DED8"
+    }
+  ],
+  "componentSetId": "60:482",
+  "variants": [
+    {
+      "id": "60:350",
+      "name": "Metric=Priorities, Size=Desktop"
+    },
+    {
+      "id": "60:367",
+      "name": "Metric=Objectives, Size=Desktop"
+    },
+    {
+      "id": "60:383",
+      "name": "Metric=Quality, Size=Desktop"
+    },
+    {
+      "id": "60:398",
+      "name": "Metric=Gaps, Size=Desktop"
+    },
+    {
+      "id": "60:416",
+      "name": "Metric=Priorities, Size=Mobile"
+    },
+    {
+      "id": "60:433",
+      "name": "Metric=Objectives, Size=Mobile"
+    },
+    {
+      "id": "60:449",
+      "name": "Metric=Quality, Size=Mobile"
+    },
+    {
+      "id": "60:464",
+      "name": "Metric=Gaps, Size=Mobile"
+    }
+  ],
+  "affectedInstanceIds": [
+    "60:485",
+    "60:502",
+    "60:518",
+    "60:533",
+    "60:551",
+    "60:568",
+    "60:584",
+    "60:599",
+    "60:617",
+    "60:632",
+    "60:655",
+    "60:672",
+    "60:688",
+    "60:703",
+    "60:723",
+    "60:740",
+    "60:756",
+    "60:771"
+  ],
+  "instances": 18,
+  "review": {
+    "vars": [
+      {
+        "id": "VariableID:60:333",
+        "name": "chip/black",
+        "values": {
+          "9:0": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:9:5"
+          }
+        }
+      },
+      {
+        "id": "VariableID:60:335",
+        "name": "chip/palette/focus",
+        "values": {
+          "9:0": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:9:11"
+          }
+        }
+      },
+      {
+        "id": "VariableID:60:337",
+        "name": "chip/palette/results",
+        "values": {
+          "9:0": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:41:317"
+          }
+        }
+      },
+      {
+        "id": "VariableID:60:339",
+        "name": "chip/palette/quality",
+        "values": {
+          "9:0": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:9:12"
+          }
+        }
+      },
+      {
+        "id": "VariableID:60:341",
+        "name": "chip/palette/gaps",
+        "values": {
+          "9:0": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:9:15"
+          }
+        }
+      }
+    ],
+    "bands": [
+      {
+        "id": "60:350",
+        "name": "Metric=Priorities, Size=Desktop",
+        "paints": [
+          {
+            "id": "60:351",
+            "name": "Chip silhouette",
+            "color": {
+              "r": 0.06666667014360428,
+              "g": 0.06666667014360428,
+              "b": 0.06666667014360428
+            },
+            "binding": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:60:334"
+              }
+            }
+          },
+          {
+            "id": "60:359",
+            "name": "Inset chip silhouette",
+            "color": {
+              "r": 0.8470588326454163,
+              "g": 0.9529411792755127,
+              "b": 0.4156862795352936
+            },
+            "binding": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:60:336"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "60:367",
+        "name": "Metric=Objectives, Size=Desktop",
+        "paints": [
+          {
+            "id": "60:368",
+            "name": "Chip silhouette",
+            "color": {
+              "r": 0.06666667014360428,
+              "g": 0.06666667014360428,
+              "b": 0.06666667014360428
+            },
+            "binding": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:60:334"
+              }
+            }
+          },
+          {
+            "id": "60:376",
+            "name": "Inset chip silhouette",
+            "color": {
+              "r": 0.658823549747467,
+              "g": 0.8941176533699036,
+              "b": 0.8549019694328308
+            },
+            "binding": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:60:338"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "60:383",
+        "name": "Metric=Quality, Size=Desktop",
+        "paints": [
+          {
+            "id": "60:384",
+            "name": "Chip silhouette",
+            "color": {
+              "r": 0.06666667014360428,
+              "g": 0.06666667014360428,
+              "b": 0.06666667014360428
+            },
+            "binding": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:60:334"
+              }
+            }
+          },
+          {
+            "id": "60:392",
+            "name": "Inset chip silhouette",
+            "color": {
+              "r": 0.929411768913269,
+              "g": 0.9725490212440491,
+              "b": 0.7529411911964417
+            },
+            "binding": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:60:340"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "60:398",
+        "name": "Metric=Gaps, Size=Desktop",
+        "paints": [
+          {
+            "id": "60:399",
+            "name": "Chip silhouette",
+            "color": {
+              "r": 0.06666667014360428,
+              "g": 0.06666667014360428,
+              "b": 0.06666667014360428
+            },
+            "binding": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:60:334"
+              }
+            }
+          },
+          {
+            "id": "60:407",
+            "name": "Inset chip silhouette",
+            "color": {
+              "r": 0.9764705896377563,
+              "g": 0.8705882430076599,
+              "b": 0.8470588326454163
+            },
+            "binding": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:60:342"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "60:416",
+        "name": "Metric=Priorities, Size=Mobile",
+        "paints": [
+          {
+            "id": "60:417",
+            "name": "Chip silhouette",
+            "color": {
+              "r": 0.06666667014360428,
+              "g": 0.06666667014360428,
+              "b": 0.06666667014360428
+            },
+            "binding": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:60:334"
+              }
+            }
+          },
+          {
+            "id": "60:425",
+            "name": "Inset chip silhouette",
+            "color": {
+              "r": 0.8470588326454163,
+              "g": 0.9529411792755127,
+              "b": 0.4156862795352936
+            },
+            "binding": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:60:336"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "60:433",
+        "name": "Metric=Objectives, Size=Mobile",
+        "paints": [
+          {
+            "id": "60:434",
+            "name": "Chip silhouette",
+            "color": {
+              "r": 0.06666667014360428,
+              "g": 0.06666667014360428,
+              "b": 0.06666667014360428
+            },
+            "binding": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:60:334"
+              }
+            }
+          },
+          {
+            "id": "60:442",
+            "name": "Inset chip silhouette",
+            "color": {
+              "r": 0.658823549747467,
+              "g": 0.8941176533699036,
+              "b": 0.8549019694328308
+            },
+            "binding": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:60:338"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "60:449",
+        "name": "Metric=Quality, Size=Mobile",
+        "paints": [
+          {
+            "id": "60:450",
+            "name": "Chip silhouette",
+            "color": {
+              "r": 0.06666667014360428,
+              "g": 0.06666667014360428,
+              "b": 0.06666667014360428
+            },
+            "binding": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:60:334"
+              }
+            }
+          },
+          {
+            "id": "60:458",
+            "name": "Inset chip silhouette",
+            "color": {
+              "r": 0.929411768913269,
+              "g": 0.9725490212440491,
+              "b": 0.7529411911964417
+            },
+            "binding": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:60:340"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "60:464",
+        "name": "Metric=Gaps, Size=Mobile",
+        "paints": [
+          {
+            "id": "60:465",
+            "name": "Chip silhouette",
+            "color": {
+              "r": 0.06666667014360428,
+              "g": 0.06666667014360428,
+              "b": 0.06666667014360428
+            },
+            "binding": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:60:334"
+              }
+            }
+          },
+          {
+            "id": "60:473",
+            "name": "Inset chip silhouette",
+            "color": {
+              "r": 0.9764705896377563,
+              "g": 0.8705882430076599,
+              "b": 0.8470588326454163
+            },
+            "binding": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:60:342"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "screens": [
+      "60:650",
+      "6:2916"
+    ]
+  },
+  "visualReview": "passed",
+  "contrast": {
+    "whiteOnBlack": 18.88,
+    "inkOnFocus": 15.24,
+    "inkOnResults": 13.29,
+    "inkOnQuality": 16.89,
+    "inkOnGaps": 14.81
+  }
+}

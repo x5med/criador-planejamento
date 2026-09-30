@@ -1,0 +1,330 @@
+{
+  "fileKey": "o19AXjLOrcFxDc4VMnpuG8",
+  "date": "2026-09-30",
+  "visualReview": {
+    "gallery": "60:650",
+    "mobile": "6:2916",
+    "result": "passed"
+  },
+  "counts": {
+    "topFrames": 15,
+    "components": 44,
+    "instances": 185,
+    "variables": 110,
+    "textStyles": 51,
+    "effectStyles": 7
+  },
+  "chipInstances": 18,
+  "variants": [
+    {
+      "id": "60:350",
+      "name": "Metric=Priorities, Size=Desktop",
+      "w": 275,
+      "h": 210,
+      "text": [
+        [
+          "Title",
+          "Prioridades"
+        ],
+        [
+          "Value",
+          "03"
+        ],
+        [
+          "Tag",
+          "FOCO"
+        ],
+        [
+          "Detail",
+          "escolhas que orientam o ciclo"
+        ],
+        [
+          "Meta",
+          "Ciclo 2027"
+        ]
+      ]
+    },
+    {
+      "id": "60:367",
+      "name": "Metric=Objectives, Size=Desktop",
+      "w": 275,
+      "h": 210,
+      "text": [
+        [
+          "Title",
+          "Objetivos"
+        ],
+        [
+          "Value",
+          "02"
+        ],
+        [
+          "Tag",
+          "KRs"
+        ],
+        [
+          "Detail",
+          "resultados para acompanhar"
+        ],
+        [
+          "Meta",
+          "Ciclo 2027"
+        ]
+      ]
+    },
+    {
+      "id": "60:383",
+      "name": "Metric=Quality, Size=Desktop",
+      "w": 275,
+      "h": 210,
+      "text": [
+        [
+          "Title",
+          "Qualidade do plano"
+        ],
+        [
+          "Value",
+          "78/100"
+        ],
+        [
+          "Tag",
+          "78%"
+        ],
+        [
+          "Detail",
+          "Bom, com ressalvas"
+        ],
+        [
+          "Meta",
+          "Ciclo 2027"
+        ]
+      ]
+    },
+    {
+      "id": "60:398",
+      "name": "Metric=Gaps, Size=Desktop",
+      "w": 275,
+      "h": 210,
+      "text": [
+        [
+          "Title",
+          "Lacunas"
+        ],
+        [
+          "Value",
+          "04"
+        ],
+        [
+          "Tag",
+          "4×"
+        ],
+        [
+          "Detail",
+          "validações antes de executar"
+        ],
+        [
+          "Meta",
+          "Ciclo 2027"
+        ]
+      ]
+    },
+    {
+      "id": "60:416",
+      "name": "Metric=Priorities, Size=Mobile",
+      "w": 169,
+      "h": 178,
+      "text": [
+        [
+          "Title",
+          "Prioridades"
+        ],
+        [
+          "Value",
+          "03"
+        ],
+        [
+          "Tag",
+          "FOCO"
+        ],
+        [
+          "Detail",
+          "escolhas que orientam o ciclo"
+        ],
+        [
+          "Meta",
+          "Ciclo 2027"
+        ]
+      ]
+    },
+    {
+      "id": "60:433",
+      "name": "Metric=Objectives, Size=Mobile",
+      "w": 169,
+      "h": 178,
+      "text": [
+        [
+          "Title",
+          "Objetivos"
+        ],
+        [
+          "Value",
+          "02"
+        ],
+        [
+          "Tag",
+          "KRs"
+        ],
+        [
+          "Detail",
+          "resultados para acompanhar"
+        ],
+        [
+          "Meta",
+          "Ciclo 2027"
+        ]
+      ]
+    },
+    {
+      "id": "60:449",
+      "name": "Metric=Quality, Size=Mobile",
+      "w": 169,
+      "h": 178,
+      "text": [
+        [
+          "Title",
+          "Qualidade"
+        ],
+        [
+          "Value",
+          "78/100"
+        ],
+        [
+          "Tag",
+          "78%"
+        ],
+        [
+          "Detail",
+          "Bom, com ressalvas"
+        ],
+        [
+          "Meta",
+          "Ciclo 2027"
+        ]
+      ]
+    },
+    {
+      "id": "60:464",
+      "name": "Metric=Gaps, Size=Mobile",
+      "w": 169,
+      "h": 178,
+      "text": [
+        [
+          "Title",
+          "Lacunas"
+        ],
+        [
+          "Value",
+          "04"
+        ],
+        [
+          "Tag",
+          "4×"
+        ],
+        [
+          "Detail",
+          "validações pendentes"
+        ],
+        [
+          "Meta",
+          "Ciclo 2027"
+        ]
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "6:1160",
+      "width": 1148,
+      "height": 210,
+      "gap": 16,
+      "cards": [
+        {
+          "id": "6:1161",
+          "x": 0,
+          "width": 275,
+          "within": true
+        },
+        {
+          "id": "6:1172",
+          "x": 291,
+          "width": 275,
+          "within": true
+        },
+        {
+          "id": "6:1183",
+          "x": 582,
+          "width": 275,
+          "within": true
+        },
+        {
+          "id": "6:1194",
+          "x": 873,
+          "width": 275,
+          "within": true
+        }
+      ]
+    },
+    {
+      "id": "6:2585",
+      "width": 1148,
+      "height": 210,
+      "gap": 16,
+      "cards": [
+        {
+          "id": "6:2586",
+          "x": 0,
+          "width": 275,
+          "within": true
+        },
+        {
+          "id": "6:2597",
+          "x": 291,
+          "width": 275,
+          "within": true
+        },
+        {
+          "id": "6:2608",
+          "x": 582,
+          "width": 275,
+          "within": true
+        },
+        {
+          "id": "6:2619",
+          "x": 873,
+          "width": 275,
+          "within": true
+        }
+      ]
+    },
+    {
+      "id": "6:2942",
+      "width": 348,
+      "height": 178,
+      "gap": 10,
+      "cards": [
+        {
+          "id": "6:2943",
+          "x": 0,
+          "width": 169,
+          "within": true
+        },
+        {
+          "id": "6:2954",
+          "x": 179,
+          "width": 169,
+          "within": true
+        }
+      ]
+    }
+  ]
+}

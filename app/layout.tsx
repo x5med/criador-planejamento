@@ -1,16 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Sora } from "next/font/google";
 
 import "./globals.css";
+import "./journey.css";
+import "./results.css";
 
-const geistSans = Geist({
+const sora = Sora({
   variable: "--font-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-mono",
   subsets: ["latin"],
   display: "swap",
 });
@@ -25,13 +21,13 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#10110f",
+  themeColor: "#E7EBE4",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={sora.variable}>
         {children}
       </body>
     </html>

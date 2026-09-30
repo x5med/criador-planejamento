@@ -1,0 +1,220 @@
+const assetPathPrefix = "figma-asset:c278f167-789d-4ddb-8324-811dde9e17d1";
+const imgGrupoX5LogoPng = `${assetPathPrefix}/7a6e1.png`;
+const imgFrame = `${assetPathPrefix}/c2e5d.svg`;
+const imgIcon = `${assetPathPrefix}/3d1ae.svg`;
+const imgIcon1 = `${assetPathPrefix}/a3b42.svg`;
+const imgFrame1 = `${assetPathPrefix}/67f91.svg`;
+
+export default function Component11EntrevistaMobile() {
+  return (
+    <div className="overflow-clip relative rounded-[var(--radius-32,32px)] size-full" data-node-id="6:2844" style={{ backgroundImage: "linear-gradient(98.51132636596deg, rgb(214, 218, 211) 8.4746%, rgb(243, 245, 240) 49.153%, rgb(191, 198, 185) 93.22%)" }} data-name="11 · Entrevista — Mobile">
+      <div className="absolute backdrop-blur-[14px] bg-[var(--surface-glass,rgba(255,255,255,0.4))] border border-[rgba(255,255,255,0.68)] border-solid content-stretch flex flex-col gap-[22px] items-start left-0 overflow-clip px-[var(--space-20,20px)] py-[var(--space-24,24px)] rounded-[var(--radius-32,32px)] shadow-[0px_16px_44px_0px_rgba(0,0,0,0.09)] top-0 w-[390px]" data-node-id="6:2845" data-name="Mobile Interview">
+        <div className="border border-[var(--x5-border-glass,rgba(255,255,255,0.9))] border-solid content-stretch drop-shadow-[0px_6px_10px_rgba(0,0,0,0.08)] flex gap-[var(--space-0,0px)] h-[68px] items-center justify-between px-[var(--space-12,12px)] py-[var(--space-0,0px)] relative rounded-[var(--radius-32,32px)] shrink-0 w-full" data-node-id="6:2846" data-name="mobile-header">
+          <div aria-hidden className="absolute backdrop-blur-[12px] bg-[var(--x5-surface-navigation,rgba(255,255,255,0.76))] inset-0 pointer-events-none rounded-[var(--radius-32,32px)]" />
+          <div className="content-stretch flex gap-[14px] h-[52px] items-center p-[var(--space-0,0px)] relative shrink-0 w-[170px]" data-node-id="10:720" data-name="DS/Brand/X5">
+            <div className="h-[50px] relative shrink-0 w-[87.232px]" data-node-id="I10:720;30:387" data-name="Grupo X5 / Logo PNG">
+              <img alt="" className="absolute inset-0 max-w-none object-contain pointer-events-none size-full" src={imgGrupoX5LogoPng} />
+            </div>
+            <div className="h-[18px] relative shrink-0 w-[78.031px]" data-node-id="I10:720;10:650" data-name="brand-name">
+              <p className="[word-break:break-word] absolute font-['Sora:SemiBold'] font-semibold leading-[18px] left-0 text-[12px] text-[color:var(--text-primary,#111)] top-[2px] whitespace-nowrap" data-node-id="I10:720;10:651">
+                Planejamento
+              </p>
+            </div>
+          </div>
+          <div className="bg-[var(--x5-control-selected,white)] content-stretch flex gap-[var(--space-0,0px)] items-center justify-center p-[var(--space-0,0px)] relative rounded-[var(--radius-999,999px)] shrink-0 size-[44px]" data-node-id="6:2853" data-name="small-icon">
+            <div className="relative shrink-0 size-[20px]" data-node-id="6:2854" data-name="Frame">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+            </div>
+          </div>
+          <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_1px_1px_0px_rgba(255,255,255,0.6)]" />
+        </div>
+        <div className="content-stretch flex gap-[var(--space-0,0px)] h-[25px] items-center justify-between p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:2858" data-name="row">
+          <div className="bg-[var(--action-primary,#111)] content-stretch flex gap-[var(--space-6,6px)] h-[25px] items-center justify-center px-[var(--space-10,10px)] py-[5px] relative rounded-[var(--radius-30,30px)] shrink-0 w-[89.484px]" data-node-id="10:630" data-name="DS/Badge/Etapa 02 de 05">
+            <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold leading-[15px] relative shrink-0 text-[10px] text-[color:var(--text-on-dark,white)] whitespace-nowrap" data-node-id="I10:630;10:488">
+              Etapa 02 de 05
+            </p>
+          </div>
+          <div className="bg-[var(--action-accent,#d8f36a)] content-stretch flex gap-[var(--space-6,6px)] h-[25px] items-center justify-center px-[var(--space-10,10px)] py-[5px] relative rounded-[var(--radius-30,30px)] shrink-0 w-[95.578px]" data-node-id="10:632" data-name="DS/Badge/Prontidão · 42%">
+            <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold leading-[15px] relative shrink-0 text-[10px] text-[color:var(--text-primary,#111)] whitespace-nowrap" data-node-id="I10:632;10:468">
+              Prontidão · 42%
+            </p>
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col gap-[var(--space-8,8px)] h-[62.578px] items-start p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:2863" data-name="stack8">
+          <div className="h-[35.391px] relative shrink-0 w-full" data-node-id="6:2864" data-name="h1">
+            <p className="[word-break:break-word] absolute font-['Sora:SemiBold'] font-semibold leading-[35.4px] left-0 text-[30px] text-[color:var(--text-primary,#111)] top-px tracking-[-1.5px] whitespace-nowrap" data-node-id="6:2865">
+              Onde estamos
+            </p>
+          </div>
+          <div className="h-[19.188px] relative shrink-0 w-full" data-node-id="6:2866" data-name="small">
+            <p className="[word-break:break-word] absolute font-['Sora:Regular'] font-normal leading-[19.2px] left-0 text-[12px] text-[color:var(--text-secondary,#555b52)] top-[2px] whitespace-nowrap" data-node-id="6:2867">
+              6 respostas salvas neste navegador
+            </p>
+          </div>
+        </div>
+        <div className="bg-[#e7edd9] content-stretch flex flex-col gap-[var(--space-0,0px)] h-[7px] items-start pl-[var(--space-0,0px)] pr-[210px] py-[var(--space-0,0px)] relative rounded-[var(--radius-10,10px)] shrink-0 w-full" data-node-id="6:2868" data-name="bar">
+          <div className="bg-[#8dae26] h-[7px] relative rounded-[var(--radius-10,10px)] shrink-0 w-full" data-node-id="6:2869" data-name="div" />
+        </div>
+        <div className="bg-[var(--surface-card,white)] content-stretch drop-shadow-[0px_5px_9px_rgba(31,41,23,0.05)] flex flex-col gap-[var(--space-0,0px)] h-[551.438px] items-center p-[21px] relative rounded-[var(--radius-24,24px)] shrink-0 w-full" data-node-id="6:2870" data-name="Mobile question">
+          <div className="content-stretch flex flex-col gap-[var(--space-20,20px)] h-[509.438px] items-start p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:2871" data-name="stack20">
+            <div className="h-[16.5px] relative shrink-0 w-full" data-node-id="6:2872" data-name="eyebrow">
+              <p className="[word-break:break-word] absolute font-['Sora:Bold'] font-bold leading-[16.5px] left-0 text-[#555b52] text-[11px] top-[2px] tracking-[1.4px] whitespace-nowrap" data-node-id="6:2873">
+                NÚMEROS DE PARTIDA
+              </p>
+            </div>
+            <div className="content-stretch flex flex-col gap-[var(--space-0,0px)] h-[56.563px] items-start p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:2874" data-name="h2">
+              <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold h-[54.281px] leading-[28.29px] relative shrink-0 text-[23px] text-[color:var(--text-primary,#111)] tracking-[-0.8px] w-[308px]" data-node-id="6:2875">
+                Quais indicadores mostram a realidade de hoje?
+              </p>
+            </div>
+            <div className="content-stretch flex flex-col gap-[var(--space-0,0px)] h-[38.375px] items-start p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:2876" data-name="small">
+              <p className="[word-break:break-word] font-['Sora:Regular'] font-normal h-[33.188px] leading-[19.2px] relative shrink-0 text-[12px] text-[color:var(--text-secondary,#555b52)] w-[308px]" data-node-id="6:2877">
+                Inclua período e fonte. Se não souber, registre o que precisa ser validado.
+              </p>
+            </div>
+            <div className="bg-[#f8faf4] border border-[var(--border-default,#d9ded3)] border-solid content-stretch flex flex-col gap-[var(--space-0,0px)] h-[210px] items-start p-[var(--space-16,16px)] relative rounded-[var(--radius-18,18px)] shrink-0 w-full" data-node-id="6:2878" data-name="answer">
+              <p className="[word-break:break-word] font-['Sora:Regular'] font-normal h-[91.563px] leading-[25.2px] relative shrink-0 text-[14px] text-[color:var(--text-primary,#111)] w-[276px]" data-node-id="6:2879">
+                A receita mensal precisa ser consolidada com o financeiro. Há horários ociosos à tarde, mas ainda não validamos a taxa de ocupação.
+              </p>
+            </div>
+            <div className="bg-[var(--action-primary,#111)] border border-[var(--icon-default,#111)] border-solid content-stretch flex gap-[var(--space-12,12px)] h-[44px] items-center justify-center px-[var(--space-18,18px)] py-[var(--space-12,12px)] relative rounded-[var(--radius-28,28px)] shrink-0 w-full" data-node-id="10:424" data-name="DS/Button/black/Salvar e continuar">
+              <div className="content-stretch flex items-start relative shrink-0" data-node-id="I10:424;10:91" data-name="span">
+                <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold leading-[18px] relative shrink-0 text-[12px] text-[color:var(--text-on-dark,white)] whitespace-nowrap" data-node-id="I10:424;10:92">
+                  Salvar e continuar
+                </p>
+              </div>
+              <div className="relative shrink-0 size-[18px]" data-node-id="I10:424;10:98" data-name="Icon">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcon} />
+              </div>
+            </div>
+            <div className="border border-[#d4dcce] border-solid content-stretch flex gap-[var(--space-12,12px)] h-[44px] items-center justify-center px-[var(--space-18,18px)] py-[var(--space-12,12px)] relative rounded-[var(--radius-28,28px)] shrink-0 w-full" data-node-id="10:433" data-name="DS/Button/outline/Me ajude a responder">
+              <div className="content-stretch flex items-start relative shrink-0" data-node-id="I10:433;10:73" data-name="span">
+                <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold leading-[18px] relative shrink-0 text-[12px] text-[color:var(--text-primary,#111)] whitespace-nowrap" data-node-id="I10:433;10:74">
+                  Me ajude a responder
+                </p>
+              </div>
+              <div className="relative shrink-0 size-[18px]" data-node-id="I10:433;10:79" data-name="Icon">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcon1} />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="bg-[var(--surface-card,white)] content-stretch drop-shadow-[0px_5px_9px_rgba(31,41,23,0.05)] flex flex-col gap-[var(--space-0,0px)] h-[63px] items-center p-[21px] relative rounded-[var(--radius-24,24px)] shrink-0 w-full" data-node-id="6:2894" data-name="Mobile context">
+          <div className="content-stretch flex gap-[var(--space-0,0px)] h-[21px] items-center justify-between p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:2895" data-name="row">
+            <div className="h-[21px] relative shrink-0 w-[158.359px]" data-node-id="6:2896" data-name="h4">
+              <p className="[word-break:break-word] absolute font-['Sora:SemiBold'] font-semibold leading-[21px] left-0 text-[15px] text-[color:var(--text-primary,#111)] top-[2px] whitespace-nowrap" data-node-id="6:2897">
+                Por que isso importa?
+              </p>
+            </div>
+            <div className="relative shrink-0 size-[18px]" data-node-id="6:2898" data-name="Frame">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame1} />
+            </div>
+          </div>
+        </div>
+        <div className="bg-[var(--surface-card,white)] content-stretch drop-shadow-[0px_5px_9px_rgba(31,41,23,0.05)] flex flex-col gap-[var(--space-0,0px)] h-[63px] items-center p-[21px] relative rounded-[var(--radius-24,24px)] shrink-0 w-full" data-node-id="6:2900" data-name="Mobile history">
+          <div className="content-stretch flex gap-[var(--space-0,0px)] h-[21px] items-center justify-between p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:2901" data-name="row">
+            <div className="h-[21px] relative shrink-0 w-[174.25px]" data-node-id="6:2902" data-name="h4">
+              <p className="[word-break:break-word] absolute font-['Sora:SemiBold'] font-semibold leading-[21px] left-0 text-[15px] text-[color:var(--text-primary,#111)] top-[2px] whitespace-nowrap" data-node-id="6:2903">
+                Respostas anteriores · 6
+              </p>
+            </div>
+            <div className="relative shrink-0 size-[18px]" data-node-id="6:2904" data-name="Frame">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame1} />
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col gap-[var(--space-0,0px)] h-[34.094px] items-start p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:2906" data-name="tiny">
+          <p className="[word-break:break-word] font-['Sora:Regular'] font-normal h-[29.047px] leading-[17.05px] relative shrink-0 text-[11px] text-[color:var(--text-secondary,#555b52)] w-[350px]" data-node-id="6:2907">
+            A primeira versão do plano já está disponível para geração, com lacunas identificadas.
+          </p>
+        </div>
+        <a className="bg-[var(--action-accent,#d8f36a)] border border-[var(--action-accent,#d8f36a)] border-solid content-stretch cursor-pointer flex gap-[var(--space-12,12px)] h-[44px] items-center justify-center px-[var(--space-18,18px)] py-[var(--space-12,12px)] relative rounded-[var(--radius-28,28px)] shrink-0 w-full" data-node-id="10:443" data-name="DS/Button/lime/Gerar plano agora">
+          <div className="content-stretch flex items-start relative shrink-0" data-node-id="I10:443;10:130" data-name="span">
+            <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold leading-[18px] relative shrink-0 text-[12px] text-[color:var(--text-primary,#111)] text-left whitespace-nowrap" data-node-id="I10:443;10:131">
+              Gerar plano agora
+            </p>
+          </div>
+          <div className="relative shrink-0 size-[18px]" data-node-id="I10:443;10:138" data-name="Icon">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcon1} />
+          </div>
+        </a>
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+These styles are contained in the design: X5/Effects/Navigation glass/Light: Effect(type: BACKGROUND_BLUR, radius: 24); Effect(type: INNER_SHADOW, color: #FFFFFF99, offset: (0, 1), radius: 1, spread: 0); Effect(type: DROP_SHADOW, color: #00000013, offset: (0, 6), radius: 20, spread: 0), X5/Effects/Soft card: Effect(type: DROP_SHADOW, color: #1F29170E, offset: (0, 5), radius: 18, spread: 0), X5/Effects/Frosted panel: Effect(type: BACKGROUND_BLUR, radius: 28); Effect(type: DROP_SHADOW, color: #00000017, offset: (0, 16), radius: 44, spread: 0).
+
+Component descriptions: The following components have usage descriptions or documentation links defined in Figma. These descriptions provide important context about the intended usage, best practices, and any constraints for each component. Follow these guidelines when implementing or using these components.
+
+## Theme=Light
+**Node ID:** 10:652
+
+Logo Grupo X5 em PNG fornecido pelo usuário. Preservar proporções e contraste; usar o descritor Planejamento no produto.
+
+## X5/Brand
+**Node ID:** 10:733
+
+Assinatura Grupo X5 do Planejamento. PNG oficial com margens transparentes aparadas; variantes Light (tinta) e Dark (branco).
+
+## Tone=Ink
+**Node ID:** 10:489
+
+Indicador compacto. Mantenha um rótulo explícito; a cor nunca comunica o estado sozinha.
+
+## X5/Badge
+**Node ID:** 10:645
+
+Status com rótulo editável. Dourado para evidência/ação; azul para hipótese; coral para lacuna.
+
+## Tone=Lime
+**Node ID:** 10:469
+
+Indicador compacto. Mantenha um rótulo explícito; a cor nunca comunica o estado sozinha.
+
+## Tone=black, State=Default
+**Node ID:** 10:97
+
+Botão de 44 px. Label edita o texto; Icon troca o símbolo; Show icon controla a visibilidade. Use Fill container no mobile.
+
+## X5/Button
+**Node ID:** 10:466
+
+Ações com Label, Icon e Show icon. Variantes de tom e estado. Todas com altura mínima de 44 px.
+
+## Icon=Arrow right, Ink=Inverse
+**Node ID:** 10:21
+
+Ícone vetorial Lucide; tamanho 18 px. Troque pela propriedade Icon dos botões.
+
+## X5/Icon
+**Node ID:** 10:71
+
+Ícones vetoriais em tinta padrão, inversa e escuro.
+
+## Tone=outline, State=Default
+**Node ID:** 10:78
+
+Botão de 44 px. Label edita o texto; Icon troca o símbolo; Show icon controla a visibilidade. Use Fill container no mobile.
+
+## Icon=Sparkles, Ink=Default
+**Node ID:** 10:27
+
+Ícone vetorial Lucide; tamanho 18 px. Troque pela propriedade Icon dos botões.
+
+## Tone=lime, State=Default
+**Node ID:** 10:137
+
+Botão de 44 px. Label edita o texto; Icon troca o símbolo; Show icon controla a visibilidade. Use Fill container no mobile.
+
+Images and SVGs will be stored as constants, e.g. const image = `${assetPathPrefix}/<asset file name>`, where assetPathPrefix is declared once at the top of the code and every asset URL interpolates it. These constants will be used in the code as the source for the image, ex: <img src={image} />. Image assets are stored on a remote server for 7 days and can be fetched using the provided URLs until they expire.

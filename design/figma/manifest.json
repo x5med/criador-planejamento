@@ -1,0 +1,106 @@
+[
+  {
+    "id": "00-foundations",
+    "name": "00 · Fundações — X5 Lime",
+    "width": 1440,
+    "x": 0,
+    "y": 0,
+    "path": "C:\\Users\\x5med\\OneDrive\\Documentos\\ChatGPT\\Planejamento estratégico\\criador-planejamento\\design\\figma\\screens\\00-foundations.html"
+  },
+  {
+    "id": "01-components",
+    "name": "01 · Componentes e estados",
+    "width": 1440,
+    "x": 1560,
+    "y": 0,
+    "path": "C:\\Users\\x5med\\OneDrive\\Documentos\\ChatGPT\\Planejamento estratégico\\criador-planejamento\\design\\figma\\screens\\01-components.html"
+  },
+  {
+    "id": "02-start",
+    "name": "02 · Novo planejamento — Desktop",
+    "width": 1440,
+    "x": 0,
+    "y": 1450,
+    "path": "C:\\Users\\x5med\\OneDrive\\Documentos\\ChatGPT\\Planejamento estratégico\\criador-planejamento\\design\\figma\\screens\\02-start.html"
+  },
+  {
+    "id": "03-interview",
+    "name": "03 · Entrevista guiada — Desktop",
+    "width": 1440,
+    "x": 1560,
+    "y": 1450,
+    "path": "C:\\Users\\x5med\\OneDrive\\Documentos\\ChatGPT\\Planejamento estratégico\\criador-planejamento\\design\\figma\\screens\\03-interview.html"
+  },
+  {
+    "id": "04-overview",
+    "name": "04 · Visão geral — Desktop",
+    "width": 1440,
+    "x": 3120,
+    "y": 1450,
+    "path": "C:\\Users\\x5med\\OneDrive\\Documentos\\ChatGPT\\Planejamento estratégico\\criador-planejamento\\design\\figma\\screens\\04-overview.html"
+  },
+  {
+    "id": "05-diagnosis",
+    "name": "05 · Diagnóstico — Desktop",
+    "width": 1440,
+    "x": 0,
+    "y": 2850,
+    "path": "C:\\Users\\x5med\\OneDrive\\Documentos\\ChatGPT\\Planejamento estratégico\\criador-planejamento\\design\\figma\\screens\\05-diagnosis.html"
+  },
+  {
+    "id": "06-choices",
+    "name": "06 · Escolhas — Desktop",
+    "width": 1440,
+    "x": 1560,
+    "y": 2850,
+    "path": "C:\\Users\\x5med\\OneDrive\\Documentos\\ChatGPT\\Planejamento estratégico\\criador-planejamento\\design\\figma\\screens\\06-choices.html"
+  },
+  {
+    "id": "07-execution",
+    "name": "07 · Execução — Desktop",
+    "width": 1440,
+    "x": 3120,
+    "y": 2850,
+    "path": "C:\\Users\\x5med\\OneDrive\\Documentos\\ChatGPT\\Planejamento estratégico\\criador-planejamento\\design\\figma\\screens\\07-execution.html"
+  },
+  {
+    "id": "08-governance",
+    "name": "08 · Governança — Desktop",
+    "width": 1440,
+    "x": 0,
+    "y": 4450,
+    "path": "C:\\Users\\x5med\\OneDrive\\Documentos\\ChatGPT\\Planejamento estratégico\\criador-planejamento\\design\\figma\\screens\\08-governance.html"
+  },
+  {
+    "id": "09-dark",
+    "name": "09 · Visão geral — Tema petróleo",
+    "width": 1440,
+    "x": 1560,
+    "y": 4450,
+    "path": "C:\\Users\\x5med\\OneDrive\\Documentos\\ChatGPT\\Planejamento estratégico\\criador-planejamento\\design\\figma\\screens\\09-dark.html"
+  },
+  {
+    "id": "10-mobile-start",
+    "name": "10 · Novo planejamento — Mobile",
+    "width": 390,
+    "x": 0,
+    "y": 5950,
+    "path": "C:\\Users\\x5med\\OneDrive\\Documentos\\ChatGPT\\Planejamento estratégico\\criador-planejamento\\design\\figma\\screens\\10-mobile-start.html"
+  },
+  {
+    "id": "11-mobile-interview",
+    "name": "11 · Entrevista — Mobile",
+    "width": 390,
+    "x": 510,
+    "y": 5950,
+    "path": "C:\\Users\\x5med\\OneDrive\\Documentos\\ChatGPT\\Planejamento estratégico\\criador-planejamento\\design\\figma\\screens\\11-mobile-interview.html"
+  },
+  {
+    "id": "12-mobile-overview",
+    "name": "12 · Visão geral — Mobile",
+    "width": 390,
+    "x": 1020,
+    "y": 5950,
+    "path": "C:\\Users\\x5med\\OneDrive\\Documentos\\ChatGPT\\Planejamento estratégico\\criador-planejamento\\design\\figma\\screens\\12-mobile-overview.html"
+  }
+]

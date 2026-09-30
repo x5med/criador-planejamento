@@ -16,6 +16,10 @@ Aplicação web que entrevista o usuário, transforma respostas em escolhas estr
 
 O [mapa funcional](docs/feature-map.md) relaciona cada tela às regras do método. A [arquitetura](docs/architecture.md) explica as decisões técnicas e de segurança.
 
+O [PRD do front end e novo design system](docs/prd-frontend-design-system.md) define a experiência proposta, requisitos e critérios de aceite. O [guia do design system X5 Business](design/figma/README.md) reúne as telas no Figma, tokens nativos, componentes, protótipo e prévias.
+
+O novo design está implementado na abertura, entrevista e nas cinco vistas do plano, com Sora, marca SVG X5, cards chip e layouts para desktop e celular. O [guia da implementação](design/implementation/README.md) registra os componentes e a referência visual; o [relatório de verificação](docs/frontend-verification.md) documenta os testes de preservação dos fluxos e a comparação com o Figma.
+
 ## Rodar localmente
 
 Requisitos: Node.js 20.9 ou superior.

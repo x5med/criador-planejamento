@@ -1,0 +1,256 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>05 · Diagnóstico — Desktop</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;color:#151611;background:#F4F3ED;font-size:15px;line-height:1.5}h1,h2,h3,h4,p{margin:0}h1{font-size:36px;line-height:1.18;letter-spacing:-1.5px;font-weight:600}h2{font-size:28px;line-height:1.23;letter-spacing:-.8px;font-weight:600}h3{font-size:19px;line-height:1.35;letter-spacing:-.4px;font-weight:600}h4{font-size:15px;line-height:1.4;font-weight:600}svg{flex-shrink:0}b,strong{font-weight:700} .muted{color:#626258}.small{font-size:12px;line-height:1.6}.tiny{font-size:11px;line-height:1.55}.eyebrow{font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#626258}.row{display:flex;align-items:center}.between{justify-content:space-between}.gap8{gap:8px}.gap12{gap:12px}.gap16{gap:16px}.gap20{gap:20px}.stack4,.stack8,.stack12,.stack16,.stack20,.stack24{display:flex;flex-direction:column}.stack4{gap:4px}.stack8{gap:8px}.stack12{gap:12px}.stack16{gap:16px}.stack20{gap:20px}.stack24{gap:24px}.grow{flex:1;min-width:0}.shell{width:1440px;display:flex;background:#F4F3ED}.sidebar{width:232px;flex-shrink:0;background:#EBE9DF;padding:34px 20px 24px;display:flex;flex-direction:column;gap:30px;border-right:1px solid #D9DDD3}.brand{display:flex;align-items:center;gap:9px}.logo{font-size:29px;font-weight:800;letter-spacing:-2px;position:relative;line-height:1}.logo-dot{display:block;position:absolute;width:6px;height:6px;background:#99BC23;right:-5px;top:-1px;border-radius:5px}.brand-name{font-size:12px;font-weight:600;margin-left:6px}.org{display:flex;align-items:center;gap:10px;padding-top:10px}.org b{font-size:12px}.avatar{width:38px;height:38px;border-radius:50%;background:#DED9C8;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}.nav-label{font-size:9px;letter-spacing:1.2px;color:#666D63;margin-bottom:-18px}.sidebar nav{display:flex;flex-direction:column;gap:8px}.nav-item{display:flex;align-items:center;gap:12px;font-size:13px;padding:13px 15px;border-radius:24px;color:#54544B}.nav-item span{flex:1}.selected{background:#151611;color:#fff}.sidebar-bottom{margin-top:auto;display:flex;flex-direction:column;gap:20px;padding-top:45px}.sidebar-help{display:flex;gap:8px;align-items:center;color:#626258}.workspace{width:1208px;padding:0 30px}.topbar{height:92px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #DEDDD4}.top-divider{height:22px;width:1px;background:#DEDDD4}.main-content{padding-top:28px;display:flex;flex-direction:column;gap:24px;padding-bottom:34px}.page-title{display:flex;justify-content:space-between;align-items:flex-end;gap:20px}.page-title>.stack8{max-width:740px}.page-title .muted{font-size:14px}.card{background:#FFFEFA;border:1px solid #DEDDD4;border-radius:24px;padding:24px;min-width:0}.card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}.quiet{background:#F4F3ED;border-color:transparent;padding:16px;border-radius:18px}.black{background:#151611!important;color:#FFFEFA!important;border-color:#151611!important}.lime{background:#C8A253!important;color:#151611!important;border-color:#C8A253!important}.soft{background:#EEE8D9;color:#45351B}.purple{background:#E4EAF0;color:#39516B}.coral{background:#F9DED8;color:#884D42}.tag{display:flex;align-items:center;justify-content:center;gap:6px;padding:5px 10px;border-radius:30px;font-size:10px;line-height:1.5;font-weight:600;white-space:nowrap;width:fit-content}.btn{display:flex;align-items:center;justify-content:center;gap:12px;border-radius:28px;padding:12px 18px;font-size:12px;font-weight:600;border:1px solid transparent;width:fit-content;white-space:nowrap;min-height:44px}.outline{border-color:#CEC9B9;background:transparent;color:#151611}.btn.white{background:#FFFEFA;color:#151611;border-color:#FFFEFA}.small-icon{height:36px;width:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#F0ECE1;flex-shrink:0}.small-icon.white{background:#FFFEFA;border:1px solid #DEDDD4}.stats{display:flex;gap:16px}.stats>.card{width:calc((100% - 48px)/4)}.stat{display:flex;flex-direction:column;gap:16px}.stat-num{font-size:45px;line-height:1;font-weight:500;letter-spacing:-2px}.stat .small{font-size:12px}.cols{display:flex;gap:20px}.left{width:718px}.right{width:410px}.half{width:564px}.third{width:369px}.list-row{display:flex;align-items:center;gap:13px;padding:15px 0;border-bottom:1px solid #EBE9DF}.list-row:last-child{border-bottom:none;padding-bottom:0}.list-row:first-child{padding-top:0}.round-num{height:48px;width:48px;border-radius:50%;background:#EAF2CD;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}.notice{display:flex;align-items:center;gap:9px;background:#EEE4CC;padding:12px 16px;border-radius:12px;color:#594A2B}.timeline{display:flex;gap:14px}.timeline>.period{width:calc((100% - 28px)/3);display:flex;flex-direction:column;gap:10px;background:#F6F4EC;border-radius:16px;padding:18px}.line{height:3px;background:#E4DDC9;border-radius:3px}.line>div{height:3px;width:60%;background:#C8A253;border-radius:3px}.kv{display:flex;justify-content:space-between;gap:20px;padding:8px 0}.kv+.kv{border-top:1px solid #EBE9DF}.big-text{font-size:28px;font-weight:550;letter-spacing:-.8px;line-height:1.3}.score-circle{width:112px;height:112px;border:9px solid #C8A253;border-right-color:#E5EBD6;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;letter-spacing:-1px}.tabs{display:flex;gap:5px;padding:5px;background:#E4E7DD;border-radius:30px;width:fit-content}.tab{font-size:12px;padding:10px 20px;border-radius:24px;color:#5C6456}.tab.active{background:#151611;color:#fff}.phase{display:flex;gap:11px;align-items:center;padding:10px;border-radius:24px;font-size:12px}.step{width:26px;height:26px;background:#E1DBCC;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;color:#5A5749}.phase.selected .step{background:#C8A253;color:#151611}.phase.done .step{background:#E8CD8D}.field{display:flex;flex-direction:column;gap:8px}.field label{font-size:12px;font-weight:600}.input{border:1px solid #D9D3C2;background:#F9F7F0;border-radius:12px;min-height:48px;padding:13px 15px;display:flex;align-items:center;justify-content:space-between;font-size:13px}.answer{border:1px solid #AE9662;border-radius:18px;min-height:206px;padding:22px;font-size:15px;line-height:1.8;background:#FBF9F1}.bullet{display:flex;gap:10px;align-items:flex-start}.bullet>span{width:6px;height:6px;border-radius:50%;background:#8F6B28;margin-top:9px;flex-shrink:0}.bullet p{font-size:13px;line-height:1.7}.swot{display:flex;flex-wrap:wrap;gap:16px}.swot>.card{width:calc((100% - 16px)/2)}.swot .card-head{margin-bottom:12px}.table{display:flex;flex-direction:column}.tr{display:flex;align-items:center;gap:14px;padding:15px 16px;background:#F7F5EE;border-radius:12px;margin-bottom:6px;font-size:12px}.tr.th{background:#EFDFB5;font-weight:700}.tr:nth-child(odd){background:#F0ECE2}.tr.th{background:#EFDFB5}.tr>.t-main{width:310px}.tr>.t-metric{width:145px}.tr>.t-small{width:100px}.tr>.t-end{width:150px}.legend-dot{display:inline-block;height:7px;width:7px;border-radius:50%;background:#ABCB40}.bar{height:7px;border-radius:10px;background:#EBE7DA;width:100%}.bar>div{height:7px;border-radius:10px;background:#B78D3D}.theme-dark{background:#151611;color:#F4F3ED}.theme-dark .sidebar{background:#11120E;border-color:#23474B}.theme-dark .brand-name,.theme-dark .logo{color:#F4F3ED}.theme-dark .muted,.theme-dark .eyebrow,.theme-dark .nav-label,.theme-dark .sidebar-help{color:#C6C3B7}.theme-dark .nav-item{color:#D4CBB5}.theme-dark .nav-item.selected{background:#C8A253;color:#171812}.theme-dark .card{background:#1D1E18;border-color:#414237}.theme-dark .quiet{background:#272820}.theme-dark .topbar{border-color:#414237}.theme-dark .notice{background:#393729;color:#E4D6B4}.theme-dark .list-row,.theme-dark .kv+.kv{border-color:#325456}.theme-dark .period{background:#272820}.theme-dark .outline{color:#E5EFD9;border-color:#777363}.theme-dark .small-icon{background:#3A3B31}.theme-dark .score-circle{border-right-color:#355457}.theme-dark .soft{background:#464435;color:#E8D9B6}.theme-dark .tiny{color:#D4CEBD}.theme-dark .tag.lime{color:#151611}.theme-dark .black{background:#C8A253!important;color:#151611!important;border-color:#C8A253!important}.theme-dark .stat.black .small{color:#151611}.theme-dark .stat.lime .muted{color:#46552B}.theme-dark .stat.lime{color:#151611}.theme-dark .stat .small{color:#DAD2BF}.theme-dark .stat.lime .small{color:#151611}.theme-dark .sidebar .quiet{color:#DAD5C7}.theme-dark .sidebar .btn{color:#F0E5CE}.theme-dark .avatar{background:#454337;color:#E8E3D3}.theme-dark .nav-item.selected svg{stroke:#151611}.theme-dark .btn.lime svg{stroke:#151611}.theme-dark .btn.black svg{stroke:#151611}.mobile{width:390px;min-height:844px;background:#F4F3ED;padding:24px 20px;display:flex;flex-direction:column;gap:22px}.mobile h1{font-size:30px}.mobile h2{font-size:23px}.mobile .card{padding:20px;border-radius:22px}.mobile .stat-num{font-size:38px}.mobile .stats{gap:12px}.mobile .stats .card{width:169px}.mobile .btn{width:100%}.mobile-header{display:flex;align-items:center;justify-content:space-between}.mobile-nav{display:flex;justify-content:space-between;background:#151611;color:#fff;border-radius:30px;padding:15px 18px}.mobile-nav>div{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:9px}.mobile-nav .active{color:#C8A253}.mobile .answer{padding:16px;font-size:14px;min-height:210px}.mobile .timeline{flex-direction:column}.mobile .period{width:100%}.foundation{width:1440px;padding:56px;background:#F4F3ED;display:flex;flex-direction:column;gap:32px}.foundation .display{font-size:70px;letter-spacing:-4px;line-height:1.05}.swatches{display:flex;gap:14px}.swatch{width:209px;border-radius:20px;overflow:hidden;border:1px solid #DED9CA}.swatch-color{height:104px}.swatch-caption{background:#fff;padding:14px;font-size:12px}.foundation .sample{padding:28px}.foundation .token{font-family:Inter;font-size:11px;color:#626258}.foundation .caption{font-size:12px;color:#626258}.label-block{padding:0 0 12px}.divider{height:1px;background:#E1DCCF}.pill-count{font-size:10px;background:#E6EADF;padding:4px 9px;border-radius:20px}.bottom-note{display:flex;gap:8px;align-items:center;font-size:11px;color:#626258}.choice-num{font-size:48px;line-height:1;letter-spacing:-2px}.disabled{background:#E5E2D8!important;color:#8A897F!important;border-color:#E5E2D8!important}.error{border-color:#B34436!important;background:#FEF2EE!important}.error-text{color:#A2342A;font-size:11px}.focus{outline:3px solid #8F6B28;outline-offset:3px}.dialog{background:#fff;width:540px;border-radius:28px;padding:30px;display:flex;flex-direction:column;gap:20px}.state-box{padding:24px;border:1px solid #DEDDD4;border-radius:24px;background:#FFFEFA;display:flex;flex-direction:column;gap:16px}.skeleton{height:12px;background:#E7E2D3;border-radius:8px}.skeleton.short{width:62%}.timeline-table{display:flex;flex-direction:column;gap:8px}.schedule-row{display:flex;gap:12px;align-items:center;font-size:11px}.schedule-name{width:230px}.schedule-track{width:500px;height:24px;border-left:1px solid #D6DDCD;display:flex;gap:8px;align-items:center}.schedule-bar{background:#D7EDA0;border-radius:20px;padding:5px 12px;color:#3F512B;font-size:10px}.plain-list{display:flex;flex-direction:column;gap:13px}
+</style></head><body><main data-name="X5 App" class="shell " style="min-height:1050px"><aside data-name="DS/Sidebar/diagnosis" class="sidebar"><div data-name="DS/Brand/X5" class="brand"><div class="logo">X5<span class="logo-dot"></span></div><div class="brand-name">Planejamento</div></div><div class="org"><div class="avatar">CH</div><div><b>Clínica Horizonte</b><p class="small muted">Ciclo estratégico · 2027</p></div></div><div class="nav-label">SEU PLANEJAMENTO</div><nav><div class="nav-item "><svg data-name="Icon/layout-dashboard"
+  xmlns="http://www.w3.org/2000/svg"
+  width="20"
+  height="20"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="#626258"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="7" height="9" x="3" y="3" rx="1" />
+  <rect width="7" height="5" x="14" y="3" rx="1" />
+  <rect width="7" height="9" x="14" y="12" rx="1" />
+  <rect width="7" height="5" x="3" y="16" rx="1" />
+</svg>
+<span>Visão geral</span></div><div class="nav-item selected"><svg data-name="Icon/scan-search"
+  xmlns="http://www.w3.org/2000/svg"
+  width="20"
+  height="20"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="#FFFEFA"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+  <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+  <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+  <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+  <circle cx="12" cy="12" r="3" />
+  <path d="m16 16-1.9-1.9" />
+</svg>
+<span>Diagnóstico</span><svg data-name="Icon/arrow-up-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="17"
+  height="17"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="#C8A253"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M7 7h10v10" />
+  <path d="M7 17 17 7" />
+</svg>
+</div><div class="nav-item "><svg data-name="Icon/route"
+  xmlns="http://www.w3.org/2000/svg"
+  width="20"
+  height="20"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="#626258"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="6" cy="19" r="3" />
+  <path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" />
+  <circle cx="18" cy="5" r="3" />
+</svg>
+<span>Escolhas</span></div><div class="nav-item "><svg data-name="Icon/target"
+  xmlns="http://www.w3.org/2000/svg"
+  width="20"
+  height="20"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="#626258"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <circle cx="12" cy="12" r="6" />
+  <circle cx="12" cy="12" r="2" />
+</svg>
+<span>Execução</span></div><div class="nav-item "><svg data-name="Icon/users"
+  xmlns="http://www.w3.org/2000/svg"
+  width="20"
+  height="20"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="#626258"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+  <path d="M16 3.128a4 4 0 0 1 0 7.744" />
+  <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+  <circle cx="9" cy="7" r="4" />
+</svg>
+<span>Governança</span></div></nav><div class="sidebar-bottom"><section data-name="Local saving" class="card quiet stack12" style=""><div class="row gap8"><svg data-name="Icon/check-check"
+  xmlns="http://www.w3.org/2000/svg"
+  width="18"
+  height="18"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="#5F4A22"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M18 6 7 17l-5-5" />
+  <path d="m22 10-7.5 7.5L13 16" />
+</svg>
+<b class="small">Salvo neste navegador</b></div><p class="small muted">Você pode retomar de onde parou neste dispositivo.</p></section><div data-name="DS/Button/outline/Novo plano" class="btn outline"><span>Novo plano</span><svg data-name="Icon/plus"
+  xmlns="http://www.w3.org/2000/svg"
+  width="18"
+  height="18"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="#151611"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M5 12h14" />
+  <path d="M12 5v14" />
+</svg>
+</div><div class="sidebar-help"><svg data-name="Icon/circle-help"
+  xmlns="http://www.w3.org/2000/svg"
+  width="18"
+  height="18"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+  <path d="M12 17h.01" />
+</svg>
+<p class="small">Como funciona o método</p></div></div></aside><div class="workspace"><header data-name="DS/Header/Workspace" class="topbar"><div class="row gap8"><span class="small muted">Workspace</span><span class="small muted">/</span><span class="small">Plano estratégico</span></div><div class="row gap12"><div data-name="DS/Badge/Demonstração" class="tag lime">Demonstração</div><div class="top-divider"></div><div class="small-icon white"><svg data-name="Icon/circle-help"
+  xmlns="http://www.w3.org/2000/svg"
+  width="20"
+  height="20"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+  <path d="M12 17h.01" />
+</svg>
+</div><div class="avatar black">X5</div></div></header><div class="main-content"><div data-name="Page title" class="page-title"><div class="stack8"><div class="eyebrow">ONDE ESTAMOS</div><h1>Antes de escolher, entender.</h1><p class="muted">Separe o que sabemos do que ainda precisa ser validado.</p></div><div data-name="DS/Button/outline/Voltar à entrevista" class="btn outline"><span>Voltar à entrevista</span><svg data-name="Icon/arrow-left"
+  xmlns="http://www.w3.org/2000/svg"
+  width="18"
+  height="18"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="#151611"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m12 19-7-7 7-7" />
+  <path d="M19 12H5" />
+</svg>
+</div></div><div class="cols"><section data-name="Declared facts" class="card third" style=""><div class="card-head"><h3>Fatos declarados</h3><div data-name="DS/Badge/02" class="tag lime">02</div></div><div class="stack20"><div class="stack8"><h4>Capacidade disponível</h4><p class="small muted">A equipe relata horários ociosos à tarde na agenda atual.</p></div><div class="stack8"><h4>Foco na base</h4><p class="small muted">A liderança prioriza recorrência antes de abrir novas unidades.</p></div></div><p class="tiny muted" style="margin-top:20px">Origem: respostas da entrevista</p></section><section data-name="Assumptions" class="card third" style="background:#F5EFE1"><div class="card-head"><h3>Hipóteses</h3><div data-name="DS/Badge/02" class="tag purple">02</div></div><div class="stack20"><div class="stack8"><h4>Recorrência pode crescer</h4><p class="small muted">Um acompanhamento mais próximo pode ampliar a retenção.</p></div><div class="stack8"><h4>Há espaço para eficiência</h4><p class="small muted">A redistribuição da agenda pode absorver parte da demanda.</p></div></div><p class="tiny muted" style="margin-top:20px">Confirmar antes de assumir compromisso</p></section><section data-name="Critical gaps" class="card third" style="background:#F9EEE9"><div class="card-head"><h3>Lacunas críticas</h3><div data-name="DS/Badge/04" class="tag coral">04</div></div><div class="stack12"><div class="bullet"><span></span><p>Receita e margem por período</p></div><div class="bullet"><span></span><p>Taxa de ocupação da agenda</p></div><div class="bullet"><span></span><p>Retenção de pacientes</p></div><div class="bullet"><span></span><p>Limite de investimento</p></div></div><p class="tiny muted" style="margin-top:20px">Prioridade de validação deste ciclo</p></section></div><div class="cols"><div class="left stack20"><section data-name="SWOT" class="card " style=""><div class="card-head"><h3>Uma leitura do cenário</h3><div data-name="DS/Badge/SWOT" class="tag soft">SWOT</div></div><div class="swot"><section data-name="Strengths" class="card quiet" style=""><div class="card-head"><h4>Forças</h4><svg data-name="Icon/plus"
+  xmlns="http://www.w3.org/2000/svg"
+  width="18"
+  height="18"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M5 12h14" />
+  <path d="M12 5v14" />
+</svg>
+</div><p class="small muted">Conhecimento da base de pacientes.<br>Equipe disposta a medir e melhorar.</p></section><section data-name="Weaknesses" class="card quiet" style=""><div class="card-head"><h4>Fraquezas</h4><svg data-name="Icon/circle-dot"
+  xmlns="http://www.w3.org/2000/svg"
+  width="18"
+  height="18"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="1" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+</div><p class="small muted">Indicadores sem baseline consolidado.<br>Rotina de gestão ainda informal.</p></section><section data-name="Opportunities" class="card lime" style=""><div class="card-head"><h4>Oportunidades</h4><svg data-name="Icon/arrow-up-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="18"
+  height="18"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M7 7h10v10" />
+  <path d="M7 17 17 7" />
+</svg>
+</div><p class="small muted">Aprofundar o relacionamento.<br>Usar melhor a capacidade existente.</p></section><section data-name="Threats" class="card quiet" style=""><div class="card-head"><h4>Ameaças</h4><svg data-name="Icon/triangle-alert"
+  xmlns="http://www.w3.org/2000/svg"
+  width="18"
+  height="18"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" />
+  <path d="M12 9v4" />
+  <path d="M12 17h.01" />
+</svg>
+</div><p class="small muted">Dispersão em iniciativas.<br>Investimento sem validação de caixa.</p></section></div></section></div><div class="right"><section data-name="Strategic issue" class="card " style=""><div class="row between"><div class="eyebrow">QUESTÃO ESTRATÉGICA · 01</div><div data-name="DS/Badge/Alta urgência" class="tag coral">Alta urgência</div></div><h2 style="margin-top:22px">Como crescer sem ampliar a estrutura cedo demais?</h2><div class="stack20" style="margin-top:24px"><div class="stack8"><h4>Causa</h4><p class="small muted">A ambição ainda não está conectada à capacidade e ao caixa.</p></div><div class="stack8"><h4>Consequência</h4><p class="small muted">Podemos comprometer recursos antes de comprovar demanda e retorno.</p></div></div><div style="margin-top:24px"><div data-name="DS/Button/black/Ver escolhas" class="btn black"><span>Ver escolhas</span><svg data-name="Icon/arrow-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="18"
+  height="18"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="#FFFEFA"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M5 12h14" />
+  <path d="m12 5 7 7-7 7" />
+</svg>
+</div></div></section></div></div><div data-name="DS/Notice/Demo" class="notice"><svg data-name="Icon/sparkles"
+  xmlns="http://www.w3.org/2000/svg"
+  width="17"
+  height="17"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" />
+  <path d="M20 2v4" />
+  <path d="M22 4h-4" />
+  <circle cx="4" cy="20" r="2" />
+</svg>
+<p class="small">Plano ilustrativo. As informações e recomendações precisam de validação antes de qualquer decisão.</p></div></div></div></main></body></html>

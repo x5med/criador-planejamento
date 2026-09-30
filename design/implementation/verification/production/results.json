@@ -1,0 +1,332 @@
+{
+  "testedAt": "2026-09-30T14:23:39.339Z",
+  "baseURL": "http://127.0.0.1:3001",
+  "results": [
+    {
+      "name": "Five dashboard tabs retain all baseline plan content; JSON and Markdown exports",
+      "pass": true
+    },
+    {
+      "name": "Responsive overflow and font 1440px landing/interview/five tabs",
+      "pass": true
+    },
+    {
+      "name": "Responsive overflow and font 390px landing/interview/five tabs",
+      "pass": true
+    },
+    {
+      "name": "Responsive overflow and font 320px landing/interview/five tabs",
+      "pass": true
+    },
+    {
+      "name": "All rendered image assets load in journey, five tabs and dark theme",
+      "pass": true
+    },
+    {
+      "name": "Final dark actions remain legible and mobile surface stays transparent",
+      "pass": true,
+      "evidence": {
+        "newPlanColor": "rgb(247, 249, 243)",
+        "newPlanHoverContrast": 9.819703018247312
+      }
+    },
+    {
+      "name": "Backend and library SHA256 unchanged",
+      "pass": true,
+      "evidence": "9 files"
+    },
+    {
+      "name": "Session controller preserved exactly",
+      "pass": true,
+      "evidence": "Exact original controller after normalizing line endings and only the explicitly requested loading-logo SVG path"
+    },
+    {
+      "name": "SVG logo contains native paths and enlarged light/dark previews render",
+      "pass": true
+    }
+  ],
+  "fixture": {
+    "context": {
+      "organization": "Clínica Horizonte QA",
+      "sector": "Saúde",
+      "horizon": "Próximos 24 meses",
+      "challenge": "Ampliar capacidade com margem sustentável"
+    },
+    "plan": {
+      "meta": {
+        "organization": "Clínica Horizonte QA",
+        "sector": "Saúde",
+        "horizon": "Próximos 24 meses",
+        "generatedAt": "2026-09-30"
+      },
+      "executiveSummary": "Clínica Horizonte QA precisa transformar o desafio “Ampliar capacidade com margem sustentável” em escolhas mensuráveis. Este plano demonstrativo prioriza aprofundar evidências, concentrar capacidade nas frentes de maior valor e instalar uma cadência de decisão antes de escalar investimentos.",
+      "evidenceStatus": {
+        "facts": [
+          {
+            "label": "Pergunta 1",
+            "detail": "Informação declarada pelo usuário: Evidência verificada 1"
+          },
+          {
+            "label": "Pergunta 2",
+            "detail": "Informação declarada pelo usuário: Evidência verificada 2"
+          },
+          {
+            "label": "Pergunta 3",
+            "detail": "Informação declarada pelo usuário: Evidência verificada 3"
+          },
+          {
+            "label": "Pergunta 4",
+            "detail": "Informação declarada pelo usuário: Evidência verificada 4"
+          }
+        ],
+        "assumptions": [
+          {
+            "label": "Hipótese de foco",
+            "detail": "A organização pode obter mais valor concentrando capacidade em até duas prioridades."
+          }
+        ],
+        "gaps": [
+          {
+            "label": "Baselines",
+            "detail": "Validar métricas financeiras, comerciais, de clientes e de capacidade com fonte e período."
+          },
+          {
+            "label": "Capacidade financeira",
+            "detail": "Confirmar orçamento, fluxo de caixa e limites de investimento para o horizonte."
+          }
+        ]
+      },
+      "diagnosis": {
+        "strengths": [
+          "Conhecimento do contexto declarado durante a entrevista",
+          "Intenção explícita de planejar e acompanhar"
+        ],
+        "weaknesses": [
+          "Baselines ainda incompletos",
+          "Rastreabilidade das evidências precisa ser consolidada"
+        ],
+        "opportunities": [
+          "Priorizar a base e as capacidades existentes",
+          "Usar dados para testar opções antes de escalar"
+        ],
+        "threats": [
+          "Dispersão entre iniciativas",
+          "Investimento antes da validação financeira e de demanda"
+        ],
+        "strategicIssues": [
+          {
+            "issue": "A ambição ainda não está inteiramente traduzida em indicadores verificáveis.",
+            "cause": "Faltam baselines, fontes e responsáveis em parte das respostas.",
+            "consequence": "A organização pode confundir atividade com progresso estratégico.",
+            "urgency": "alta"
+          }
+        ]
+      },
+      "growthAvenues": [
+        {
+          "title": "Aprofundar valor na base atual",
+          "description": "Testar melhorias de retenção, expansão e experiência antes de aumentar a complexidade.",
+          "valueScore": 8,
+          "complexityScore": 4,
+          "decision": "agora",
+          "reason": "Usa capacidades próximas e permite validar resultados com menor risco."
+        },
+        {
+          "title": "Nova oferta ou novo mercado",
+          "description": "Manter como opção condicionada a evidência de demanda e capacidade financeira.",
+          "valueScore": 7,
+          "complexityScore": 8,
+          "decision": "proxima",
+          "reason": "O potencial pode ser alto, mas as lacunas atuais impedem compromisso integral."
+        }
+      ],
+      "strategicChoices": {
+        "thesis": "Gerar crescimento sustentável concentrando execução na base e validando cada nova avenida com evidência, caixa e capacidade antes de escalar.",
+        "ansoffDirection": "penetracao_de_mercado",
+        "priorities": [
+          "Consolidar baselines e voz do cliente",
+          "Executar até duas iniciativas ligadas a resultados"
+        ],
+        "nonGoals": [
+          "Abrir muitas frentes simultaneamente",
+          "Aprovar investimentos sem cenário de caixa"
+        ],
+        "requiredCapabilities": [
+          "Gestão por indicadores",
+          "Descoberta de cliente",
+          "Planejamento financeiro"
+        ]
+      },
+      "objectives": [
+        {
+          "id": "O-01",
+          "title": "Transformar foco estratégico em resultado comprovável",
+          "rationale": "A organização precisa medir mudança, não apenas concluir projetos.",
+          "owner": "A definir com o patrocinador",
+          "keyResults": [
+            {
+              "id": "KR-01",
+              "metric": "Indicador principal de crescimento sustentável",
+              "baseline": "A definir",
+              "target": "A definir após validação do baseline",
+              "unit": "A definir",
+              "dueDate": "Próximos 24 meses",
+              "source": "A definir",
+              "frequency": "Mensal",
+              "owner": "A definir"
+            },
+            {
+              "id": "KR-02",
+              "metric": "Percentual de iniciativas estratégicas com evidência, dono e impacto financeiro validados",
+              "baseline": "A definir",
+              "target": "100",
+              "unit": "%",
+              "dueDate": "Próximos 24 meses",
+              "source": "Painel estratégico",
+              "frequency": "Mensal",
+              "owner": "Dono do plano"
+            }
+          ]
+        }
+      ],
+      "initiatives": [
+        {
+          "id": "I-01",
+          "title": "Auditar baselines e fontes",
+          "linkedKr": "KR-01, KR-02",
+          "why": "Criar uma base confiável para metas e decisões.",
+          "owner": "Dono do plano",
+          "startDate": "Primeiros 30 dias",
+          "endDate": "Até o dia 30",
+          "how": "Reconciliar dados comerciais, operacionais e financeiros com seus responsáveis.",
+          "cost": "A definir",
+          "dependencies": [
+            "Acesso aos sistemas",
+            "Responsáveis pelos dados"
+          ]
+        },
+        {
+          "id": "I-02",
+          "title": "Selecionar e detalhar o portfólio prioritário",
+          "linkedKr": "KR-02",
+          "why": "Evitar dispersão de capacidade e investimento.",
+          "owner": "Patrocinador executivo",
+          "startDate": "Dia 15",
+          "endDate": "Dia 45",
+          "how": "Comparar valor, complexidade, dependências, risco e caixa de cada avenida.",
+          "cost": "Sem investimento material antes da aprovação",
+          "dependencies": [
+            "Baselines mínimos",
+            "Limite financeiro"
+          ]
+        }
+      ],
+      "financialPlan": {
+        "assumptions": [
+          "Receita, margem, sazonalidade e caixa ainda precisam ser informados",
+          "Nenhuma iniciativa é considerada financiada sem validação"
+        ],
+        "scenarios": [
+          {
+            "name": "adverso",
+            "description": "Demanda e implantação abaixo do esperado.",
+            "expectedImpact": "Preservar caixa e adiar a segunda prioridade."
+          },
+          {
+            "name": "base",
+            "description": "Execução conforme capacidade validada.",
+            "expectedImpact": "Financiar as prioridades dentro do limite aprovado."
+          },
+          {
+            "name": "favoravel",
+            "description": "Resultados e caixa acima da trajetória.",
+            "expectedImpact": "Acelerar apenas após confirmar sustentabilidade."
+          }
+        ],
+        "alerts": [
+          "Projetar fluxo de caixa mensal",
+          "Validar tributos e dívida com especialistas"
+        ]
+      },
+      "governance": {
+        "roles": [
+          {
+            "role": "Patrocinador",
+            "responsibility": "Aprovar escolhas e trade-offs",
+            "decisionRights": "Alterar prioridades e orçamento"
+          },
+          {
+            "role": "Dono do plano",
+            "responsibility": "Manter indicadores, riscos e decisões",
+            "decisionRights": "Convocar revisões e escalar impedimentos"
+          }
+        ],
+        "cadences": [
+          {
+            "name": "Execução",
+            "frequency": "Semanal",
+            "purpose": "Remover bloqueios e confirmar entregas"
+          },
+          {
+            "name": "Performance",
+            "frequency": "Mensal",
+            "purpose": "Revisar KRs, previsão e caixa"
+          },
+          {
+            "name": "Estratégia",
+            "frequency": "Trimestral",
+            "purpose": "Revisar escolhas, riscos e cenários"
+          }
+        ],
+        "communication": "Apresentar escolhas primeiro às lideranças e depois à organização, registrando decisões e aprendizados."
+      },
+      "risks": [
+        {
+          "risk": "Dispersão em projetos não priorizados",
+          "probability": "alta",
+          "impact": "alto",
+          "earlySignal": "Mais de duas iniciativas materiais iniciadas sem dono e KR.",
+          "mitigation": "Portão mensal de portfólio e não-objetivos visíveis.",
+          "owner": "Patrocinador"
+        },
+        {
+          "risk": "Plano inviável para o caixa",
+          "probability": "media",
+          "impact": "critico",
+          "earlySignal": "Projeção abaixo do caixa mínimo definido.",
+          "mitigation": "Cenários mensais e implantação por estágios.",
+          "owner": "Responsável financeiro"
+        }
+      ],
+      "first90Days": [
+        {
+          "period": "Dias 1–30",
+          "deliverable": "Baselines, fontes, donos e lacunas auditados",
+          "owner": "Dono do plano"
+        },
+        {
+          "period": "Dias 31–60",
+          "deliverable": "Avenidas priorizadas e iniciativas detalhadas",
+          "owner": "Patrocinador"
+        },
+        {
+          "period": "Dias 61–90",
+          "deliverable": "Primeira revisão de KRs, riscos e caixa",
+          "owner": "Comitê estratégico"
+        }
+      ],
+      "quality": {
+        "score": 53,
+        "strengths": [
+          "Método completo",
+          "Trade-offs explícitos",
+          "Governança definida"
+        ],
+        "improvements": [
+          "Substituir campos 'A definir' por dados verificados",
+          "Validar metas e cenários financeiros"
+        ]
+      }
+    }
+  }
+}

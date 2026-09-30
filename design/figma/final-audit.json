@@ -1,0 +1,8 @@
+{
+  "textNodesChecked": 719,
+  "contrastFailures": [],
+  "buttonOverlaps": [],
+  "minimumTextContrast": 4.564768409420497,
+  "method": "Solid text fill over nearest solid ancestor. Disabled and hidden text excluded. Does not replace a complete WCAG audit.",
+  "rootCount": 14
+}

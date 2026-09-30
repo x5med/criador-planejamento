@@ -1,0 +1,588 @@
+const assetPathPrefix = "figma-asset:5ccfe44a-76d9-4dd2-a7c2-86cd7db7aecf";
+const imgGrupoX5LogoPng = `${assetPathPrefix}/7a6e1.png`;
+const imgGrupoX5SimboloPng = `${assetPathPrefix}/2e59c.png`;
+const imgFrame = `${assetPathPrefix}/82a77.svg`;
+const imgX5Icon = `${assetPathPrefix}/8578c.svg`;
+const imgFrame1 = `${assetPathPrefix}/c061b.svg`;
+const imgFrame2 = `${assetPathPrefix}/3b04f.svg`;
+const imgIcon = `${assetPathPrefix}/a3b42.svg`;
+const imgIcon1 = `${assetPathPrefix}/3d1ae.svg`;
+const imgFrame3 = `${assetPathPrefix}/b8edc.svg`;
+const imgFrame4 = `${assetPathPrefix}/106b6.svg`;
+const imgFrame5 = `${assetPathPrefix}/1ec37.svg`;
+const imgFrame6 = `${assetPathPrefix}/67f91.svg`;
+const imgIcon2 = `${assetPathPrefix}/54072.svg`;
+const imgFrame7 = `${assetPathPrefix}/edaeb.svg`;
+
+export default function Component03EntrevistaGuiadaDesktop() {
+  return (
+    <div className="overflow-clip relative rounded-[var(--radius-48,48px)] size-full" data-node-id="6:799" style={{ backgroundImage: "linear-gradient(116.07626938245882deg, rgb(214, 218, 211) 8.4746%, rgb(243, 245, 240) 49.153%, rgb(191, 198, 185) 93.22%)" }} data-name="03 · Entrevista guiada — Desktop">
+      <div className="absolute backdrop-blur-[14px] bg-[var(--surface-glass,rgba(255,255,255,0.4))] border border-[rgba(255,255,255,0.68)] border-solid content-stretch flex gap-[var(--space-0,0px)] h-[1286.063px] items-start left-[28px] overflow-clip p-[var(--space-0,0px)] rounded-[var(--radius-48,48px)] shadow-[0px_16px_44px_0px_rgba(0,0,0,0.09)] top-[28px] w-[1440px]" data-node-id="6:800" data-name="X5 App">
+        <div className="border border-[var(--x5-border-glass,rgba(255,255,255,0.9))] border-solid content-stretch drop-shadow-[0px_6px_10px_rgba(0,0,0,0.08)] flex flex-col gap-[var(--space-30,30px)] h-[1286.063px] items-start pb-[var(--space-24,24px)] pt-[34px] px-[var(--space-20,20px)] relative rounded-[var(--radius-48,48px)] shrink-0 w-[232px]" data-node-id="6:801" data-name="DS/Sidebar/Interview">
+          <div aria-hidden className="absolute backdrop-blur-[12px] bg-[var(--x5-surface-navigation,rgba(255,255,255,0.76))] inset-0 pointer-events-none rounded-[var(--radius-48,48px)]" />
+          <div className="content-stretch flex gap-[14px] h-[52px] items-center p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="10:671" data-name="DS/Brand/X5">
+            <div className="h-[50px] relative shrink-0 w-[87.232px]" data-node-id="I10:671;30:387" data-name="Grupo X5 / Logo PNG">
+              <img alt="" className="absolute inset-0 max-w-none object-contain pointer-events-none size-full" src={imgGrupoX5LogoPng} />
+            </div>
+            <div className="h-[18px] relative shrink-0 w-[78.031px]" data-node-id="I10:671;10:650" data-name="brand-name">
+              <p className="[word-break:break-word] absolute font-['Sora:SemiBold'] font-semibold leading-[18px] left-0 text-[12px] text-[color:var(--text-primary,#111)] top-[2px] whitespace-nowrap" data-node-id="I10:671;10:651">
+                Planejamento
+              </p>
+            </div>
+          </div>
+          <div className="content-stretch flex gap-[var(--space-10,10px)] h-[51.688px] items-center pb-[var(--space-0,0px)] pt-[var(--space-10,10px)] px-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:808" data-name="org">
+            <div className="bg-[#e8eddd] content-stretch flex gap-[var(--space-0,0px)] items-center justify-center p-[var(--space-0,0px)] relative rounded-[var(--radius-50,50px)] shrink-0 size-[38px]" data-node-id="6:809" data-name="avatar">
+              <p className="[word-break:break-word] font-['Sora:Bold'] font-bold leading-[16.5px] relative shrink-0 text-[11px] text-[color:var(--text-primary,#111)] whitespace-nowrap" data-node-id="6:810">
+                CH
+              </p>
+            </div>
+            <div className="content-stretch flex flex-col gap-[var(--space-4,4px)] h-[41.688px] items-start p-[var(--space-0,0px)] relative shrink-0 w-[126.078px]" data-node-id="6:811" data-name="div">
+              <div className="h-[14px] relative shrink-0 w-[98.016px]" data-node-id="6:812" data-name="b">
+                <p className="[word-break:break-word] absolute font-['Sora:Bold'] font-bold leading-[18px] left-0 text-[12px] text-[color:var(--text-primary,#111)] top-0 whitespace-nowrap" data-node-id="6:813">
+                  Clínica Horizonte
+                </p>
+              </div>
+              <div className="h-[19.188px] relative shrink-0 w-full" data-node-id="6:814" data-name="small">
+                <p className="[word-break:break-word] absolute font-['Sora:Regular'] font-normal leading-[19.2px] left-0 text-[12px] text-[color:var(--text-secondary,#555b52)] top-[2px] whitespace-nowrap" data-node-id="6:815">
+                  Ciclo estratégico · 2027
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="h-[13.5px] relative shrink-0 w-full" data-node-id="6:816" data-name="nav-label">
+            <p className="[word-break:break-word] absolute font-['Sora:Regular'] font-normal leading-[13.5px] left-0 text-[9px] text-[color:var(--text-strong-secondary,#3e4931)] top-px tracking-[1.2px] whitespace-nowrap" data-node-id="6:817">
+              SUA JORNADA
+            </p>
+          </div>
+          <div className="content-stretch flex flex-col gap-[var(--space-8,8px)] h-[262px] items-start p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:818" data-name="nav">
+            <div className="content-stretch flex gap-[11px] h-[46px] items-center p-[var(--space-10,10px)] relative rounded-[var(--radius-999,999px)] shrink-0 w-full" data-node-id="6:819" data-name="phase">
+              <div className="bg-[#edf8c0] content-stretch flex gap-[var(--space-0,0px)] items-center justify-center p-[var(--space-0,0px)] relative rounded-[var(--radius-50,50px)] shrink-0 size-[26px]" data-node-id="6:820" data-name="step">
+                <p className="[word-break:break-word] font-['Sora:Regular'] font-normal leading-[15px] relative shrink-0 text-[#45503b] text-[10px] whitespace-nowrap" data-node-id="6:821">
+                  ✓
+                </p>
+              </div>
+              <div className="h-[18px] relative shrink-0 w-[48.031px]" data-node-id="6:822" data-name="p">
+                <p className="[word-break:break-word] absolute font-['Sora:Regular'] font-normal leading-[18px] left-0 text-[12px] text-[color:var(--text-primary,#111)] top-[2px] whitespace-nowrap" data-node-id="6:823">
+                  Contexto
+                </p>
+              </div>
+            </div>
+            <div className="bg-[var(--action-primary,#111)] content-stretch flex gap-[11px] h-[46px] items-center p-[var(--space-10,10px)] relative rounded-[var(--radius-999,999px)] shrink-0 w-full" data-node-id="6:824" data-name="phase">
+              <div className="bg-[var(--action-accent,#d8f36a)] content-stretch flex gap-[var(--space-0,0px)] items-center justify-center p-[var(--space-0,0px)] relative rounded-[var(--radius-50,50px)] shrink-0 size-[26px]" data-node-id="6:825" data-name="step">
+                <p className="[word-break:break-word] font-['Sora:Regular'] font-normal leading-[15px] relative shrink-0 text-[10px] text-[color:var(--text-primary,#111)] whitespace-nowrap" data-node-id="6:826">
+                  02
+                </p>
+              </div>
+              <div className="h-[18px] relative shrink-0 w-[78.047px]" data-node-id="6:827" data-name="p">
+                <p className="[word-break:break-word] absolute font-['Sora:Regular'] font-normal leading-[18px] left-0 text-[12px] text-[color:var(--text-on-dark,white)] top-[2px] whitespace-nowrap" data-node-id="6:828">
+                  Onde estamos
+                </p>
+              </div>
+            </div>
+            <div className="content-stretch flex gap-[11px] h-[46px] items-center p-[var(--space-10,10px)] relative rounded-[var(--radius-999,999px)] shrink-0 w-full" data-node-id="6:829" data-name="phase">
+              <div className="bg-[#dae3cf] content-stretch flex gap-[var(--space-0,0px)] items-center justify-center p-[var(--space-0,0px)] relative rounded-[var(--radius-50,50px)] shrink-0 size-[26px]" data-node-id="6:830" data-name="step">
+                <p className="[word-break:break-word] font-['Sora:Regular'] font-normal leading-[15px] relative shrink-0 text-[10px] text-[color:var(--text-strong-secondary,#3e4931)] whitespace-nowrap" data-node-id="6:831">
+                  03
+                </p>
+              </div>
+              <div className="h-[18px] relative shrink-0 w-[94.063px]" data-node-id="6:832" data-name="p">
+                <p className="[word-break:break-word] absolute font-['Sora:Regular'] font-normal leading-[18px] left-0 text-[12px] text-[color:var(--text-primary,#111)] top-[2px] whitespace-nowrap" data-node-id="6:833">
+                  Para onde vamos
+                </p>
+              </div>
+            </div>
+            <div className="content-stretch flex gap-[11px] h-[46px] items-center p-[var(--space-10,10px)] relative rounded-[var(--radius-999,999px)] shrink-0 w-full" data-node-id="6:834" data-name="phase">
+              <div className="bg-[#dae3cf] content-stretch flex gap-[var(--space-0,0px)] items-center justify-center p-[var(--space-0,0px)] relative rounded-[var(--radius-50,50px)] shrink-0 size-[26px]" data-node-id="6:835" data-name="step">
+                <p className="[word-break:break-word] font-['Sora:Regular'] font-normal leading-[15px] relative shrink-0 text-[10px] text-[color:var(--text-strong-secondary,#3e4931)] whitespace-nowrap" data-node-id="6:836">
+                  04
+                </p>
+              </div>
+              <div className="h-[18px] relative shrink-0 w-[70.688px]" data-node-id="6:837" data-name="p">
+                <p className="[word-break:break-word] absolute font-['Sora:Regular'] font-normal leading-[18px] left-0 text-[12px] text-[color:var(--text-primary,#111)] top-[2px] whitespace-nowrap" data-node-id="6:838">
+                  Como vamos
+                </p>
+              </div>
+            </div>
+            <div className="content-stretch flex gap-[11px] h-[46px] items-center p-[var(--space-10,10px)] relative rounded-[var(--radius-999,999px)] shrink-0 w-full" data-node-id="6:839" data-name="phase">
+              <div className="bg-[#dae3cf] content-stretch flex gap-[var(--space-0,0px)] items-center justify-center p-[var(--space-0,0px)] relative rounded-[var(--radius-50,50px)] shrink-0 size-[26px]" data-node-id="6:840" data-name="step">
+                <p className="[word-break:break-word] font-['Sora:Regular'] font-normal leading-[15px] relative shrink-0 text-[10px] text-[color:var(--text-strong-secondary,#3e4931)] whitespace-nowrap" data-node-id="6:841">
+                  05
+                </p>
+              </div>
+              <div className="h-[18px] relative shrink-0 w-[97.375px]" data-node-id="6:842" data-name="p">
+                <p className="[word-break:break-word] absolute font-['Sora:Regular'] font-normal leading-[18px] left-0 text-[12px] text-[color:var(--text-primary,#111)] top-[2px] whitespace-nowrap" data-node-id="6:843">
+                  Com quem vamos
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="content-stretch flex flex-col gap-[var(--space-20,20px)] h-[251.75px] items-start pb-[var(--space-0,0px)] pt-[45px] px-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:844" data-name="sidebar-bottom">
+            <div className="bg-[#e7ebe4] content-stretch flex flex-col gap-[var(--space-12,12px)] h-[103.563px] items-start p-[var(--space-16,16px)] relative rounded-[var(--radius-24,24px)] shrink-0 w-full" data-node-id="6:845" data-name="Local saving">
+              <div className="content-stretch flex gap-[var(--space-8,8px)] h-[19.188px] items-center p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:846" data-name="row">
+                <div className="relative shrink-0 size-[18px]" data-node-id="6:847" data-name="Frame">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                </div>
+                <div className="h-[19.188px] relative shrink-0 w-[130.719px]" data-node-id="6:850" data-name="small">
+                  <p className="[word-break:break-word] absolute font-['Sora:Bold'] font-bold leading-[19.2px] left-0 text-[12px] text-[color:var(--text-primary,#111)] top-[2px] whitespace-nowrap" data-node-id="6:851">
+                    Salvo neste navegador
+                  </p>
+                </div>
+              </div>
+              <div className="content-stretch flex flex-col gap-[var(--space-0,0px)] h-[38.375px] items-start p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:852" data-name="small">
+                <p className="[word-break:break-word] font-['Sora:Regular'] font-normal h-[33.188px] leading-[19.2px] relative shrink-0 text-[12px] text-[color:var(--text-secondary,#555b52)] w-[157px]" data-node-id="6:853">
+                  Você pode retomar de onde parou neste dispositivo.
+                </p>
+              </div>
+            </div>
+            <a className="border border-[#d4dcce] border-solid content-stretch cursor-pointer flex gap-[var(--space-12,12px)] h-[44px] items-center justify-center px-[var(--space-18,18px)] py-[var(--space-12,12px)] relative rounded-[var(--radius-28,28px)] shrink-0 w-[133.344px]" data-node-id="10:270" data-name="DS/Button/outline/Novo plano">
+              <div className="content-stretch flex items-start relative shrink-0" data-node-id="I10:270;10:73" data-name="span">
+                <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold leading-[18px] relative shrink-0 text-[12px] text-[color:var(--text-primary,#111)] text-left whitespace-nowrap" data-node-id="I10:270;10:74">
+                  Novo plano
+                </p>
+              </div>
+              <div className="relative shrink-0 size-[18px]" data-node-id="I10:270;10:79" data-name="Icon">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgX5Icon} />
+              </div>
+            </a>
+            <div className="content-stretch flex gap-[var(--space-8,8px)] h-[19.188px] items-center p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:860" data-name="sidebar-help">
+              <div className="relative shrink-0 size-[18px]" data-node-id="6:861" data-name="Frame">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame1} />
+              </div>
+              <div className="h-[19.188px] relative shrink-0 w-[134.094px]" data-node-id="6:865" data-name="small">
+                <p className="[word-break:break-word] absolute font-['Sora:Regular'] font-normal leading-[19.2px] left-0 text-[#555b52] text-[12px] top-[2px] whitespace-nowrap" data-node-id="6:866">
+                  Como funciona o método
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_1px_1px_0px_rgba(255,255,255,0.6)]" />
+        </div>
+        <div className="content-stretch flex flex-col gap-[var(--space-0,0px)] h-[1286.063px] items-start pb-[var(--space-0,0px)] pt-[20px] px-[var(--space-30,30px)] relative shrink-0 w-[1208px]" data-node-id="6:867" data-name="workspace">
+          <div className="border border-[var(--x5-border-glass,rgba(255,255,255,0.9))] border-solid content-stretch drop-shadow-[0px_6px_10px_rgba(0,0,0,0.08)] flex gap-[var(--space-0,0px)] h-[72px] items-center justify-between px-[var(--space-18,18px)] py-[var(--space-0,0px)] relative rounded-[var(--radius-32,32px)] shrink-0 w-full" data-node-id="6:868" data-name="DS/Header/Workspace">
+            <div aria-hidden className="absolute backdrop-blur-[12px] bg-[var(--x5-surface-navigation,rgba(255,255,255,0.76))] inset-0 pointer-events-none rounded-[var(--radius-32,32px)]" />
+            <div className="content-stretch flex gap-[var(--space-8,8px)] h-[19.188px] items-center p-[var(--space-0,0px)] relative shrink-0 w-[171.891px]" data-node-id="6:869" data-name="row">
+              <div className="h-[19.188px] relative shrink-0 w-[59.813px]" data-node-id="6:870" data-name="small">
+                <p className="[word-break:break-word] absolute font-['Sora:Regular'] font-normal leading-[19.2px] left-0 text-[12px] text-[color:var(--text-secondary,#555b52)] top-[2px] whitespace-nowrap" data-node-id="6:871">
+                  Workspace
+                </p>
+              </div>
+              <div className="h-[19.188px] relative shrink-0 w-[3.344px]" data-node-id="6:872" data-name="small">
+                <p className="[word-break:break-word] absolute font-['Sora:Regular'] font-normal leading-[19.2px] left-0 text-[12px] text-[color:var(--text-secondary,#555b52)] top-[2px] whitespace-nowrap" data-node-id="6:873">
+                  /
+                </p>
+              </div>
+              <div className="h-[19.188px] relative shrink-0 w-[92.734px]" data-node-id="6:874" data-name="small">
+                <p className="[word-break:break-word] absolute font-['Sora:Regular'] font-normal leading-[19.2px] left-0 text-[12px] text-[color:var(--text-primary,#111)] top-[2px] whitespace-nowrap" data-node-id="6:875">
+                  Entrevista guiada
+                </p>
+              </div>
+            </div>
+            <div className="content-stretch flex gap-[var(--space-12,12px)] h-[44px] items-center p-[var(--space-0,0px)] relative shrink-0" data-node-id="6:876" data-name="row">
+              <div className="bg-[var(--action-accent,#d8f36a)] content-stretch flex gap-[var(--space-6,6px)] h-[25px] items-center justify-center px-[var(--space-10,10px)] py-[5px] relative rounded-[var(--radius-30,30px)] shrink-0 w-[89.469px]" data-node-id="10:534" data-name="DS/Badge/Demonstração">
+                <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold leading-[15px] relative shrink-0 text-[10px] text-[color:var(--text-primary,#111)] whitespace-nowrap" data-node-id="I10:534;10:468">
+                  Demonstração
+                </p>
+              </div>
+              <div className="bg-[#d9ded3] h-[22px] relative shrink-0 w-px" data-node-id="6:879" data-name="top-divider" />
+              <div className="bg-[var(--x5-control-selected,white)] content-stretch flex gap-[var(--space-0,0px)] items-center justify-center p-[var(--space-0,0px)] relative rounded-[var(--radius-999,999px)] shrink-0 size-[44px]" data-node-id="6:880" data-name="small-icon">
+                <div className="relative shrink-0 size-[20px]" data-node-id="6:881" data-name="Frame">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+                </div>
+              </div>
+              <div className="bg-[var(--action-primary,#111)] content-stretch flex gap-[var(--space-0,0px)] items-center justify-center p-[var(--space-0,0px)] relative rounded-[var(--radius-50,50px)] shrink-0 size-[38px]" data-node-id="6:885" data-name="avatar">
+                <div className="h-[15.476px] relative shrink-0 w-[27px]" data-node-id="30:567" data-name="Grupo X5 / Símbolo PNG">
+                  <img alt="" className="absolute inset-0 max-w-none object-contain pointer-events-none size-full" src={imgGrupoX5SimboloPng} />
+                </div>
+              </div>
+            </div>
+            <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_1px_1px_0px_rgba(255,255,255,0.6)]" />
+          </div>
+          <div className="content-stretch flex flex-col gap-[var(--space-24,24px)] h-[1194.063px] items-start pb-[34px] pt-[var(--space-28,28px)] px-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:887" data-name="main-content">
+            <div className="content-stretch flex gap-[var(--space-20,20px)] h-[95.969px] items-end justify-between p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:888" data-name="Page title">
+              <div className="content-stretch flex flex-col gap-[var(--space-8,8px)] h-[95.969px] items-start p-[var(--space-0,0px)] relative shrink-0 w-[395.344px]" data-node-id="6:889" data-name="stack8">
+                <div className="h-[16.5px] relative shrink-0 w-full" data-node-id="6:890" data-name="eyebrow">
+                  <p className="[word-break:break-word] absolute font-['Sora:Bold'] font-bold leading-[16.5px] left-0 text-[#555b52] text-[11px] top-[2px] tracking-[1.4px] whitespace-nowrap" data-node-id="6:891">
+                    ETAPA 02 DE 05
+                  </p>
+                </div>
+                <div className="h-[42.469px] relative shrink-0 w-full" data-node-id="6:892" data-name="h1">
+                  <p className="[word-break:break-word] absolute font-['Sora:ExtraBold'] font-extrabold leading-[42.48px] left-0 text-[36px] text-[color:var(--text-primary,#111)] top-0 tracking-[-1.5px] whitespace-nowrap" data-node-id="6:893">
+                    Onde estamos
+                  </p>
+                </div>
+                <div className="h-[21px] relative shrink-0 w-full" data-node-id="6:894" data-name="muted">
+                  <p className="[word-break:break-word] absolute font-['Sora:Regular'] font-normal leading-[21px] left-0 text-[14px] text-[color:var(--text-secondary,#555b52)] top-[2px] whitespace-nowrap" data-node-id="6:895">
+                    Uma boa decisão começa com uma visão honesta do presente.
+                  </p>
+                </div>
+              </div>
+              <div className="bg-[var(--status-neutral-surface,#eef2e7)] content-stretch flex gap-[var(--space-6,6px)] h-[25px] items-center justify-center px-[var(--space-10,10px)] py-[5px] relative rounded-[var(--radius-30,30px)] shrink-0 w-[108.953px]" data-node-id="10:536" data-name="DS/Badge/6 respostas salvas">
+                <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold leading-[15px] relative shrink-0 text-[10px] text-[color:var(--status-neutral-text,#3e4931)] whitespace-nowrap" data-node-id="I10:536;10:473">
+                  6 respostas salvas
+                </p>
+              </div>
+            </div>
+            <div className="content-stretch flex gap-[var(--space-20,20px)] h-[944.906px] items-start p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:898" data-name="cols">
+              <div className="content-stretch flex flex-col gap-[var(--space-20,20px)] h-[944.906px] items-start p-[var(--space-0,0px)] relative shrink-0 w-[718px]" data-node-id="6:899" data-name="left">
+                <div className="bg-[var(--surface-card,white)] content-stretch drop-shadow-[0px_5px_9px_rgba(31,41,23,0.05)] flex flex-col gap-[var(--space-24,24px)] h-[540.328px] items-start p-[var(--space-24,24px)] relative rounded-[var(--radius-32,32px)] shrink-0 w-full" data-node-id="6:900" data-name="Question">
+                  <div className="content-stretch flex gap-[var(--space-0,0px)] h-[25px] items-center justify-between p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:901" data-name="row">
+                    <div className="h-[16.5px] relative shrink-0 w-[246.109px]" data-node-id="6:902" data-name="eyebrow">
+                      <p className="[word-break:break-word] absolute font-['Sora:Bold'] font-bold leading-[16.5px] left-0 text-[#555b52] text-[11px] top-[2px] tracking-[1.4px] whitespace-nowrap" data-node-id="6:903">
+                        EVIDÊNCIAS · NÚMEROS DE PARTIDA
+                      </p>
+                    </div>
+                    <div className="bg-[var(--action-accent,#d8f36a)] content-stretch flex gap-[var(--space-6,6px)] h-[25px] items-center justify-center px-[var(--space-10,10px)] py-[5px] relative rounded-[var(--radius-30,30px)] shrink-0 w-[77.25px]" data-node-id="10:538" data-name="DS/Badge/Pergunta 07">
+                      <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold leading-[15px] relative shrink-0 text-[10px] text-[color:var(--text-primary,#111)] whitespace-nowrap" data-node-id="I10:538;10:468">
+                        Pergunta 07
+                      </p>
+                    </div>
+                  </div>
+                  <div className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold h-[73.781px] leading-[36.9px] relative shrink-0 text-[30px] text-[color:var(--text-primary,#111)] tracking-[-0.8px] w-full whitespace-nowrap" data-node-id="6:906" data-name="h2">
+                    <p className="absolute left-0 top-px" data-node-id="6:907">
+                      Quais indicadores mostram
+                    </p>
+                    <p className="absolute left-0 top-[37.89px]" data-node-id="6:908">
+                      a realidade de hoje?
+                    </p>
+                  </div>
+                  <div className="h-[22.5px] relative shrink-0 w-full" data-node-id="6:909" data-name="muted">
+                    <p className="[word-break:break-word] absolute font-['Sora:Regular'] font-normal leading-[22.5px] left-0 text-[15px] text-[color:var(--text-secondary,#555b52)] top-[2px] whitespace-nowrap" data-node-id="6:910">
+                      Inclua período e fonte. Receita, margem, retenção e capacidade são bons pontos de partida.
+                    </p>
+                  </div>
+                  <div className="[word-break:break-word] bg-[#f8faf4] border border-[var(--border-default,#d9ded3)] border-solid font-['Sora:Regular'] font-normal h-[206px] leading-[27px] relative rounded-[var(--radius-18,18px)] shrink-0 text-[15px] text-[color:var(--text-primary,#111)] w-full" data-node-id="6:911" data-name="answer">
+                    <p className="absolute h-[44px] left-[21px] top-[27px] w-[624px]" data-node-id="6:912">
+                      A receita mensal ainda precisa ser consolidada com o financeiro. A agenda mostra horários ociosos à tarde, mas não temos uma taxa de ocupação validada.
+                    </p>
+                    <p className="absolute left-[22px] top-[108px] whitespace-nowrap" data-node-id="6:913">
+                      Precisamos confirmar o período e a fonte dos indicadores.
+                    </p>
+                  </div>
+                  <div className="content-stretch flex gap-[var(--space-0,0px)] h-[17.047px] items-center justify-between p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:914" data-name="row">
+                    <div className="h-[17.047px] relative shrink-0 w-[248.266px]" data-node-id="6:915" data-name="tiny">
+                      <p className="[word-break:break-word] absolute font-['Sora:Regular'] font-normal leading-[17.05px] left-0 text-[11px] text-[color:var(--text-secondary,#555b52)] top-[2px] whitespace-nowrap" data-node-id="6:916">
+                        Se não souber, registre o que precisa ser validado.
+                      </p>
+                    </div>
+                    <div className="h-[17.047px] relative shrink-0 w-[72.766px]" data-node-id="6:917" data-name="tiny">
+                      <p className="[word-break:break-word] absolute font-['Sora:Regular'] font-normal leading-[17.05px] left-0 text-[11px] text-[color:var(--text-secondary,#555b52)] top-[2px] whitespace-nowrap" data-node-id="6:918">
+                        244 caracteres
+                      </p>
+                    </div>
+                  </div>
+                  <div className="content-stretch flex gap-[var(--space-0,0px)] h-[44px] items-center justify-between p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:919" data-name="row">
+                    <div className="border border-[#d4dcce] border-solid content-stretch flex gap-[var(--space-12,12px)] h-[44px] items-center justify-center px-[var(--space-18,18px)] py-[var(--space-12,12px)] relative rounded-[var(--radius-28,28px)] shrink-0 w-[191.375px]" data-node-id="10:278" data-name="DS/Button/outline/Me ajude a responder">
+                      <div className="content-stretch flex items-start relative shrink-0" data-node-id="I10:278;10:73" data-name="span">
+                        <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold leading-[18px] relative shrink-0 text-[12px] text-[color:var(--text-primary,#111)] whitespace-nowrap" data-node-id="I10:278;10:74">
+                          Me ajude a responder
+                        </p>
+                      </div>
+                      <div className="relative shrink-0 size-[18px]" data-node-id="I10:278;10:79" data-name="Icon">
+                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcon} />
+                      </div>
+                    </div>
+                    <div className="bg-[var(--action-primary,#111)] border border-[var(--icon-default,#111)] border-solid content-stretch flex gap-[var(--space-12,12px)] h-[44px] items-center justify-center px-[var(--space-18,18px)] py-[var(--space-12,12px)] relative rounded-[var(--radius-28,28px)] shrink-0 w-[172.047px]" data-node-id="10:288" data-name="DS/Button/black/Salvar e continuar">
+                      <div className="content-stretch flex items-start relative shrink-0" data-node-id="I10:288;10:91" data-name="span">
+                        <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold leading-[18px] relative shrink-0 text-[12px] text-[color:var(--text-on-dark,white)] whitespace-nowrap" data-node-id="I10:288;10:92">
+                          Salvar e continuar
+                        </p>
+                      </div>
+                      <div className="relative shrink-0 size-[18px]" data-node-id="I10:288;10:98" data-name="Icon">
+                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcon1} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-[var(--x5-brand-lime-soft,#edf8c0)] content-stretch drop-shadow-[0px_5px_9px_rgba(31,41,23,0.05)] flex flex-col gap-[var(--space-18,18px)] h-[297.578px] items-start p-[var(--space-24,24px)] relative rounded-[var(--radius-32,32px)] shrink-0 w-full" data-node-id="6:934" data-name="AI coach">
+                  <div className="content-stretch flex gap-[var(--space-12,12px)] h-[25.641px] items-center justify-between p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:935" data-name="card-head">
+                    <div className="content-stretch flex gap-[var(--space-8,8px)] h-[25.641px] items-center p-[var(--space-0,0px)] relative shrink-0 w-[291.359px]" data-node-id="6:936" data-name="row">
+                      <div className="relative shrink-0 size-[20px]" data-node-id="6:937" data-name="Frame">
+                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame3} />
+                      </div>
+                      <div className="h-[25.641px] relative shrink-0 w-[263.359px]" data-node-id="6:942" data-name="h3">
+                        <p className="[word-break:break-word] absolute font-['Sora:Bold'] font-bold leading-[25.65px] left-0 text-[19px] text-[color:var(--text-primary,#111)] top-[2px] tracking-[-0.4px] whitespace-nowrap" data-node-id="6:943">
+                          Vamos organizar sua resposta
+                        </p>
+                      </div>
+                    </div>
+                    <div className="relative shrink-0 size-[18px]" data-node-id="6:944" data-name="Frame">
+                      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame4} />
+                    </div>
+                  </div>
+                  <div className="h-[19.188px] relative shrink-0 w-full" data-node-id="6:947" data-name="small">
+                    <p className="[word-break:break-word] absolute font-['Sora:Regular'] font-normal leading-[19.2px] left-0 text-[12px] text-[color:var(--text-primary,#111)] top-[2px] whitespace-nowrap" data-node-id="6:948">
+                      Você pode estruturar cada indicador em três partes:
+                    </p>
+                  </div>
+                  <div className="content-stretch flex flex-col gap-[var(--space-12,12px)] h-[131.563px] items-start p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:949" data-name="stack12">
+                    <div className="content-stretch flex gap-[var(--space-20,20px)] h-[35.188px] items-start justify-between px-[var(--space-0,0px)] py-[var(--space-8,8px)] relative shrink-0 w-full" data-node-id="6:950" data-name="kv">
+                      <div className="h-[19.188px] relative shrink-0 w-[108.734px]" data-node-id="6:951" data-name="small">
+                        <p className="[word-break:break-word] absolute font-['Sora:Regular'] font-normal leading-[19.2px] left-0 text-[12px] text-[color:var(--text-secondary,#555b52)] top-[2px] whitespace-nowrap" data-node-id="6:952">
+                          01 · O que sabemos
+                        </p>
+                      </div>
+                      <div className="h-[19.188px] relative shrink-0 w-[135.422px]" data-node-id="6:953" data-name="small">
+                        <p className="[word-break:break-word] absolute font-['Sora:Regular'] font-normal leading-[19.2px] left-0 text-[12px] text-[color:var(--text-primary,#111)] top-[2px] whitespace-nowrap" data-node-id="6:954">
+                          Indicador, valor e período
+                        </p>
+                      </div>
+                    </div>
+                    <div className="border border-[#f4f6f1] border-solid content-stretch flex gap-[var(--space-20,20px)] h-[36.188px] items-start justify-between px-[var(--space-0,0px)] py-[var(--space-8,8px)] relative shrink-0 w-full" data-node-id="6:955" data-name="kv">
+                      <div className="h-[19.188px] relative shrink-0 w-[106.719px]" data-node-id="6:956" data-name="small">
+                        <p className="[word-break:break-word] absolute font-['Sora:Regular'] font-normal leading-[19.2px] left-0 text-[12px] text-[color:var(--text-secondary,#555b52)] top-[2px] whitespace-nowrap" data-node-id="6:957">
+                          02 · Onde confirmar
+                        </p>
+                      </div>
+                      <div className="h-[19.188px] relative shrink-0 w-[184.125px]" data-node-id="6:958" data-name="small">
+                        <p className="[word-break:break-word] absolute font-['Sora:Regular'] font-normal leading-[19.2px] left-0 text-[12px] text-[color:var(--text-primary,#111)] top-[2px] whitespace-nowrap" data-node-id="6:959">
+                          Sistema ou responsável pela fonte
+                        </p>
+                      </div>
+                    </div>
+                    <div className="border border-[#f4f6f1] border-solid content-stretch flex gap-[var(--space-20,20px)] h-[36.188px] items-start justify-between px-[var(--space-0,0px)] py-[var(--space-8,8px)] relative shrink-0 w-full" data-node-id="6:960" data-name="kv">
+                      <div className="h-[19.188px] relative shrink-0 w-[82.719px]" data-node-id="6:961" data-name="small">
+                        <p className="[word-break:break-word] absolute font-['Sora:Regular'] font-normal leading-[19.2px] left-0 text-[12px] text-[color:var(--text-secondary,#555b52)] top-[2px] whitespace-nowrap" data-node-id="6:962">
+                          03 · O que falta
+                        </p>
+                      </div>
+                      <div className="h-[19.188px] relative shrink-0 w-[149.438px]" data-node-id="6:963" data-name="small">
+                        <p className="[word-break:break-word] absolute font-['Sora:Regular'] font-normal leading-[19.2px] left-0 text-[12px] text-[color:var(--text-primary,#111)] top-[2px] whitespace-nowrap" data-node-id="6:964">
+                          Lacuna e próxima validação
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="h-[19.188px] relative shrink-0 w-full" data-node-id="6:965" data-name="small">
+                    <p className="[word-break:break-word] absolute font-['Sora:Regular'] font-normal leading-[19.2px] left-0 text-[#465925] text-[12px] top-[2px] whitespace-nowrap" data-node-id="6:966">
+                      Use apenas os fatos disponíveis. Não transforme exemplos em números reais.
+                    </p>
+                  </div>
+                </div>
+                <div className="bg-[var(--surface-card,white)] content-stretch drop-shadow-[0px_5px_9px_rgba(31,41,23,0.05)] flex flex-col gap-[var(--space-0,0px)] h-[67px] items-center px-[25px] py-[21px] relative rounded-[var(--radius-32,32px)] shrink-0 w-full" data-node-id="6:967" data-name="Previous answers">
+                  <div className="content-stretch flex gap-[var(--space-0,0px)] h-[25px] items-center justify-between p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:968" data-name="row">
+                    <div className="content-stretch flex gap-[var(--space-8,8px)] h-[25px] items-center p-[var(--space-0,0px)] relative shrink-0 w-[212.141px]" data-node-id="6:969" data-name="row">
+                      <div className="relative shrink-0 size-[18px]" data-node-id="6:970" data-name="Frame">
+                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame5} />
+                      </div>
+                      <div className="h-[21px] relative shrink-0 w-[152.578px]" data-node-id="6:973" data-name="h4">
+                        <p className="[word-break:break-word] absolute font-['Sora:SemiBold'] font-semibold leading-[21px] left-0 text-[15px] text-[color:var(--text-primary,#111)] top-[2px] whitespace-nowrap" data-node-id="6:974">
+                          Respostas anteriores
+                        </p>
+                      </div>
+                      <div className="bg-[var(--status-neutral-surface,#eef2e7)] content-stretch flex gap-[var(--space-6,6px)] h-[25px] items-center justify-center px-[var(--space-10,10px)] py-[5px] relative rounded-[var(--radius-30,30px)] shrink-0 w-[25.563px]" data-node-id="10:540" data-name="DS/Badge/6">
+                        <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold leading-[15px] relative shrink-0 text-[10px] text-[color:var(--status-neutral-text,#3e4931)] whitespace-nowrap" data-node-id="I10:540;10:473">
+                          6
+                        </p>
+                      </div>
+                    </div>
+                    <div className="relative shrink-0 size-[18px]" data-node-id="6:977" data-name="Frame">
+                      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame6} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="content-stretch flex flex-col gap-[var(--space-20,20px)] h-[944.906px] items-start p-[var(--space-0,0px)] relative shrink-0 w-[410px]" data-node-id="6:979" data-name="right">
+                <div className="bg-[var(--action-accent,#d8f36a)] content-stretch drop-shadow-[0px_5px_9px_rgba(31,41,23,0.05)] flex flex-col gap-[var(--space-18,18px)] h-[205.641px] items-start p-[var(--space-24,24px)] relative rounded-[var(--radius-32,32px)] shrink-0 w-full" data-node-id="6:980" data-name="Readiness">
+                  <div className="content-stretch flex gap-[var(--space-12,12px)] h-[25.641px] items-center justify-between p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:981" data-name="card-head">
+                    <div className="h-[25.641px] relative shrink-0 w-[165.906px]" data-node-id="6:982" data-name="h3">
+                      <p className="[word-break:break-word] absolute font-['Sora:Bold'] font-bold leading-[25.65px] left-0 text-[19px] text-[color:var(--text-primary,#111)] top-[2px] tracking-[-0.4px] whitespace-nowrap" data-node-id="6:983">
+                        Prontidão do plano
+                      </p>
+                    </div>
+                  </div>
+                  <div className="content-stretch flex gap-[var(--space-20,20px)] h-[112px] items-center p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:984" data-name="row">
+                    <div className="border-9 border-[var(--action-accent,#d8f36a)] border-solid content-stretch flex gap-[var(--space-0,0px)] items-center justify-center p-[var(--space-0,0px)] relative rounded-[var(--radius-50,50px)] shrink-0 size-[112px]" data-node-id="6:985" data-name="score-circle">
+                      <p className="[word-break:break-word] font-['Sora:Regular'] font-normal leading-[48px] relative shrink-0 text-[32px] text-[color:var(--text-primary,#111)] tracking-[-1px] whitespace-nowrap" data-node-id="6:986">
+                        42%
+                      </p>
+                    </div>
+                    <div className="[word-break:break-word] content-stretch flex flex-col gap-[var(--space-4,4px)] h-[84.375px] items-start p-[var(--space-0,0px)] relative shrink-0 w-[153.359px] whitespace-nowrap" data-node-id="6:987" data-name="stack4">
+                      <div className="font-['Sora:SemiBold'] font-semibold h-[42px] leading-[21px] relative shrink-0 text-[15px] text-[color:var(--text-primary,#111)] w-full" data-node-id="6:988" data-name="h4">
+                        <p className="absolute left-0 top-[2px]" data-node-id="6:989">
+                          Estamos construindo
+                        </p>
+                        <p className="absolute left-0 top-[23px]" data-node-id="6:990">
+                          a base.
+                        </p>
+                      </div>
+                      <div className="font-['Sora:Regular'] font-normal h-[38.375px] leading-[19.2px] relative shrink-0 text-[12px] text-[color:var(--text-secondary,#555b52)] w-full" data-node-id="6:991" data-name="small">
+                        <p className="absolute left-0 top-[2px]" data-node-id="6:992">
+                          A prontidão considera a
+                        </p>
+                        <p className="absolute left-0 top-[21.19px]" data-node-id="6:993">
+                          cobertura das respostas.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-[var(--surface-card,white)] content-stretch drop-shadow-[0px_5px_9px_rgba(31,41,23,0.05)] flex flex-col gap-[var(--space-18,18px)] h-[191.922px] items-start p-[var(--space-24,24px)] relative rounded-[var(--radius-32,32px)] shrink-0 w-full" data-node-id="6:994" data-name="Missing evidence">
+                  <div className="content-stretch flex gap-[var(--space-12,12px)] h-[25.641px] items-center justify-between p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:995" data-name="card-head">
+                    <div className="h-[25.641px] relative shrink-0 w-[239.203px]" data-node-id="6:996" data-name="h3">
+                      <p className="[word-break:break-word] absolute font-['Sora:Bold'] font-bold leading-[25.65px] left-0 text-[19px] text-[color:var(--text-primary,#111)] top-[2px] tracking-[-0.4px] whitespace-nowrap" data-node-id="6:997">
+                        Ainda precisamos entender
+                      </p>
+                    </div>
+                  </div>
+                  <div className="content-stretch flex flex-col gap-[var(--space-16,16px)] h-[98.281px] items-start p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:998" data-name="stack16">
+                    <div className="content-stretch flex gap-[var(--space-10,10px)] h-[22.094px] items-start p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:999" data-name="bullet">
+                      <div className="bg-[#59710b] relative rounded-[var(--radius-50,50px)] shrink-0 size-[6px]" data-node-id="6:1000" data-name="span" />
+                      <div className="h-[22.094px] relative shrink-0 w-[200.906px]" data-node-id="6:1001" data-name="p">
+                        <p className="[word-break:break-word] absolute font-['Sora:Regular'] font-normal leading-[22.1px] left-0 text-[13px] text-[color:var(--text-primary,#111)] top-[3px] whitespace-nowrap" data-node-id="6:1002">
+                          Baselines e fontes dos indicadores
+                        </p>
+                      </div>
+                    </div>
+                    <div className="content-stretch flex gap-[var(--space-10,10px)] h-[22.094px] items-start p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:1003" data-name="bullet">
+                      <div className="bg-[#59710b] relative rounded-[var(--radius-50,50px)] shrink-0 size-[6px]" data-node-id="6:1004" data-name="span" />
+                      <div className="h-[22.094px] relative shrink-0 w-[191.516px]" data-node-id="6:1005" data-name="p">
+                        <p className="[word-break:break-word] absolute font-['Sora:Regular'] font-normal leading-[22.1px] left-0 text-[13px] text-[color:var(--text-primary,#111)] top-[3px] whitespace-nowrap" data-node-id="6:1006">
+                          Capacidade financeira disponível
+                        </p>
+                      </div>
+                    </div>
+                    <div className="content-stretch flex gap-[var(--space-10,10px)] h-[22.094px] items-start p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:1007" data-name="bullet">
+                      <div className="bg-[#59710b] relative rounded-[var(--radius-50,50px)] shrink-0 size-[6px]" data-node-id="6:1008" data-name="span" />
+                      <div className="h-[22.094px] relative shrink-0 w-[138.047px]" data-node-id="6:1009" data-name="p">
+                        <p className="[word-break:break-word] absolute font-['Sora:Regular'] font-normal leading-[22.1px] left-0 text-[13px] text-[color:var(--text-primary,#111)] top-[3px] whitespace-nowrap" data-node-id="6:1010">
+                          Dono de cada resultado
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-[var(--action-accent,#d8f36a)] content-stretch drop-shadow-[0px_5px_9px_rgba(31,41,23,0.05)] flex flex-col gap-[var(--space-16,16px)] h-[172.5px] items-start p-[var(--space-24,24px)] relative rounded-[var(--radius-32,32px)] shrink-0 w-full" data-node-id="6:1011" data-name="Why it matters">
+                  <div className="h-[16.5px] relative shrink-0 w-full" data-node-id="6:1012" data-name="eyebrow">
+                    <p className="[word-break:break-word] absolute font-['Sora:Bold'] font-bold leading-[16.5px] left-0 text-[11px] text-[color:var(--text-strong-secondary,#3e4931)] top-[2px] tracking-[1.4px] whitespace-nowrap" data-node-id="6:1013">
+                      POR QUE ISSO IMPORTA?
+                    </p>
+                  </div>
+                  <div className="content-stretch flex flex-col gap-[var(--space-0,0px)] h-[90px] items-start p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:1014" data-name="p">
+                    <p className="[word-break:break-word] font-['Sora:Regular'] font-normal h-[82px] leading-[30px] relative shrink-0 text-[20px] text-[color:var(--text-primary,#111)] w-[360px]" data-node-id="6:1015">
+                      Sem um ponto de partida, fica difícil saber se a estratégia produziu resultado.
+                    </p>
+                  </div>
+                </div>
+                <div className="bg-[var(--surface-card,white)] content-stretch drop-shadow-[0px_5px_9px_rgba(31,41,23,0.05)] flex flex-col gap-[15px] h-[188.016px] items-start p-[var(--space-24,24px)] relative rounded-[var(--radius-32,32px)] shrink-0 w-full" data-node-id="6:1016" data-name="Generate early">
+                  <div className="h-[25.641px] relative shrink-0 w-full" data-node-id="6:1017" data-name="h3">
+                    <p className="[word-break:break-word] absolute font-['Sora:Bold'] font-bold leading-[25.65px] left-0 text-[19px] text-[color:var(--text-primary,#111)] top-[2px] tracking-[-0.4px] whitespace-nowrap" data-node-id="6:1018">
+                      Já quer ver uma primeira versão?
+                    </p>
+                  </div>
+                  <div className="content-stretch flex flex-col gap-[var(--space-0,0px)] h-[38.375px] items-start p-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:1019" data-name="small">
+                    <p className="[word-break:break-word] font-['Sora:Regular'] font-normal h-[33.188px] leading-[19.2px] relative shrink-0 text-[12px] text-[color:var(--text-secondary,#555b52)] w-[360px]" data-node-id="6:1020">
+                      Você pode gerar agora e revisar as lacunas depois. O plano ainda será preliminar.
+                    </p>
+                  </div>
+                  <div className="content-stretch flex flex-col gap-[var(--space-0,0px)] h-[44px] items-start pl-[var(--space-0,0px)] pr-[188.625px] py-[var(--space-0,0px)] relative shrink-0 w-full" data-node-id="6:1021" data-name="div">
+                    <a className="bg-[var(--action-primary,#111)] border border-[var(--icon-default,#111)] border-solid content-stretch cursor-pointer flex gap-[var(--space-12,12px)] h-[44px] items-center justify-center px-[var(--space-18,18px)] py-[var(--space-12,12px)] relative rounded-[var(--radius-28,28px)] shrink-0 w-full" data-node-id="10:297" data-name="DS/Button/black/Gerar plano agora">
+                      <div className="content-stretch flex items-start relative shrink-0" data-node-id="I10:297;10:91" data-name="span">
+                        <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold leading-[18px] relative shrink-0 text-[12px] text-[color:var(--text-on-dark,white)] text-left whitespace-nowrap" data-node-id="I10:297;10:92">
+                          Gerar plano agora
+                        </p>
+                      </div>
+                      <div className="relative shrink-0 size-[18px]" data-node-id="I10:297;10:98" data-name="Icon">
+                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcon2} />
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="bg-[#eaf2d0] content-stretch flex gap-[9px] h-[43.188px] items-center px-[var(--space-16,16px)] py-[var(--space-12,12px)] relative rounded-[var(--radius-12,12px)] shrink-0 w-full" data-node-id="6:1030" data-name="DS/Notice/Demo">
+              <div className="relative shrink-0 size-[17px]" data-node-id="6:1031" data-name="Frame">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame7} />
+              </div>
+              <div className="h-[19.188px] relative shrink-0 w-[542.313px]" data-node-id="6:1036" data-name="small">
+                <p className="[word-break:break-word] absolute font-['Sora:Regular'] font-normal leading-[19.2px] left-0 text-[#465323] text-[12px] top-[2px] whitespace-nowrap" data-node-id="6:1037">
+                  Plano ilustrativo. As informações e recomendações precisam de validação antes de qualquer decisão.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+These styles are contained in the design: X5/Effects/Navigation glass/Light: Effect(type: BACKGROUND_BLUR, radius: 24); Effect(type: INNER_SHADOW, color: #FFFFFF99, offset: (0, 1), radius: 1, spread: 0); Effect(type: DROP_SHADOW, color: #00000013, offset: (0, 6), radius: 20, spread: 0), X5/Effects/Soft card: Effect(type: DROP_SHADOW, color: #1F29170E, offset: (0, 5), radius: 18, spread: 0), X5/Effects/Frosted panel: Effect(type: BACKGROUND_BLUR, radius: 28); Effect(type: DROP_SHADOW, color: #00000017, offset: (0, 16), radius: 44, spread: 0).
+
+Component descriptions: The following components have usage descriptions or documentation links defined in Figma. These descriptions provide important context about the intended usage, best practices, and any constraints for each component. Follow these guidelines when implementing or using these components.
+
+## Theme=Light
+**Node ID:** 10:652
+
+Logo Grupo X5 em PNG fornecido pelo usuário. Preservar proporções e contraste; usar o descritor Planejamento no produto.
+
+## X5/Brand
+**Node ID:** 10:733
+
+Assinatura Grupo X5 do Planejamento. PNG oficial com margens transparentes aparadas; variantes Light (tinta) e Dark (branco).
+
+## Tone=outline, State=Default
+**Node ID:** 10:78
+
+Botão de 44 px. Label edita o texto; Icon troca o símbolo; Show icon controla a visibilidade. Use Fill container no mobile.
+
+## X5/Button
+**Node ID:** 10:466
+
+Ações com Label, Icon e Show icon. Variantes de tom e estado. Todas com altura mínima de 44 px.
+
+## Icon=Plus, Ink=Default
+**Node ID:** 10:8
+
+Ícone vetorial Lucide; tamanho 18 px. Troque pela propriedade Icon dos botões.
+
+## X5/Icon
+**Node ID:** 10:71
+
+Ícones vetoriais em tinta padrão, inversa e escuro.
+
+## Tone=Lime
+**Node ID:** 10:469
+
+Indicador compacto. Mantenha um rótulo explícito; a cor nunca comunica o estado sozinha.
+
+## X5/Badge
+**Node ID:** 10:645
+
+Status com rótulo editável. Dourado para evidência/ação; azul para hipótese; coral para lacuna.
+
+## Tone=Neutral
+**Node ID:** 10:474
+
+Indicador compacto. Mantenha um rótulo explícito; a cor nunca comunica o estado sozinha.
+
+## Icon=Sparkles, Ink=Default
+**Node ID:** 10:27
+
+Ícone vetorial Lucide; tamanho 18 px. Troque pela propriedade Icon dos botões.
+
+## Tone=black, State=Default
+**Node ID:** 10:97
+
+Botão de 44 px. Label edita o texto; Icon troca o símbolo; Show icon controla a visibilidade. Use Fill container no mobile.
+
+## Icon=Arrow right, Ink=Inverse
+**Node ID:** 10:21
+
+Ícone vetorial Lucide; tamanho 18 px. Troque pela propriedade Icon dos botões.
+
+## Icon=Sparkles, Ink=Inverse
+**Node ID:** 10:56
+
+Ícone vetorial Lucide; tamanho 18 px. Troque pela propriedade Icon dos botões.
+
+Images and SVGs will be stored as constants, e.g. const image = `${assetPathPrefix}/<asset file name>`, where assetPathPrefix is declared once at the top of the code and every asset URL interpolates it. These constants will be used in the code as the source for the image, ex: <img src={image} />. Image assets are stored on a remote server for 7 days and can be fetched using the provided URLs until they expire.

@@ -1,0 +1,6 @@
+{
+  "textNodesChecked": 700,
+  "minimumTextContrast": 4.664205041240107,
+  "failures": [],
+  "method": "Solid text fill against nearest visible solid ancestor; disabled and hidden text excluded. Not a full WCAG audit."
+}

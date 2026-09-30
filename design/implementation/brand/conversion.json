@@ -1,0 +1,18 @@
+{
+  "source": "grupox5 (1) copiar.pdf",
+  "sourceType": "embedded raster plus opacity mask",
+  "rasterSize": {
+    "width": 998,
+    "height": 690
+  },
+  "bounds": [
+    62,
+    78,
+    890,
+    507
+  ],
+  "threshold": 127,
+  "optTolerance": 0.05,
+  "vectorPaths": 1,
+  "embeddedImages": 0
+}

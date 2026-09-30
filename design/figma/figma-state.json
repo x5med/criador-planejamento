@@ -1,0 +1,285 @@
+{
+  "file": "Sem título",
+  "transport": "DesignAgent Claude bridge",
+  "screens": {
+    "04-overview": {
+      "id": "04-overview",
+      "name": "04 · Visão geral — Desktop",
+      "width": 1440,
+      "x": 3120,
+      "y": 1450,
+      "path": "C:\\Users\\x5med\\OneDrive\\Documentos\\ChatGPT\\Planejamento estratégico\\criador-planejamento\\design\\figma\\screens\\04-overview.html",
+      "result": {
+        "id": "6:1038",
+        "name": "04 · Visão geral — Desktop",
+        "rendering": true
+      },
+      "nodeId": "6:1038",
+      "screenshot": [
+        "04 · Visão geral — Desktop — 1008×952",
+        {
+          "imagePath": "C:\\Users\\x5med\\AppData\\Local\\Temp\\x5-figma-1790707979120-1.png"
+        }
+      ],
+      "url": "https://www.figma.com/design/o19AXjLOrcFxDc4VMnpuG8?node-id=6-1038"
+    },
+    "00-foundations": {
+      "id": "00-foundations",
+      "name": "00 · Fundações — X5 Business",
+      "width": 1440,
+      "x": 0,
+      "y": 0,
+      "path": "C:\\Users\\x5med\\OneDrive\\Documentos\\ChatGPT\\Planejamento estratégico\\criador-planejamento\\design\\figma\\screens\\00-foundations.html",
+      "result": {
+        "id": "6:328",
+        "name": "00 · Fundações — X5 Business",
+        "rendering": true
+      },
+      "nodeId": "6:328",
+      "screenshot": [
+        "00 · Fundações — X5 Lime — 1008×881",
+        {
+          "imagePath": "C:\\Users\\x5med\\AppData\\Local\\Temp\\x5-figma-1790707936817-1.png"
+        }
+      ],
+      "url": "https://www.figma.com/design/o19AXjLOrcFxDc4VMnpuG8?node-id=6-328"
+    },
+    "01-components": {
+      "id": "01-components",
+      "name": "01 · Componentes e estados",
+      "width": 1440,
+      "x": 1560,
+      "y": 0,
+      "path": "C:\\Users\\x5med\\OneDrive\\Documentos\\ChatGPT\\Planejamento estratégico\\criador-planejamento\\design\\figma\\screens\\01-components.html",
+      "result": {
+        "id": "6:482",
+        "name": "01 · Componentes e estados",
+        "rendering": true
+      },
+      "nodeId": "6:482",
+      "screenshot": [
+        "01 · Componentes e estados — 1008×831",
+        {
+          "imagePath": "C:\\Users\\x5med\\AppData\\Local\\Temp\\x5-figma-1790707945311-1.png"
+        }
+      ],
+      "url": "https://www.figma.com/design/o19AXjLOrcFxDc4VMnpuG8?node-id=6-482"
+    },
+    "02-start": {
+      "id": "02-start",
+      "name": "02 · Novo planejamento — Desktop",
+      "width": 1440,
+      "x": 0,
+      "y": 1450,
+      "path": "C:\\Users\\x5med\\OneDrive\\Documentos\\ChatGPT\\Planejamento estratégico\\criador-planejamento\\design\\figma\\screens\\02-start.html",
+      "result": {
+        "id": "6:682",
+        "name": "02 · Novo planejamento — Desktop",
+        "rendering": true
+      },
+      "nodeId": "6:682",
+      "screenshot": [
+        "02 · Novo planejamento — Desktop — 1008×845",
+        {
+          "imagePath": "C:\\Users\\x5med\\AppData\\Local\\Temp\\x5-figma-1790707952872-1.png"
+        }
+      ],
+      "url": "https://www.figma.com/design/o19AXjLOrcFxDc4VMnpuG8?node-id=6-682"
+    },
+    "03-interview": {
+      "id": "03-interview",
+      "name": "03 · Entrevista guiada — Desktop",
+      "width": 1440,
+      "x": 1560,
+      "y": 1450,
+      "path": "C:\\Users\\x5med\\OneDrive\\Documentos\\ChatGPT\\Planejamento estratégico\\criador-planejamento\\design\\figma\\screens\\03-interview.html",
+      "result": {
+        "id": "6:799",
+        "name": "03 · Entrevista guiada — Desktop",
+        "rendering": true
+      },
+      "nodeId": "6:799",
+      "screenshot": [
+        "03 · Entrevista guiada — Desktop — 1008×900",
+        {
+          "imagePath": "C:\\Users\\x5med\\AppData\\Local\\Temp\\x5-figma-1790707964422-1.png"
+        }
+      ],
+      "url": "https://www.figma.com/design/o19AXjLOrcFxDc4VMnpuG8?node-id=6-799"
+    },
+    "05-diagnosis": {
+      "id": "05-diagnosis",
+      "name": "05 · Diagnóstico — Desktop",
+      "width": 1440,
+      "x": 0,
+      "y": 2850,
+      "path": "C:\\Users\\x5med\\OneDrive\\Documentos\\ChatGPT\\Planejamento estratégico\\criador-planejamento\\design\\figma\\screens\\05-diagnosis.html",
+      "result": {
+        "id": "6:1357",
+        "name": "05 · Diagnóstico — Desktop",
+        "rendering": true
+      },
+      "nodeId": "6:1357",
+      "screenshot": [
+        "05 · Diagnóstico — Desktop — 1008×735",
+        {
+          "imagePath": "C:\\Users\\x5med\\AppData\\Local\\Temp\\x5-figma-1790707999716-1.png"
+        }
+      ],
+      "url": "https://www.figma.com/design/o19AXjLOrcFxDc4VMnpuG8?node-id=6-1357"
+    },
+    "06-choices": {
+      "id": "06-choices",
+      "name": "06 · Escolhas — Desktop",
+      "width": 1440,
+      "x": 1560,
+      "y": 2850,
+      "path": "C:\\Users\\x5med\\OneDrive\\Documentos\\ChatGPT\\Planejamento estratégico\\criador-planejamento\\design\\figma\\screens\\06-choices.html",
+      "result": {
+        "id": "6:1627",
+        "name": "06 · Escolhas — Desktop",
+        "rendering": true
+      },
+      "nodeId": "6:1627",
+      "screenshot": [
+        "06 · Escolhas — Desktop — 1008×896",
+        {
+          "imagePath": "C:\\Users\\x5med\\AppData\\Local\\Temp\\x5-figma-1790708010219-1.png"
+        }
+      ],
+      "url": "https://www.figma.com/design/o19AXjLOrcFxDc4VMnpuG8?node-id=6-1627"
+    },
+    "07-execution": {
+      "id": "07-execution",
+      "name": "07 · Execução — Desktop",
+      "width": 1440,
+      "x": 3120,
+      "y": 2850,
+      "path": "C:\\Users\\x5med\\OneDrive\\Documentos\\ChatGPT\\Planejamento estratégico\\criador-planejamento\\design\\figma\\screens\\07-execution.html",
+      "result": {
+        "id": "6:1900",
+        "name": "07 · Execução — Desktop",
+        "rendering": true
+      },
+      "nodeId": "6:1900",
+      "screenshot": [
+        "07 · Execução — Desktop — 1008×1075",
+        {
+          "imagePath": "C:\\Users\\x5med\\AppData\\Local\\Temp\\x5-figma-1790708024228-1.png"
+        }
+      ],
+      "url": "https://www.figma.com/design/o19AXjLOrcFxDc4VMnpuG8?node-id=6-1900"
+    },
+    "08-governance": {
+      "id": "08-governance",
+      "name": "08 · Governança — Desktop",
+      "width": 1440,
+      "x": 0,
+      "y": 4450,
+      "path": "C:\\Users\\x5med\\OneDrive\\Documentos\\ChatGPT\\Planejamento estratégico\\criador-planejamento\\design\\figma\\screens\\08-governance.html",
+      "result": {
+        "id": "6:2216",
+        "name": "08 · Governança — Desktop",
+        "rendering": true
+      },
+      "nodeId": "6:2216",
+      "screenshot": [
+        "08 · Governança — Desktop — 1008×903",
+        {
+          "imagePath": "C:\\Users\\x5med\\AppData\\Local\\Temp\\x5-figma-1790708034350-1.png"
+        }
+      ],
+      "url": "https://www.figma.com/design/o19AXjLOrcFxDc4VMnpuG8?node-id=6-2216"
+    },
+    "09-dark": {
+      "id": "09-dark",
+      "name": "09 · Visão geral — Tema escuro",
+      "width": 1440,
+      "x": 1560,
+      "y": 4450,
+      "path": "C:\\Users\\x5med\\OneDrive\\Documentos\\ChatGPT\\Planejamento estratégico\\criador-planejamento\\design\\figma\\screens\\09-dark.html",
+      "result": {
+        "id": "6:2463",
+        "name": "09 · Visão geral — Tema escuro",
+        "rendering": true
+      },
+      "nodeId": "6:2463",
+      "screenshot": [
+        "09 · Visão geral — Tema petróleo — 1008×952",
+        {
+          "imagePath": "C:\\Users\\x5med\\AppData\\Local\\Temp\\x5-figma-1790708046761-1.png"
+        }
+      ],
+      "url": "https://www.figma.com/design/o19AXjLOrcFxDc4VMnpuG8?node-id=6-2463"
+    },
+    "10-mobile-start": {
+      "id": "10-mobile-start",
+      "name": "10 · Novo planejamento — Mobile",
+      "width": 390,
+      "x": 0,
+      "y": 5950,
+      "path": "C:\\Users\\x5med\\OneDrive\\Documentos\\ChatGPT\\Planejamento estratégico\\criador-planejamento\\design\\figma\\screens\\10-mobile-start.html",
+      "result": {
+        "id": "6:2782",
+        "name": "10 · Novo planejamento — Mobile",
+        "rendering": true
+      },
+      "nodeId": "6:2782",
+      "screenshot": [
+        "10 · Novo planejamento — Mobile — 273×762",
+        {
+          "imagePath": "C:\\Users\\x5med\\AppData\\Local\\Temp\\x5-figma-1790708050142-1.png"
+        }
+      ],
+      "url": "https://www.figma.com/design/o19AXjLOrcFxDc4VMnpuG8?node-id=6-2782"
+    },
+    "11-mobile-interview": {
+      "id": "11-mobile-interview",
+      "name": "11 · Entrevista — Mobile",
+      "width": 390,
+      "x": 510,
+      "y": 5950,
+      "path": "C:\\Users\\x5med\\OneDrive\\Documentos\\ChatGPT\\Planejamento estratégico\\criador-planejamento\\design\\figma\\screens\\11-mobile-interview.html",
+      "result": {
+        "id": "6:2844",
+        "name": "11 · Entrevista — Mobile",
+        "rendering": true
+      },
+      "nodeId": "6:2844",
+      "screenshot": [
+        "11 · Entrevista — Mobile — 273×777",
+        {
+          "imagePath": "C:\\Users\\x5med\\AppData\\Local\\Temp\\x5-figma-1790708053137-1.png"
+        }
+      ],
+      "url": "https://www.figma.com/design/o19AXjLOrcFxDc4VMnpuG8?node-id=6-2844"
+    },
+    "12-mobile-overview": {
+      "id": "12-mobile-overview",
+      "name": "12 · Visão geral — Mobile",
+      "width": 390,
+      "x": 1020,
+      "y": 5950,
+      "path": "C:\\Users\\x5med\\OneDrive\\Documentos\\ChatGPT\\Planejamento estratégico\\criador-planejamento\\design\\figma\\screens\\12-mobile-overview.html",
+      "result": {
+        "id": "6:2916",
+        "name": "12 · Visão geral — Mobile",
+        "rendering": true
+      },
+      "nodeId": "6:2916",
+      "screenshot": [
+        "12 · Visão geral — Mobile — 273×820",
+        {
+          "imagePath": "C:\\Users\\x5med\\AppData\\Local\\Temp\\x5-figma-1790708058654-1.png"
+        }
+      ],
+      "url": "https://www.figma.com/design/o19AXjLOrcFxDc4VMnpuG8?node-id=6-2916"
+    }
+  },
+  "fileKey": "o19AXjLOrcFxDc4VMnpuG8",
+  "url": "https://www.figma.com/design/o19AXjLOrcFxDc4VMnpuG8",
+  "nativeInventory": "native-export.json",
+  "libraryNodeId": "10:2",
+  "version": "0.3",
+  "palette": "X5 Business"
+}

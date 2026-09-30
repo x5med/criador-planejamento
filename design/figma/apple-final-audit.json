@@ -1,0 +1,158 @@
+{
+  "date": "2026-09-30",
+  "fileKey": "o19AXjLOrcFxDc4VMnpuG8",
+  "mutatedNodeIds": [
+    "6:3018",
+    "6:3028",
+    "6:3035",
+    "6:3042",
+    "6:3050"
+  ],
+  "frames": [
+    {
+      "id": "6:1038",
+      "name": "04 · Visão geral — Desktop",
+      "w": 1496,
+      "h": 1416.5,
+      "overflow": [],
+      "images": 2
+    },
+    {
+      "id": "6:328",
+      "name": "00 · Fundações — X5 / Lima e vidro",
+      "w": 1496,
+      "h": 1315.140625,
+      "overflow": [],
+      "images": 1
+    },
+    {
+      "id": "6:482",
+      "name": "01 · Componentes e estados",
+      "w": 1496,
+      "h": 1243.671875,
+      "overflow": [],
+      "images": 0
+    },
+    {
+      "id": "6:682",
+      "name": "02 · Novo planejamento — Desktop",
+      "w": 1496,
+      "h": 1234.84375,
+      "overflow": [],
+      "images": 1
+    },
+    {
+      "id": "6:799",
+      "name": "03 · Entrevista guiada — Desktop",
+      "w": 1496,
+      "h": 1342.0625,
+      "overflow": [],
+      "images": 2
+    },
+    {
+      "id": "6:1357",
+      "name": "05 · Diagnóstico — Desktop",
+      "w": 1496,
+      "h": 1106,
+      "overflow": [],
+      "images": 2
+    },
+    {
+      "id": "6:1627",
+      "name": "06 · Escolhas — Desktop",
+      "w": 1496,
+      "h": 1335.578125,
+      "overflow": [],
+      "images": 2
+    },
+    {
+      "id": "6:1900",
+      "name": "07 · Execução — Desktop",
+      "w": 1496,
+      "h": 1592.390625,
+      "overflow": [],
+      "images": 2
+    },
+    {
+      "id": "6:2216",
+      "name": "08 · Governança — Desktop",
+      "w": 1496,
+      "h": 1346.515625,
+      "overflow": [],
+      "images": 2
+    },
+    {
+      "id": "6:2463",
+      "name": "09 · Visão geral — Tema escuro",
+      "w": 1496,
+      "h": 1416.5,
+      "overflow": [],
+      "images": 2
+    },
+    {
+      "id": "6:2782",
+      "name": "10 · Novo planejamento — Mobile",
+      "w": 390,
+      "h": 1122.859375,
+      "overflow": [],
+      "images": 1
+    },
+    {
+      "id": "6:2844",
+      "name": "11 · Entrevista — Mobile",
+      "w": 390,
+      "h": 1144.109375,
+      "overflow": [],
+      "images": 1
+    },
+    {
+      "id": "6:2916",
+      "name": "12 · Visão geral — Mobile",
+      "w": 390,
+      "h": 1207.140625,
+      "overflow": [],
+      "images": 1
+    },
+    {
+      "id": "10:2",
+      "name": "13 · Biblioteca nativa — X5",
+      "w": 1440,
+      "h": 1543,
+      "overflow": [],
+      "images": 2
+    }
+  ],
+  "inventory": {
+    "frames": 14,
+    "variables": 100,
+    "effects": 6,
+    "components": 36,
+    "instances": 167
+  },
+  "segment": [
+    {
+      "id": "51:330",
+      "name": "Theme=Light, Selected=12"
+    },
+    {
+      "id": "51:337",
+      "name": "Theme=Light, Selected=24"
+    },
+    {
+      "id": "51:344",
+      "name": "Theme=Light, Selected=36"
+    },
+    {
+      "id": "51:351",
+      "name": "Theme=Dark, Selected=12"
+    },
+    {
+      "id": "51:358",
+      "name": "Theme=Dark, Selected=24"
+    },
+    {
+      "id": "51:365",
+      "name": "Theme=Dark, Selected=36"
+    }
+  ]
+}

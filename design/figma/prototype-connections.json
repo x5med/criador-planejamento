@@ -1,0 +1,202 @@
+[
+  {
+    "from": "6:1069",
+    "to": "6:1357",
+    "label": "nav-item"
+  },
+  {
+    "from": "6:1079",
+    "to": "6:1627",
+    "label": "nav-item"
+  },
+  {
+    "from": "6:1086",
+    "to": "6:1900",
+    "label": "nav-item"
+  },
+  {
+    "from": "6:1093",
+    "to": "6:2216",
+    "label": "nav-item"
+  },
+  {
+    "from": "10:82",
+    "to": "6:682",
+    "label": "DS/Button/outline/Novo plano"
+  },
+  {
+    "from": "10:112",
+    "to": "6:1357",
+    "label": "DS/Button/outline/Revisar diagnóstico"
+  },
+  {
+    "from": "10:261",
+    "to": "6:799",
+    "label": "DS/Button/black/Começar planejamento"
+  },
+  {
+    "from": "10:270",
+    "to": "6:682",
+    "label": "DS/Button/outline/Novo plano"
+  },
+  {
+    "from": "10:297",
+    "to": "6:1038",
+    "label": "DS/Button/black/Gerar plano agora"
+  },
+  {
+    "from": "6:1377",
+    "to": "6:1038",
+    "label": "nav-item"
+  },
+  {
+    "from": "6:1398",
+    "to": "6:1627",
+    "label": "nav-item"
+  },
+  {
+    "from": "6:1405",
+    "to": "6:1900",
+    "label": "nav-item"
+  },
+  {
+    "from": "6:1412",
+    "to": "6:2216",
+    "label": "nav-item"
+  },
+  {
+    "from": "10:308",
+    "to": "6:682",
+    "label": "DS/Button/outline/Novo plano"
+  },
+  {
+    "from": "10:316",
+    "to": "6:799",
+    "label": "DS/Button/outline/Voltar à entrevista"
+  },
+  {
+    "from": "10:324",
+    "to": "6:1627",
+    "label": "DS/Button/black/Ver escolhas"
+  },
+  {
+    "from": "6:1647",
+    "to": "6:1038",
+    "label": "nav-item"
+  },
+  {
+    "from": "6:1655",
+    "to": "6:1357",
+    "label": "nav-item"
+  },
+  {
+    "from": "6:1675",
+    "to": "6:1900",
+    "label": "nav-item"
+  },
+  {
+    "from": "6:1682",
+    "to": "6:2216",
+    "label": "nav-item"
+  },
+  {
+    "from": "10:333",
+    "to": "6:682",
+    "label": "DS/Button/outline/Novo plano"
+  },
+  {
+    "from": "6:1920",
+    "to": "6:1038",
+    "label": "nav-item"
+  },
+  {
+    "from": "6:1928",
+    "to": "6:1357",
+    "label": "nav-item"
+  },
+  {
+    "from": "6:1938",
+    "to": "6:1627",
+    "label": "nav-item"
+  },
+  {
+    "from": "6:1955",
+    "to": "6:2216",
+    "label": "nav-item"
+  },
+  {
+    "from": "10:341",
+    "to": "6:682",
+    "label": "DS/Button/outline/Novo plano"
+  },
+  {
+    "from": "6:2236",
+    "to": "6:1038",
+    "label": "nav-item"
+  },
+  {
+    "from": "6:2244",
+    "to": "6:1357",
+    "label": "nav-item"
+  },
+  {
+    "from": "6:2254",
+    "to": "6:1627",
+    "label": "nav-item"
+  },
+  {
+    "from": "6:2261",
+    "to": "6:1900",
+    "label": "nav-item"
+  },
+  {
+    "from": "10:359",
+    "to": "6:682",
+    "label": "DS/Button/outline/Novo plano"
+  },
+  {
+    "from": "6:2483",
+    "to": "6:1038",
+    "label": "nav-item"
+  },
+  {
+    "from": "6:2494",
+    "to": "6:1357",
+    "label": "nav-item"
+  },
+  {
+    "from": "6:2504",
+    "to": "6:1627",
+    "label": "nav-item"
+  },
+  {
+    "from": "6:2511",
+    "to": "6:1900",
+    "label": "nav-item"
+  },
+  {
+    "from": "6:2518",
+    "to": "6:2216",
+    "label": "nav-item"
+  },
+  {
+    "from": "10:377",
+    "to": "6:682",
+    "label": "DS/Button/outline/Novo plano"
+  },
+  {
+    "from": "10:407",
+    "to": "6:1357",
+    "label": "DS/Button/outline/Revisar diagnóstico"
+  },
+  {
+    "from": "10:415",
+    "to": "6:2844",
+    "label": "DS/Button/black/Começar planejamento"
+  },
+  {
+    "from": "10:443",
+    "to": "6:2916",
+    "label": "DS/Button/lime/Gerar plano agora"
+  }
+]

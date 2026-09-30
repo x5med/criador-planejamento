@@ -1,0 +1,369 @@
+const assetPathPrefix = "figma-asset:865c7e6a-ea15-41df-b00e-efd4dbb7be72";
+const imgChipSilhouette = `${assetPathPrefix}/a8fbe.svg`;
+const imgDecorativeNotchDots = `${assetPathPrefix}/8cbaf.svg`;
+const imgInsetChipSilhouette = `${assetPathPrefix}/7b4f2.svg`;
+const imgEllipse = `${assetPathPrefix}/9b7da.svg`;
+const imgInsetChipSilhouette1 = `${assetPathPrefix}/3ecf5.svg`;
+const imgInsetChipSilhouette2 = `${assetPathPrefix}/3a37b.svg`;
+const imgInsetChipSilhouette3 = `${assetPathPrefix}/cd359.svg`;
+const imgChipSilhouette1 = `${assetPathPrefix}/adb10.svg`;
+const imgInsetChipSilhouette4 = `${assetPathPrefix}/1e4b5.svg`;
+const imgInsetChipSilhouette5 = `${assetPathPrefix}/4eb33.svg`;
+const imgInsetChipSilhouette6 = `${assetPathPrefix}/3acb0.svg`;
+const imgInsetChipSilhouette7 = `${assetPathPrefix}/fd7ce.svg`;
+
+export default function Component14CardsChipX5() {
+  return (
+    <div className="bg-[#cdd2c8] content-stretch flex flex-col gap-[28px] items-start overflow-clip p-[var(--space-48,48px)] relative rounded-[48px] size-full" data-node-id="60:650" data-name="14 · Cards chip — X5">
+      <p className="[word-break:break-word] font-['Sora:ExtraBold'] font-extrabold leading-[48px] relative shrink-0 text-[40px] text-[color:var(--text-on-accent,#111)] whitespace-nowrap" data-node-id="60:651">
+        Cards que encaixam.
+      </p>
+      <p className="[word-break:break-word] font-['Sora:Regular'] font-normal leading-[14px] relative shrink-0 text-[11px] text-[color:var(--text-on-accent,#111)] whitespace-nowrap" data-node-id="60:652">
+        Recorte no topo, tipografia Sora e faixas com a paleta X5.
+      </p>
+      <p className="[word-break:break-word] font-['Sora:Regular'] font-normal leading-[13px] relative shrink-0 text-[10px] text-[color:var(--text-on-accent,#111)] whitespace-nowrap" data-node-id="60:653">
+        DESKTOP · 275 × 210
+      </p>
+      <div className="content-stretch flex gap-[24px] items-start overflow-clip relative shrink-0" data-node-id="60:654" data-name="Chip review / Desktop">
+        <div className="content-stretch flex flex-col gap-[var(--space-6,6px)] h-[210px] items-start pb-[var(--space-12,12px)] pt-[var(--space-16,16px)] px-[var(--space-16,16px)] relative shrink-0 w-[275px]" data-node-id="60:655" data-name="X5/Card/Chip">
+          <div className="absolute h-[210px] left-0 top-0 w-[275px]" data-node-id="I60:655;60:351" data-name="Chip silhouette">
+            <div className="absolute inset-[-3.81%_-5.09%_-9.52%_-5.09%]">
+              <img alt="" className="block max-w-none size-full" src={imgChipSilhouette} />
+            </div>
+          </div>
+          <div className="absolute h-[3px] left-[233px] top-[5px] w-[17px]" data-node-id="I60:655;60:352" data-name="Decorative notch dots">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDecorativeNotchDots} />
+          </div>
+          <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold leading-[16px] min-w-full relative shrink-0 text-[12px] text-[color:var(--text-on-dark,white)] w-[min-content]" data-node-id="I60:655;60:356">
+            Prioridades
+          </p>
+          <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold leading-[56px] relative shrink-0 text-[46px] text-[color:var(--text-on-dark,white)] whitespace-nowrap" data-node-id="I60:655;60:357">
+            03
+          </p>
+          <div className="content-stretch flex flex-col gap-[var(--space-6,6px)] h-[74px] items-start pb-[var(--space-10,10px)] pt-[var(--space-18,18px)] px-[var(--space-12,12px)] relative shrink-0 w-full" data-node-id="I60:655;60:358" data-name="Inset data chip">
+            <div className="absolute h-[74px] left-0 top-0 w-[243px]" data-node-id="I60:655;60:359" data-name="Inset chip silhouette">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgInsetChipSilhouette} />
+            </div>
+            <p className="[word-break:break-word] absolute font-['Sora:SemiBold'] font-semibold leading-[10px] left-[206px] text-[8px] text-[color:var(--text-on-accent,#111)] top-[3px] whitespace-nowrap" data-node-id="I60:655;60:360">
+              FOCO
+            </p>
+            <p className="[word-break:break-word] font-['Sora:Regular'] font-normal leading-[14px] min-w-full relative shrink-0 text-[11px] text-[color:var(--text-on-accent,#111)] w-[min-content]" data-node-id="I60:655;60:361">
+              escolhas que orientam o ciclo
+            </p>
+            <div className="content-stretch flex gap-[var(--space-4,4px)] h-[5px] items-start overflow-clip relative shrink-0 w-full" data-node-id="I60:655;60:362" data-name="Count 3">
+              <div className="relative shrink-0 size-[5px]" data-node-id="I60:655;60:363" data-name="Ellipse">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse} />
+              </div>
+              <div className="relative shrink-0 size-[5px]" data-node-id="I60:655;60:364" data-name="Ellipse">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse} />
+              </div>
+              <div className="relative shrink-0 size-[5px]" data-node-id="I60:655;60:365" data-name="Ellipse">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse} />
+              </div>
+            </div>
+          </div>
+          <p className="[word-break:break-word] font-['Sora:Regular'] font-normal leading-[13px] relative shrink-0 text-[10px] text-[color:var(--text-secondary,#b8c0b3)] whitespace-nowrap" data-node-id="I60:655;60:366">
+            Ciclo 2027
+          </p>
+        </div>
+        <div className="content-stretch flex flex-col gap-[var(--space-6,6px)] h-[210px] items-start pb-[var(--space-12,12px)] pt-[var(--space-16,16px)] px-[var(--space-16,16px)] relative shrink-0 w-[275px]" data-node-id="60:672" data-name="X5/Card/Chip">
+          <div className="absolute h-[210px] left-0 top-0 w-[275px]" data-node-id="I60:672;60:368" data-name="Chip silhouette">
+            <div className="absolute inset-[-3.81%_-5.09%_-9.52%_-5.09%]">
+              <img alt="" className="block max-w-none size-full" src={imgChipSilhouette} />
+            </div>
+          </div>
+          <div className="absolute h-[3px] left-[233px] top-[5px] w-[17px]" data-node-id="I60:672;60:369" data-name="Decorative notch dots">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDecorativeNotchDots} />
+          </div>
+          <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold leading-[16px] min-w-full relative shrink-0 text-[12px] text-[color:var(--text-on-dark,white)] w-[min-content]" data-node-id="I60:672;60:373">
+            Objetivos
+          </p>
+          <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold leading-[56px] relative shrink-0 text-[46px] text-[color:var(--text-on-dark,white)] whitespace-nowrap" data-node-id="I60:672;60:374">
+            02
+          </p>
+          <div className="content-stretch flex flex-col gap-[var(--space-6,6px)] h-[74px] items-start pb-[var(--space-10,10px)] pt-[var(--space-18,18px)] px-[var(--space-12,12px)] relative shrink-0 w-full" data-node-id="I60:672;60:375" data-name="Inset data chip">
+            <div className="absolute h-[74px] left-0 top-0 w-[243px]" data-node-id="I60:672;60:376" data-name="Inset chip silhouette">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgInsetChipSilhouette1} />
+            </div>
+            <p className="[word-break:break-word] absolute font-['Sora:SemiBold'] font-semibold leading-[10px] left-[215px] text-[8px] text-[color:var(--text-on-accent,#111)] top-[3px] whitespace-nowrap" data-node-id="I60:672;60:377">
+              KRs
+            </p>
+            <p className="[word-break:break-word] font-['Sora:Regular'] font-normal leading-[14px] min-w-full relative shrink-0 text-[11px] text-[color:var(--text-on-accent,#111)] w-[min-content]" data-node-id="I60:672;60:378">
+              resultados para acompanhar
+            </p>
+            <div className="content-stretch flex gap-[var(--space-4,4px)] h-[5px] items-start overflow-clip relative shrink-0 w-full" data-node-id="I60:672;60:379" data-name="Count 2">
+              <div className="relative shrink-0 size-[5px]" data-node-id="I60:672;60:380" data-name="Ellipse">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse} />
+              </div>
+              <div className="relative shrink-0 size-[5px]" data-node-id="I60:672;60:381" data-name="Ellipse">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse} />
+              </div>
+            </div>
+          </div>
+          <p className="[word-break:break-word] font-['Sora:Regular'] font-normal leading-[13px] relative shrink-0 text-[10px] text-[color:var(--text-secondary,#b8c0b3)] whitespace-nowrap" data-node-id="I60:672;60:382">
+            Ciclo 2027
+          </p>
+        </div>
+        <div className="content-stretch flex flex-col gap-[var(--space-6,6px)] h-[210px] items-start pb-[var(--space-12,12px)] pt-[var(--space-16,16px)] px-[var(--space-16,16px)] relative shrink-0 w-[275px]" data-node-id="60:688" data-name="X5/Card/Chip">
+          <div className="absolute h-[210px] left-0 top-0 w-[275px]" data-node-id="I60:688;60:384" data-name="Chip silhouette">
+            <div className="absolute inset-[-3.81%_-5.09%_-9.52%_-5.09%]">
+              <img alt="" className="block max-w-none size-full" src={imgChipSilhouette} />
+            </div>
+          </div>
+          <div className="absolute h-[3px] left-[233px] top-[5px] w-[17px]" data-node-id="I60:688;60:385" data-name="Decorative notch dots">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDecorativeNotchDots} />
+          </div>
+          <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold leading-[16px] min-w-full relative shrink-0 text-[12px] text-[color:var(--text-on-dark,white)] w-[min-content]" data-node-id="I60:688;60:389">
+            Qualidade do plano
+          </p>
+          <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold leading-[56px] relative shrink-0 text-[46px] text-[color:var(--text-on-dark,white)] whitespace-nowrap" data-node-id="I60:688;60:390">
+            78/100
+          </p>
+          <div className="content-stretch flex flex-col gap-[var(--space-6,6px)] h-[74px] items-start pb-[var(--space-10,10px)] pt-[var(--space-18,18px)] px-[var(--space-12,12px)] relative shrink-0 w-full" data-node-id="I60:688;60:391" data-name="Inset data chip">
+            <div className="absolute h-[74px] left-0 top-0 w-[243px]" data-node-id="I60:688;60:392" data-name="Inset chip silhouette">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgInsetChipSilhouette2} />
+            </div>
+            <p className="[word-break:break-word] absolute font-['Sora:SemiBold'] font-semibold leading-[10px] left-[213px] text-[8px] text-[color:var(--text-on-accent,#111)] top-[3px] whitespace-nowrap" data-node-id="I60:688;60:393">
+              78%
+            </p>
+            <p className="[word-break:break-word] font-['Sora:Regular'] font-normal leading-[14px] min-w-full relative shrink-0 text-[11px] text-[color:var(--text-on-accent,#111)] w-[min-content]" data-node-id="I60:688;60:394">
+              Bom, com ressalvas
+            </p>
+            <div className="bg-[rgba(17,17,17,0.18)] content-stretch flex gap-[var(--space-4,4px)] h-[5px] items-start overflow-clip relative rounded-[999px] shrink-0 w-full" data-node-id="I60:688;60:395" data-name="Quality 78 percent">
+              <div className="bg-[var(--text-on-accent,#111)] h-[5px] relative rounded-[999px] shrink-0 w-[170.82px]" data-node-id="I60:688;60:396" data-name="78 of 100" />
+            </div>
+          </div>
+          <p className="[word-break:break-word] font-['Sora:Regular'] font-normal leading-[13px] relative shrink-0 text-[10px] text-[color:var(--text-secondary,#b8c0b3)] whitespace-nowrap" data-node-id="I60:688;60:397">
+            Ciclo 2027
+          </p>
+        </div>
+        <div className="content-stretch flex flex-col gap-[var(--space-6,6px)] h-[210px] items-start pb-[var(--space-12,12px)] pt-[var(--space-16,16px)] px-[var(--space-16,16px)] relative shrink-0 w-[275px]" data-node-id="60:703" data-name="X5/Card/Chip">
+          <div className="absolute h-[210px] left-0 top-0 w-[275px]" data-node-id="I60:703;60:399" data-name="Chip silhouette">
+            <div className="absolute inset-[-3.81%_-5.09%_-9.52%_-5.09%]">
+              <img alt="" className="block max-w-none size-full" src={imgChipSilhouette} />
+            </div>
+          </div>
+          <div className="absolute h-[3px] left-[233px] top-[5px] w-[17px]" data-node-id="I60:703;60:400" data-name="Decorative notch dots">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDecorativeNotchDots} />
+          </div>
+          <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold leading-[16px] min-w-full relative shrink-0 text-[12px] text-[color:var(--text-on-dark,white)] w-[min-content]" data-node-id="I60:703;60:404">
+            Lacunas
+          </p>
+          <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold leading-[56px] relative shrink-0 text-[46px] text-[color:var(--text-on-dark,white)] whitespace-nowrap" data-node-id="I60:703;60:405">
+            04
+          </p>
+          <div className="content-stretch flex flex-col gap-[var(--space-6,6px)] h-[74px] items-start pb-[var(--space-10,10px)] pt-[var(--space-18,18px)] px-[var(--space-12,12px)] relative shrink-0 w-full" data-node-id="I60:703;60:406" data-name="Inset data chip">
+            <div className="absolute h-[74px] left-0 top-0 w-[243px]" data-node-id="I60:703;60:407" data-name="Inset chip silhouette">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgInsetChipSilhouette3} />
+            </div>
+            <p className="[word-break:break-word] absolute font-['Sora:SemiBold'] font-semibold leading-[10px] left-[220px] text-[8px] text-[color:var(--text-on-accent,#111)] top-[3px] whitespace-nowrap" data-node-id="I60:703;60:408">
+              4×
+            </p>
+            <p className="[word-break:break-word] font-['Sora:Regular'] font-normal leading-[14px] min-w-full relative shrink-0 text-[11px] text-[color:var(--text-on-accent,#111)] w-[min-content]" data-node-id="I60:703;60:409">
+              validações antes de executar
+            </p>
+            <div className="content-stretch flex gap-[var(--space-4,4px)] h-[5px] items-start overflow-clip relative shrink-0 w-full" data-node-id="I60:703;60:410" data-name="Count 4">
+              <div className="relative shrink-0 size-[5px]" data-node-id="I60:703;60:411" data-name="Ellipse">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse} />
+              </div>
+              <div className="relative shrink-0 size-[5px]" data-node-id="I60:703;60:412" data-name="Ellipse">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse} />
+              </div>
+              <div className="relative shrink-0 size-[5px]" data-node-id="I60:703;60:413" data-name="Ellipse">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse} />
+              </div>
+              <div className="relative shrink-0 size-[5px]" data-node-id="I60:703;60:414" data-name="Ellipse">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse} />
+              </div>
+            </div>
+          </div>
+          <p className="[word-break:break-word] font-['Sora:Regular'] font-normal leading-[13px] relative shrink-0 text-[10px] text-[color:var(--text-secondary,#b8c0b3)] whitespace-nowrap" data-node-id="I60:703;60:415">
+            Ciclo 2027
+          </p>
+        </div>
+      </div>
+      <p className="[word-break:break-word] font-['Sora:Regular'] font-normal leading-[13px] relative shrink-0 text-[10px] text-[color:var(--text-on-accent,#111)] whitespace-nowrap" data-node-id="60:721">
+        MOBILE · 169 × 178
+      </p>
+      <div className="content-stretch flex gap-[24px] items-start overflow-clip relative shrink-0" data-node-id="60:722" data-name="Chip review / Mobile">
+        <div className="content-stretch flex flex-col gap-[var(--space-4,4px)] h-[178px] items-start pb-[var(--space-10,10px)] pt-[var(--space-12,12px)] px-[var(--space-12,12px)] relative shrink-0 w-[169px]" data-node-id="60:723" data-name="X5/Card/Chip">
+          <div className="absolute h-[178px] left-0 top-0 w-[169px]" data-node-id="I60:723;60:417" data-name="Chip silhouette">
+            <div className="absolute inset-[-4.49%_-8.28%_-11.24%_-8.28%]">
+              <img alt="" className="block max-w-none size-full" src={imgChipSilhouette1} />
+            </div>
+          </div>
+          <div className="absolute h-[3px] left-[127px] top-[5px] w-[17px]" data-node-id="I60:723;60:418" data-name="Decorative notch dots">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDecorativeNotchDots} />
+          </div>
+          <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold leading-[14px] min-w-full relative shrink-0 text-[11px] text-[color:var(--text-on-dark,white)] w-[min-content]" data-node-id="I60:723;60:422">
+            Prioridades
+          </p>
+          <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold leading-[44px] relative shrink-0 text-[32px] text-[color:var(--text-on-dark,white)] whitespace-nowrap" data-node-id="I60:723;60:423">
+            03
+          </p>
+          <div className="content-stretch flex flex-col gap-[var(--space-6,6px)] h-[66px] items-start pb-[var(--space-10,10px)] pt-[var(--space-16,16px)] px-[var(--space-12,12px)] relative shrink-0 w-full" data-node-id="I60:723;60:424" data-name="Inset data chip">
+            <div className="absolute h-[66px] left-0 top-0 w-[145px]" data-node-id="I60:723;60:425" data-name="Inset chip silhouette">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgInsetChipSilhouette4} />
+            </div>
+            <p className="[word-break:break-word] absolute font-['Sora:SemiBold'] font-semibold leading-[10px] left-[108px] text-[8px] text-[color:var(--text-on-accent,#111)] top-[3px] whitespace-nowrap" data-node-id="I60:723;60:426">
+              FOCO
+            </p>
+            <p className="[word-break:break-word] font-['Sora:Regular'] font-normal leading-[13px] min-w-full relative shrink-0 text-[10.5px] text-[color:var(--text-on-accent,#111)] w-[min-content]" data-node-id="I60:723;60:427">
+              escolhas que orientam o ciclo
+            </p>
+            <div className="content-stretch flex gap-[var(--space-4,4px)] h-[5px] items-start overflow-clip relative shrink-0 w-full" data-node-id="I60:723;60:428" data-name="Count 3">
+              <div className="relative shrink-0 size-[5px]" data-node-id="I60:723;60:429" data-name="Ellipse">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse} />
+              </div>
+              <div className="relative shrink-0 size-[5px]" data-node-id="I60:723;60:430" data-name="Ellipse">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse} />
+              </div>
+              <div className="relative shrink-0 size-[5px]" data-node-id="I60:723;60:431" data-name="Ellipse">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse} />
+              </div>
+            </div>
+          </div>
+          <p className="[word-break:break-word] font-['Sora:Regular'] font-normal leading-[13px] relative shrink-0 text-[10px] text-[color:var(--text-secondary,#b8c0b3)] whitespace-nowrap" data-node-id="I60:723;60:432">
+            Ciclo 2027
+          </p>
+        </div>
+        <div className="content-stretch flex flex-col gap-[var(--space-4,4px)] h-[178px] items-start pb-[var(--space-10,10px)] pt-[var(--space-12,12px)] px-[var(--space-12,12px)] relative shrink-0 w-[169px]" data-node-id="60:740" data-name="X5/Card/Chip">
+          <div className="absolute h-[178px] left-0 top-0 w-[169px]" data-node-id="I60:740;60:434" data-name="Chip silhouette">
+            <div className="absolute inset-[-4.49%_-8.28%_-11.24%_-8.28%]">
+              <img alt="" className="block max-w-none size-full" src={imgChipSilhouette1} />
+            </div>
+          </div>
+          <div className="absolute h-[3px] left-[127px] top-[5px] w-[17px]" data-node-id="I60:740;60:435" data-name="Decorative notch dots">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDecorativeNotchDots} />
+          </div>
+          <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold leading-[14px] min-w-full relative shrink-0 text-[11px] text-[color:var(--text-on-dark,white)] w-[min-content]" data-node-id="I60:740;60:439">
+            Objetivos
+          </p>
+          <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold leading-[44px] relative shrink-0 text-[32px] text-[color:var(--text-on-dark,white)] whitespace-nowrap" data-node-id="I60:740;60:440">
+            02
+          </p>
+          <div className="content-stretch flex flex-col gap-[var(--space-6,6px)] h-[66px] items-start pb-[var(--space-10,10px)] pt-[var(--space-16,16px)] px-[var(--space-12,12px)] relative shrink-0 w-full" data-node-id="I60:740;60:441" data-name="Inset data chip">
+            <div className="absolute h-[66px] left-0 top-0 w-[145px]" data-node-id="I60:740;60:442" data-name="Inset chip silhouette">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgInsetChipSilhouette5} />
+            </div>
+            <p className="[word-break:break-word] absolute font-['Sora:SemiBold'] font-semibold leading-[10px] left-[117px] text-[8px] text-[color:var(--text-on-accent,#111)] top-[3px] whitespace-nowrap" data-node-id="I60:740;60:443">
+              KRs
+            </p>
+            <p className="[word-break:break-word] font-['Sora:Regular'] font-normal leading-[13px] min-w-full relative shrink-0 text-[10.5px] text-[color:var(--text-on-accent,#111)] w-[min-content]" data-node-id="I60:740;60:444">
+              resultados para acompanhar
+            </p>
+            <div className="content-stretch flex gap-[var(--space-4,4px)] h-[5px] items-start overflow-clip relative shrink-0 w-full" data-node-id="I60:740;60:445" data-name="Count 2">
+              <div className="relative shrink-0 size-[5px]" data-node-id="I60:740;60:446" data-name="Ellipse">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse} />
+              </div>
+              <div className="relative shrink-0 size-[5px]" data-node-id="I60:740;60:447" data-name="Ellipse">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse} />
+              </div>
+            </div>
+          </div>
+          <p className="[word-break:break-word] font-['Sora:Regular'] font-normal leading-[13px] relative shrink-0 text-[10px] text-[color:var(--text-secondary,#b8c0b3)] whitespace-nowrap" data-node-id="I60:740;60:448">
+            Ciclo 2027
+          </p>
+        </div>
+        <div className="content-stretch flex flex-col gap-[var(--space-4,4px)] h-[178px] items-start pb-[var(--space-10,10px)] pt-[var(--space-12,12px)] px-[var(--space-12,12px)] relative shrink-0 w-[169px]" data-node-id="60:756" data-name="X5/Card/Chip">
+          <div className="absolute h-[178px] left-0 top-0 w-[169px]" data-node-id="I60:756;60:450" data-name="Chip silhouette">
+            <div className="absolute inset-[-4.49%_-8.28%_-11.24%_-8.28%]">
+              <img alt="" className="block max-w-none size-full" src={imgChipSilhouette1} />
+            </div>
+          </div>
+          <div className="absolute h-[3px] left-[127px] top-[5px] w-[17px]" data-node-id="I60:756;60:451" data-name="Decorative notch dots">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDecorativeNotchDots} />
+          </div>
+          <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold leading-[14px] min-w-full relative shrink-0 text-[11px] text-[color:var(--text-on-dark,white)] w-[min-content]" data-node-id="I60:756;60:455">
+            Qualidade
+          </p>
+          <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold leading-[44px] relative shrink-0 text-[32px] text-[color:var(--text-on-dark,white)] whitespace-nowrap" data-node-id="I60:756;60:456">
+            78/100
+          </p>
+          <div className="content-stretch flex flex-col gap-[var(--space-6,6px)] h-[66px] items-start pb-[var(--space-10,10px)] pt-[var(--space-16,16px)] px-[var(--space-12,12px)] relative shrink-0 w-full" data-node-id="I60:756;60:457" data-name="Inset data chip">
+            <div className="absolute h-[66px] left-0 top-0 w-[145px]" data-node-id="I60:756;60:458" data-name="Inset chip silhouette">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgInsetChipSilhouette6} />
+            </div>
+            <p className="[word-break:break-word] absolute font-['Sora:SemiBold'] font-semibold leading-[10px] left-[115px] text-[8px] text-[color:var(--text-on-accent,#111)] top-[3px] whitespace-nowrap" data-node-id="I60:756;60:459">
+              78%
+            </p>
+            <p className="[word-break:break-word] font-['Sora:Regular'] font-normal leading-[13px] min-w-full relative shrink-0 text-[10.5px] text-[color:var(--text-on-accent,#111)] w-[min-content]" data-node-id="I60:756;60:460">
+              Bom, com ressalvas
+            </p>
+            <div className="bg-[rgba(17,17,17,0.18)] content-stretch flex gap-[var(--space-4,4px)] h-[5px] items-start overflow-clip relative rounded-[999px] shrink-0 w-full" data-node-id="I60:756;60:461" data-name="Quality 78 percent">
+              <div className="bg-[var(--text-on-accent,#111)] h-[5px] relative rounded-[999px] shrink-0 w-[94.38px]" data-node-id="I60:756;60:462" data-name="78 of 100" />
+            </div>
+          </div>
+          <p className="[word-break:break-word] font-['Sora:Regular'] font-normal leading-[13px] relative shrink-0 text-[10px] text-[color:var(--text-secondary,#b8c0b3)] whitespace-nowrap" data-node-id="I60:756;60:463">
+            Ciclo 2027
+          </p>
+        </div>
+        <div className="content-stretch flex flex-col gap-[var(--space-4,4px)] h-[178px] items-start pb-[var(--space-10,10px)] pt-[var(--space-12,12px)] px-[var(--space-12,12px)] relative shrink-0 w-[169px]" data-node-id="60:771" data-name="X5/Card/Chip">
+          <div className="absolute h-[178px] left-0 top-0 w-[169px]" data-node-id="I60:771;60:465" data-name="Chip silhouette">
+            <div className="absolute inset-[-4.49%_-8.28%_-11.24%_-8.28%]">
+              <img alt="" className="block max-w-none size-full" src={imgChipSilhouette1} />
+            </div>
+          </div>
+          <div className="absolute h-[3px] left-[127px] top-[5px] w-[17px]" data-node-id="I60:771;60:466" data-name="Decorative notch dots">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDecorativeNotchDots} />
+          </div>
+          <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold leading-[14px] min-w-full relative shrink-0 text-[11px] text-[color:var(--text-on-dark,white)] w-[min-content]" data-node-id="I60:771;60:470">
+            Lacunas
+          </p>
+          <p className="[word-break:break-word] font-['Sora:SemiBold'] font-semibold leading-[44px] relative shrink-0 text-[32px] text-[color:var(--text-on-dark,white)] whitespace-nowrap" data-node-id="I60:771;60:471">
+            04
+          </p>
+          <div className="content-stretch flex flex-col gap-[var(--space-6,6px)] h-[66px] items-start pb-[var(--space-10,10px)] pt-[var(--space-16,16px)] px-[var(--space-12,12px)] relative shrink-0 w-full" data-node-id="I60:771;60:472" data-name="Inset data chip">
+            <div className="absolute h-[66px] left-0 top-0 w-[145px]" data-node-id="I60:771;60:473" data-name="Inset chip silhouette">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgInsetChipSilhouette7} />
+            </div>
+            <p className="[word-break:break-word] absolute font-['Sora:SemiBold'] font-semibold leading-[10px] left-[122px] text-[8px] text-[color:var(--text-on-accent,#111)] top-[3px] whitespace-nowrap" data-node-id="I60:771;60:474">
+              4×
+            </p>
+            <p className="[word-break:break-word] font-['Sora:Regular'] font-normal leading-[13px] min-w-full relative shrink-0 text-[10.5px] text-[color:var(--text-on-accent,#111)] w-[min-content]" data-node-id="I60:771;60:475">
+              validações pendentes
+            </p>
+            <div className="content-stretch flex gap-[var(--space-4,4px)] h-[5px] items-start overflow-clip relative shrink-0 w-full" data-node-id="I60:771;60:476" data-name="Count 4">
+              <div className="relative shrink-0 size-[5px]" data-node-id="I60:771;60:477" data-name="Ellipse">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse} />
+              </div>
+              <div className="relative shrink-0 size-[5px]" data-node-id="I60:771;60:478" data-name="Ellipse">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse} />
+              </div>
+              <div className="relative shrink-0 size-[5px]" data-node-id="I60:771;60:479" data-name="Ellipse">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse} />
+              </div>
+              <div className="relative shrink-0 size-[5px]" data-node-id="I60:771;60:480" data-name="Ellipse">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse} />
+              </div>
+            </div>
+          </div>
+          <p className="[word-break:break-word] font-['Sora:Regular'] font-normal leading-[13px] relative shrink-0 text-[10px] text-[color:var(--text-secondary,#b8c0b3)] whitespace-nowrap" data-node-id="I60:771;60:481">
+            Ciclo 2027
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+These styles are contained in the design: X5/Effects/Chip card: Effect(type: DROP_SHADOW, color: #00000029, offset: (0, 6), radius: 14, spread: 0).
+
+Component descriptions: The following components have usage descriptions or documentation links defined in Figma. These descriptions provide important context about the intended usage, best practices, and any constraints for each component. Follow these guidelines when implementing or using these components.
+
+## X5/Card/Chip
+**Node ID:** 60:482
+
+Card chip com recortes vetoriais e faixa colorida da paleta X5 encaixada. Metric: Priorities, Objectives, Quality e Gaps; Size: Desktop ou Mobile. Conteúdo alterável por edição de texto nas instâncias; Meta é propriedade compartilhada. Contagens e barra de qualidade correspondem aos exemplos do plano. Ao alterar dados, atualizar o indicador visual. Tipografia Sora em todos os textos; valores SemiBold em 46 px no desktop e 32 px no mobile.
+
+Images and SVGs will be stored as constants, e.g. const image = `${assetPathPrefix}/<asset file name>`, where assetPathPrefix is declared once at the top of the code and every asset URL interpolates it. These constants will be used in the code as the source for the image, ex: <img src={image} />. Image assets are stored on a remote server for 7 days and can be fetched using the provided URLs until they expire.
