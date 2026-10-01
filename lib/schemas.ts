@@ -67,7 +67,7 @@ export const planRequestSchema = z.object({
     horizon: z.string().min(1).max(120),
     challenge: z.string().min(1).max(1200),
   }),
-  answers: z.array(answerEntrySchema).min(1).max(60),
+  answers: z.array(answerEntrySchema).min(5).max(60),
 });
 
 const evidenceItemSchema = z.object({

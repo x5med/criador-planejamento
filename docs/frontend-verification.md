@@ -1,5 +1,17 @@
 # Verificação da implementação do Figma
 
+## Apresentação pública do produto — 01/10/2026
+
+A rota `/` apresenta a criação do planejamento estratégico, com acessos a `/login` e `/cadastro`. As duas telas de acesso permanecem como esqueletos visuais, sem autenticação. A demonstração leva a `/inicio`, preservando a sessão existente; sem sessão, o CTA abre o formulário de novo planejamento.
+
+**Build, TypeScript, lint dos arquivos alterados e seis grupos de verificação aprovados.** Foram verificados os links de acesso, ampliação das capturas com Escape e restauração de foco, imagens carregadas e ausência de overflow em 1440/390/320 px, cancelamento do formulário, horizontes e payload completo de início. Capturas desktop e mobile foram inspecionadas visualmente. As telas dos cards foram capturadas da aplicação com dados ilustrativos em uma sessão isolada.
+
+Resultados e capturas: `design/implementation/verification/product-home/`. Execução restrita a `TEST_FILTER='Product home|Homepage explains|Provider live status'`; a suíte completa não foi repetida e as chamadas de IA foram simuladas.
+
+## Travas de progressão — 01/10/2026
+
+Os atalhos de salto de etapa e de geração com uma resposta foram removidos. A entrevista avança ao salvar a resposta atual. No modo demonstrativo, a interface mantém “Gerar plano agora” desativado com quatro respostas e o libera com cinco. A API `/api/plan` rejeitou quatro respostas com HTTP 400 e aceitou cinco com HTTP 200. O build de produção e o lint passaram; a aplicação foi aberta em `localhost:3000` para continuar os testes.
+
 ## Agenda dentro de Execução — 30/09/2026
 
 **6 grupos de verificação aprovados, zero falhas pendentes.** A Agenda projeta iniciativas, marcos dos primeiros 90 dias e cadências existentes. Os KRs continuam no Plano de ação. Nenhuma operação da Agenda realizou POST ou alterou a sessão salva nos fluxos cobertos.

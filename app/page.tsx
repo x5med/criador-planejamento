@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { ProductLanding } from "@/components/ProductLanding";
 
 export default function Home() {
-  redirect("/login");
+  return <ProductLanding />;
 }

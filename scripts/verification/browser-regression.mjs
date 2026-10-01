@@ -58,7 +58,7 @@ async function visibleText(page, text) { const exact = page.getByText(text, { ex
 async function switchTab(page, tab) { await page.getByRole("tab", { name: tab, exact: true }).first().click(); }
 async function openExports(page) { if (!await page.getByRole("button", { name: "JSON", exact: true }).isVisible()) await page.locator("details.result-export:visible > summary").click(); }
 async function openStartForm(page) {
-  const cta = page.getByRole("button", { name: "Gerar planejamento", exact: true }).first();
+  const cta = page.getByRole("button", { name: "Criar meu planejamento", exact: true }).first();
   const opener = await cta.elementHandle();
   await cta.click(); await page.getByRole("textbox", { name: /organização/i }).waitFor(); return opener;
 }
@@ -92,27 +92,38 @@ await check("Session persistence and request logic preserved", async () => {
   assert.equal(logic(after), logic(before));
   return "Original session, persistence and request logic unchanged; loading presentation follows the approved UI";
 });
-await check("Root redirects to visual login without authentication or persistence; demo link opens homepage", async () => {
-  const { page, browserContext, requests, mutations, errors } = await makePage({ routePath: "/" });
-  assert.equal(new URL(page.url()).pathname, "/login");
-  assert.equal(await page.getByRole("textbox", { name: /e-?mail/i }).isDisabled(), true);
-  assert.equal(await page.getByLabel(/senha/i).isDisabled(), true);
-  assert.equal(await page.getByRole("button", { name: "Entrar", exact: true }).isDisabled(), true);
-  const moduleTrigger = page.getByRole("button", { name: "Entrevista guiada", exact: true });
-  await moduleTrigger.focus(); await page.keyboard.press("Enter");
-  await page.getByRole("region", { name: "Entrevista guiada", exact: true }).waitFor();
-  await page.getByRole("button", { name: "Fechar detalhes de Entrevista guiada", exact: true }).focus();
-  await page.keyboard.press("Escape");
-  await page.getByRole("region", { name: "Entrevista guiada", exact: true }).waitFor({ state: "hidden" });
-  assert.equal(await moduleTrigger.evaluate(element => document.activeElement === element), true);
-  assert.equal(await savedSession(page), null); assert.equal(await page.evaluate(() => localStorage.length), 0); assert.deepEqual(mutations, []);
-  const demoLink = page.getByRole("link", { name: "Explorar demonstração", exact: true });
-  assert.equal(await demoLink.getAttribute("href"), "/inicio"); await demoLink.click();
-  await page.getByRole("button", { name: "Gerar planejamento", exact: true }).first().waitFor();
-  assert.equal(new URL(page.url()).pathname, "/inicio");
-  assert.equal(await page.getByRole("textbox", { name: /organização/i }).count(), 0, "Homepage must not display planning form before CTA");
-  assert.equal(requests.length, 0); assert.deepEqual(mutations, []); assert.equal(await savedSession(page), null); assert.equal(errors.length, 0); await browserContext.close();
+await check("Product home access, screenshot previews and demonstration preserve session", async () => {
+  const { page, browserContext, mutations, errors } = await makePage({ routePath: "/", reducedMotion: "reduce" });
+  assert.equal(new URL(page.url()).pathname, "/");
+  await page.getByRole("heading", { name: "Crie seu planejamento estratégico." }).waitFor();
+  assert.equal(await page.getByRole("link", { name: "Login", exact: true }).getAttribute("href"), "/login");
+  await page.getByRole("button", { name: "Ampliar tela de diagnóstico", exact: true }).click();
+  await page.getByRole("dialog").waitFor(); await page.keyboard.press("Escape");
+  assert.equal(await page.getByRole("button", { name: "Ampliar tela de diagnóstico", exact: true }).evaluate(el => document.activeElement === el), true);
+  await page.getByRole("link", { name: "Criar conta", exact: true }).click();
+  await page.getByRole("heading", { name: "Crie sua conta" }).waitFor();
+  assert.equal(await page.getByLabel("Nome completo").isDisabled(), true);
+  assert.equal(await page.getByRole("button", { name: "Criar conta", exact: true }).isDisabled(), true);
+  await page.getByRole("link", { name: "Já tem uma conta? Fazer login", exact: true }).click();
+  await page.getByRole("heading", { name: "Entre na sua conta" }).waitFor();
+  await page.getByRole("link", { name: "Explorar demonstração", exact: true }).click();
+  await page.getByRole("button", { name: "Criar meu planejamento", exact: true }).first().waitFor();
+  assert.equal(await savedSession(page), null); assert.deepEqual(mutations, []); assert.deepEqual(errors, []);
+  await browserContext.close();
 });
+for (const width of [1440, 390, 320]) {
+  await check(`Product home responsive ${width}px images and preview`, async () => {
+    const { page, browserContext, errors } = await makePage({ width, routePath: "/", reducedMotion: "reduce" });
+    for (const image of await page.locator(".product-screen-button img").all()) { await image.scrollIntoViewIfNeeded(); await image.evaluate(img => img.decode()); }
+    assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
+    await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+    await screenshot(page, `product-home-${width}`);
+    await page.getByRole("button", { name: "Ampliar tela de visão geral do planejamento" }).click();
+    const box = await page.getByRole("dialog").boundingBox(); assert.ok(box.x >= 0 && box.x + box.width <= width + 1);
+    await page.getByRole("button", { name: "Fechar imagem" }).click(); assert.deepEqual(errors, []);
+    await browserContext.close();
+  });
+}
 for (const width of [1440, 390, 320]) {
   await check(`Visual login responsive ${width}px has disabled credentials and no overflow`, async () => {
     const { page, browserContext, mutations, errors } = await makePage({ width, routePath: "/login" });
@@ -232,7 +243,7 @@ await check("Select question preserves chosen answer in request; coaching failur
 });
 await check("Malformed stored JSON is discarded safely", async () => {
   const { page, browserContext, errors } = await makePage({ saved: "{invalid" });
-  await page.getByRole("button", { name: "Gerar planejamento", exact: true }).first().waitFor();
+  await page.getByRole("button", { name: "Criar meu planejamento", exact: true }).first().waitFor();
   assert.equal(await savedSession(page), null); assert.equal(errors.length, 0); await browserContext.close();
 });
 await check("Generation gate, failure state, successful plan payload", async () => {
@@ -280,7 +291,7 @@ await check("Back to interview and reset confirmation preserve/cancel then erase
   page.once("dialog", dialog => dialog.dismiss()); await page.getByRole("button", { name: "Novo plano", exact: true }).first().click();
   assert.equal((await savedSession(page)).id, session.id);
   page.once("dialog", dialog => dialog.accept()); await page.getByRole("button", { name: "Novo plano", exact: true }).first().click();
-  await page.getByRole("button", { name: "Gerar planejamento", exact: true }).first().waitFor(); assert.equal(await savedSession(page), null); await browserContext.close();
+  await page.getByRole("button", { name: "Criar meu planejamento", exact: true }).first().waitFor(); assert.equal(await savedSession(page), null); await browserContext.close();
 });
 for (const width of [1440, 390, 320]) {
   await check(`Responsive overflow and font ${width}px homepage/modal/interview/five tabs`, async () => {

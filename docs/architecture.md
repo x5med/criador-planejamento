@@ -18,7 +18,7 @@ Gemini API (@google/genai)
 
 ## Decisões
 
-- **Entrada:** `/` redireciona para `/login`; “Explorar demonstração” navega para `/inicio`. Sem sessão salva, a página apresenta o sistema e abre o formulário de contexto somente após “Gerar planejamento”. Com sessão salva, o controlador retoma a entrevista ou o plano.
+- **Entrada:** `/` é a apresentação pública do produto, com login, cadastro e capturas reais ampliáveis. “Explorar demonstração” navega para `/inicio`. Sem sessão salva, “Criar meu planejamento” abre o formulário de contexto; com sessão salva, o controlador retoma a entrevista ou o plano. `/login` e `/cadastro` são esqueletos visuais de acesso.
 - **Login visual:** o componente de apresentação segue o layout do Metrics. Campos e ação Entrar estão desativados. Nenhuma credencial é capturada, enviada ou persistida; não há sessão autenticada, cookie de acesso ou proteção de rotas.
 
 - **Next.js:** uma aplicação e suas rotas server-side no mesmo deploy.

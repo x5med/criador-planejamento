@@ -7,6 +7,7 @@ import "./journey.css";
 import "./results.css";
 import "./agenda.css";
 import "./preloader.css";
+import "./product.css";
 
 const sora = Sora({
   variable: "--font-sans",

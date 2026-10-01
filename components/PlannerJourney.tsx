@@ -1,49 +1,22 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, BrainCircuit, Check, CheckCheck, ChevronDown, Clock3, HelpCircle, LoaderCircle, Menu, Plus, Sparkles, X } from "lucide-react";
+import { ArrowRight, Check, CheckCheck, ChevronDown, Clock3, HelpCircle, LoaderCircle, Menu, Plus, Sparkles, X } from "lucide-react";
 import { type FormEvent, useEffect, useRef, useState } from "react";
 import { AiBadge, Brand, type ProviderStatus } from "@/components/PlannerPrimitives";
 import { AnimatedGroupLogo } from "./AnimatedGroupLogo";
 import { NewPlanDialog } from "@/components/NewPlanDialog";
+import { ProductLanding } from "@/components/ProductLanding";
 import { PHASES, type CoachResponse, type PlannerSession } from "@/lib/types";
 
 type StartData = { organization: string; sector: string; horizon: string; challenge: string };
-const methodDescriptions = ["Contexto e evidências", "Escolhas e renúncias", "Resultados e iniciativas", "Pessoas e governança"];
 
 export function Landing({ status, onStart, loading }: { status: ProviderStatus | null; onStart: (data: StartData) => Promise<void>; loading: boolean }) {
   const [showForm, setShowForm] = useState(false);
-  return (
-    <main className="landing-shell landing-intro view-enter">
-      <div className="landing-glass">
-        <header className="landing-nav">
-          <Brand />
-          <div className="landing-intro-nav"><AiBadge status={status} /><Link href="/login" className="secondary-button">Acessar conta</Link></div>
-        </header>
-        <div className="landing-mobile-status"><AiBadge status={status} /></div>
-        <section className="landing-hero">
-          <div className="hero-copy">
-            <span className="eyebrow hero-eyebrow"><span className="desktop-label">Um novo ciclo começa com uma boa pergunta</span><span className="mobile-label">Novo ciclo · Novas escolhas</span></span>
-            <h1><span className="hero-title-line">Transforme contexto</span><br className="desktop-break" /><span className="hero-title-line">em direção.</span></h1>
-            <p className="hero-lead">O X5 Planejamento usa uma entrevista guiada por IA para entender sua organização, definir prioridades e transformar escolhas em um plano de ação.</p>
-            <div className="hero-proof"><span>Decisões com evidência</span><span>OKRs e iniciativas</span><span>Donos e cadências</span></div>
-            <div className="landing-intro-action"><button type="button" className="primary-button" onClick={() => setShowForm(true)}>Gerar planejamento <ArrowRight size={18} /></button><p>Comece pelo contexto da sua organização.</p></div>
-          </div>
-          <section id="landing-method" className="method-card" aria-labelledby="landing-method-title">
-              <span className="eyebrow">Da reflexão à prática</span><h2 id="landing-method-title">Quatro perguntas.<br />Uma direção.</h2>
-              <ol>{PHASES.slice(1).map((phase, index) => <li key={phase.id}><div><strong>{phase.title}</strong><small>{methodDescriptions[index]}</small></div><span>{String(index + 1).padStart(2, "0")}</span></li>)}</ol>
-          </section>
-        </section>
-        <section className="landing-deliverables" aria-labelledby="landing-deliverables-title">
-          <h2 id="landing-deliverables-title">O que você constrói aqui</h2>
-          <div><article><BrainCircuit size={22} aria-hidden="true" /><h3>Um diagnóstico claro</h3><p>Organize fatos, hipóteses e lacunas para entender o ponto de partida.</p></article><article><CheckCheck size={22} aria-hidden="true" /><h3>Escolhas que dão foco</h3><p>Defina prioridades, objetivos e resultados que você pode acompanhar.</p></article><article><Clock3 size={22} aria-hidden="true" /><h3>Um plano para executar</h3><p>Conecte iniciativas, responsáveis e os primeiros 90 dias. Exporte o plano para compartilhar.</p></article></div>
-        </section>
-        <footer className="landing-footer"><span>X5 Planejamento — escolhas que viram execução.</span><span className="footer-extra">Valide as recomendações com sua equipe.</span></footer>
-      </div>
-      {showForm && <NewPlanDialog status={status} onStart={onStart} loading={loading} onClose={() => setShowForm(false)} />}
-    </main>
-  );
+  return <>
+    <ProductLanding onCreate={() => setShowForm(true)} />
+    {showForm && <NewPlanDialog status={status} onStart={onStart} loading={loading} onClose={() => setShowForm(false)} />}
+  </>;
 }
 
 export function Interview({ session, status, loading, error, onAnswer, onCoach, onGenerate, onNew }: { session: PlannerSession; status: ProviderStatus | null; loading: boolean; error: string | null; onAnswer: (answer: string) => Promise<void>; onCoach: () => Promise<CoachResponse | null>; onGenerate: () => Promise<void>; onNew: () => void }) {

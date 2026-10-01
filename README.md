@@ -34,7 +34,7 @@ npm run dev
 
 Abra `http://localhost:3000`.
 
-`/` direciona para `/login`, uma prévia visual com os campos de credenciais e o botão Entrar desativados. A demonstração segue para `/inicio`, onde o fluxo de planejamento funciona e as sessões locais são retomadas. A autenticação e o banco de dados ainda não foram implementados; o login não protege rotas nem APIs. Veja os pontos de integração futura na [arquitetura](docs/architecture.md).
+`/` apresenta o planejamento estratégico, o processo e capturas reais do sistema. Os botões Login e Criar conta levam a `/login` e `/cadastro`, prévias visuais com credenciais e envio desativados. A demonstração segue para `/inicio`, onde é possível iniciar um planejamento ou retomar a sessão local. A autenticação e o banco de dados ainda não foram implementados; essas telas não protegem rotas nem APIs. Veja os pontos de integração futura na [arquitetura](docs/architecture.md).
 
 Para usar Gemini de verdade, preencha `GEMINI_API_KEY` em `.env.local`. Sem a chave, todas as telas continuam funcionando com respostas demonstrativas claramente identificadas.
 
