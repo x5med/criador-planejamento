@@ -9,7 +9,8 @@ import type { AiProvider, AnswerEntry, CoachResponse, InterviewResponse, Planner
 
 const STORAGE_KEY = "x5-strategic-planner-session-v1";
 
-export function StrategicPlanner() {
+export function StrategicPlanner({ storageScope }: { storageScope: string }) {
+  const scopedStorageKey = `${STORAGE_KEY}:${storageScope}`;
   const [session, setSession] = useState<PlannerSession | null>(null);
   const [status, setStatus] = useState<ProviderStatus | null>(null);
   const [hydrated, setHydrated] = useState(false);
@@ -19,10 +20,10 @@ export function StrategicPlanner() {
   useEffect(() => {
     const hydrationTimer = window.setTimeout(() => {
       try {
-        const saved = localStorage.getItem(STORAGE_KEY);
+        const saved = localStorage.getItem(scopedStorageKey);
         if (saved) setSession(JSON.parse(saved) as PlannerSession);
       } catch {
-        localStorage.removeItem(STORAGE_KEY);
+        localStorage.removeItem(scopedStorageKey);
       }
       setHydrated(true);
     }, 0);
@@ -33,12 +34,12 @@ export function StrategicPlanner() {
         setStatus({ configured: false, provider: "demo", model: "demonstração local" }),
       );
     return () => window.clearTimeout(hydrationTimer);
-  }, []);
+  }, [scopedStorageKey]);
 
   const persist = useCallback((next: PlannerSession) => {
     setSession(next);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-  }, []);
+    localStorage.setItem(scopedStorageKey, JSON.stringify(next));
+  }, [scopedStorageKey]);
 
   const fetchNext = useCallback(
     async (base: PlannerSession) => {
@@ -225,7 +226,7 @@ export function StrategicPlanner() {
 
   const newPlan = () => {
     if (session && !window.confirm("Iniciar um novo plano e apagar a sessão atual?")) return;
-    localStorage.removeItem(STORAGE_KEY);
+    localStorage.removeItem(scopedStorageKey);
     setSession(null);
     setError(null);
   };

@@ -97,6 +97,20 @@ button:not(:disabled):active { transform: scale(.98); }
 .tag-gap, .tag-danger, .tag-error { background: var(--color-gap); color: #884d42; }
 .tag-gold, .tag-agora, .tag-primary { background: var(--color-accent); color: var(--color-ink); }
 .app-loading { display: flex; min-height: 100vh; align-items: center; justify-content: center; gap: 24px; }
+.account-bar {
+  position: fixed; z-index: 90; top: 14px; right: 18px;
+  display: flex; align-items: center; gap: 10px; max-width: min(420px, calc(100vw - 36px));
+  padding: 5px 6px 5px 14px; border: 1px solid #d9ded3;
+  border-radius: 999px; background: rgb(255 255 255 / 92%);
+  box-shadow: 0 6px 20px rgb(17 17 17 / 9%); backdrop-filter: blur(12px);
+}
+.account-bar > span { min-width: 0; overflow: hidden; color: var(--color-muted); font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
+.account-bar button { display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 7px 11px; border-radius: 999px; background: var(--color-ink); color: white; font-size: 10px; font-weight: 600; }
+@media (hover: hover) { .account-bar button:hover { background: #292d25; } }
+@media (max-width: 767px) {
+  .account-bar { top: auto; right: 12px; bottom: 74px; max-width: calc(100vw - 24px); }
+  .account-bar > span { display: none; }
+}
 .spin { animation: indicator-spin 900ms linear infinite; }
 .view-enter { animation: view-arrive var(--motion-base) var(--motion-ease) both; }
 @keyframes indicator-spin { to { transform: rotate(360deg); } }

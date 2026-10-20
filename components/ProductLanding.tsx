@@ -25,7 +25,7 @@ export function ProductLanding({ onCreate }: { onCreate?: () => void }) {
     <header className="product-nav">
       <Link href="/" className="product-brand" aria-label="Grupo X5 Planejamento — início"><Brand /></Link>
       <nav className="product-sections" aria-label="Sobre o sistema"><a href="#como-funciona">Como funciona</a><a href="#por-dentro">Por dentro do sistema</a></nav>
-      <nav className="product-account" aria-label="Acesso à conta"><Link href="/login">Login em breve</Link><Link href="/cadastro" className="primary-button">Cadastro em breve</Link></nav>
+      <nav className="product-account" aria-label="Acesso à conta"><Link href="/login">Entrar</Link><Link href="/cadastro" className="primary-button">Criar conta</Link></nav>
     </header>
 
     <section className="product-hero" aria-labelledby="product-title">
@@ -34,7 +34,7 @@ export function ProductLanding({ onCreate }: { onCreate?: () => void }) {
         <h1 id="product-title">Crie seu planejamento estratégico.</h1>
         <p className="product-lead">Crie o planejamento estratégico da sua organização: entenda o cenário, escolha prioridades e transforme objetivos em ações com responsáveis e prazos.</p>
         <div className="product-actions">{startAction()}<a href="#por-dentro" className="product-text-link">Conhecer o sistema</a></div>
-        <p className="product-demo-note">Nesta versão, não é preciso criar conta: o progresso fica salvo somente neste navegador.</p>
+        <p className="product-demo-note">Entre com sua conta X5 para criar o plano. O progresso fica salvo neste navegador e separado por usuário.</p>
         <ul className="product-outcomes"><li><Check size={15} />Diagnóstico e prioridades</li><li><Check size={15} />Objetivos e KRs</li><li><Check size={15} />Plano de ação</li></ul>
       </div>
       <figure className="product-hero-visual">
@@ -67,8 +67,8 @@ export function ProductLanding({ onCreate }: { onCreate?: () => void }) {
       </article>)}</div>
     </section>
 
-    <section className="product-closing" aria-labelledby="closing-title"><div><h2 id="closing-title">Qual é o próximo passo<br />da sua organização?</h2><p>Comece com uma boa pergunta. Construa as decisões que vêm depois.</p></div><div>{startAction()}<Link href="/cadastro" className="product-text-link">Cadastro em breve</Link></div></section>
-    <footer className="product-footer"><Brand /><p>Estratégia com clareza. Execução com direção.</p><Link href="/login">Login em breve</Link></footer>
+    <section className="product-closing" aria-labelledby="closing-title"><div><h2 id="closing-title">Qual é o próximo passo<br />da sua organização?</h2><p>Comece com uma boa pergunta. Construa as decisões que vêm depois.</p></div><div>{startAction()}<Link href="/cadastro" className="product-text-link">Criar conta</Link></div></section>
+    <footer className="product-footer"><Brand /><p>Estratégia com clareza. Execução com direção.</p><Link href="/login">Entrar</Link></footer>
 
     <dialog ref={dialog} className="product-preview" aria-labelledby="product-preview-title" onClose={() => setPreview(null)} onClick={event => { if (event.target === event.currentTarget) dialog.current?.close(); }}>
       <header><h2 id="product-preview-title">{preview?.title ?? "Tela do sistema"}</h2><button type="button" aria-label="Fechar imagem" onClick={() => dialog.current?.close()}><X size={22} /></button></header>

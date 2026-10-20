@@ -4,9 +4,9 @@
 
 | Etapa | Interface | Inteligência | Saída |
 |---|---|---|---|
-| Apresentação (`/`) | proposta de criação do planejamento, processo, cards com capturas ampliáveis, login e cadastro | explica diagnóstico, escolhas e execução | demonstração em `/inicio` ou telas de acesso |
-| Login visual (`/login`) | layout do Metrics com marca X5, credenciais desativadas e acesso à demonstração | autenticação ainda não implementada | navegação para `/inicio`, sem criar conta ou sessão autenticada |
-| Cadastro visual (`/cadastro`) | nome, e-mail e senha desativados; indicação de disponibilidade futura | cadastro ainda não implementado | navegação para login ou demonstração |
+| Apresentação (`/`) | proposta de criação do planejamento, processo, cards com capturas ampliáveis, login e cadastro | explica diagnóstico, escolhas e execução | telas de acesso |
+| Login (`/login`) | e-mail/senha ou Google, erros acessíveis e link de cadastro | Supabase Auth com sessão SSR | acesso protegido a `/inicio` |
+| Cadastro (`/cadastro`) | nome, e-mail, senha ou Google | criação no Supabase e confirmação por e-mail quando exigida | sessão imediata ou orientação de confirmação |
 | Início (`/inicio`) | apresentação do sistema, método e botão Gerar planejamento | explica a jornada e as entregas | abre o formulário de contexto |
 | Novo planejamento | diálogo com organização, setor, horizonte e desafio | define contexto e decisão | sessão local ao enviar o formulário |
 | Contexto | pergunta adaptativa | delimita escopo, restrições e decisores | contrato do plano |
@@ -42,7 +42,7 @@ O plano só pode ser gerado após pelo menos cinco respostas salvas. A interface
 
 ## Estados e persistência
 
-- A sessão é salva automaticamente no navegador.
+- O plano é salvo automaticamente no navegador em uma chave vinculada ao ID do usuário.
 - Recarregar `/inicio` restaura entrevista ou plano; abrir `/` mostra a apresentação pública, sem apagar a sessão existente.
 - Fechar o formulário inicial com Cancelar, Esc ou o botão de fechar retorna à apresentação sem criar sessão.
 - “Novo plano” limpa apenas a sessão desta aplicação.
@@ -50,8 +50,8 @@ O plano só pode ser gerado após pelo menos cinco respostas salvas. A interface
 
 ## Fora do escopo do MVP
 
-- autenticação e organizações multiusuário;
-- banco de dados e colaboração em tempo real;
+- organizações multiusuário e papéis de acesso;
+- persistência do plano em banco e colaboração em tempo real;
 - upload/análise de documentos;
 - cobrança e limites por conta;
 - integração automática com ERP, CRM ou contabilidade.

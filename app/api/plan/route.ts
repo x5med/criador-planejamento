@@ -8,11 +8,20 @@ import { buildDemoPlan } from "@/lib/demo";
 import { hasGeminiKey } from "@/lib/gemini";
 import { PLAN_PROMPT } from "@/lib/method";
 import { planRequestSchema, strategicPlanSchema } from "@/lib/schemas";
+import { getCurrentUser } from "@/lib/supabase/server";
 
 export const maxDuration = 120;
 
 export async function POST(request: Request) {
   try {
+    const user = await getCurrentUser();
+    if (!user) {
+      return NextResponse.json(
+        { error: "Faça login para continuar." },
+        { status: 401 },
+      );
+    }
+
     const raw = await request.json();
     if (JSON.stringify(raw).length > 160_000) {
       return NextResponse.json({ error: "Contexto muito grande." }, { status: 413 });

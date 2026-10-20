@@ -22,7 +22,7 @@ A abertura foi adaptada a pedido do usuário: apresenta o produto e o método, c
 
 - `components/StrategicPlanner.tsx`: controlador original de sessão, persistência e chamadas às APIs, preservado; somente o endereço da imagem de carregamento mudou para SVG.
 - `app/page.tsx`: redireciona a entrada para `/login`; `app/inicio/page.tsx` apresenta o controlador de planejamento.
-- `components/LoginPreview.tsx`, `components/LoginModules.tsx` e `app/login/`: esqueleto visual do login com acesso explícito à demonstração; sem autenticação ou banco.
+- `components/AuthForm.tsx`, `components/LoginModules.tsx` e `app/login/`: login e cadastro reais com Supabase Auth, mantendo a linguagem visual do Metrics.
 - `components/PlannerJourney.tsx` e `app/journey.css`: apresentação do produto e entrevista, opções, ajuda, histórico e menu mobile.
 - `components/NewPlanDialog.tsx`: formulário inicial sob demanda, com campos originais, foco contido e retorno ao botão ao fechar.
 - `components/PlannerResults.tsx` e `app/results.css`: cinco vistas do plano, navegação, temas, exportação e apresentação dos dados.

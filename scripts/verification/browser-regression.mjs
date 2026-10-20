@@ -90,23 +90,22 @@ await check("AI routes include cross-provider fallback and expose the actual pro
   assert.match(planner, /configured: session\.provider !== "demo"/);
   return "Gemini → AI Gateway → demonstração, com origem persistida e exibida";
 });
-await check("Product home access, screenshot previews and demonstration preserve session", async () => {
+await check("Product home access and authentication entry points", async () => {
   const { page, browserContext, mutations, errors } = await makePage({ routePath: "/", reducedMotion: "reduce" });
   assert.equal(new URL(page.url()).pathname, "/");
   await page.getByRole("heading", { name: "Crie seu planejamento estratégico." }).waitFor();
-  assert.equal(await page.getByRole("link", { name: "Login em breve", exact: true }).first().getAttribute("href"), "/login");
+  assert.equal(await page.getByRole("link", { name: "Entrar", exact: true }).first().getAttribute("href"), "/login");
   await visibleText(page, "São cinco etapas adaptativas:");
   await page.getByRole("button", { name: "Ampliar tela de diagnóstico", exact: true }).click();
   await page.getByRole("dialog").waitFor(); await page.keyboard.press("Escape");
   assert.equal(await page.getByRole("button", { name: "Ampliar tela de diagnóstico", exact: true }).evaluate(el => document.activeElement === el), true);
-  await page.getByRole("link", { name: "Cadastro em breve", exact: true }).first().click();
-  await page.getByRole("heading", { name: "Cadastro em breve" }).waitFor();
-  assert.equal(await page.getByLabel("Nome completo").isDisabled(), true);
-  assert.equal(await page.getByRole("button", { name: "Criar conta", exact: true }).isDisabled(), true);
+  await page.getByRole("link", { name: "Criar conta", exact: true }).first().click();
+  await page.getByRole("heading", { name: "Crie sua conta" }).waitFor();
+  assert.equal(await page.getByLabel("Nome completo").isEnabled(), true);
+  assert.equal(await page.getByRole("button", { name: "Criar conta", exact: true }).isEnabled(), true);
   await page.getByRole("link", { name: "Já tem uma conta? Fazer login", exact: true }).click();
-  await page.getByRole("heading", { name: "Login em breve" }).waitFor();
-  await page.getByRole("link", { name: "Experimentar o criador", exact: true }).click();
-  await page.getByRole("button", { name: "Criar meu planejamento", exact: true }).first().waitFor();
+  await page.getByRole("heading", { name: "Entre na sua conta" }).waitFor();
+  assert.equal(await page.getByRole("button", { name: "Continuar com Google", exact: true }).isEnabled(), true);
   assert.equal(await savedSession(page), null); assert.deepEqual(mutations, []); assert.deepEqual(errors, []);
   await browserContext.close();
 });
@@ -124,10 +123,11 @@ for (const width of [1440, 390, 320]) {
   });
 }
 for (const width of [1440, 390, 320]) {
-  await check(`Visual login responsive ${width}px has disabled credentials and no overflow`, async () => {
+  await check(`Functional login responsive ${width}px has enabled credentials and no overflow`, async () => {
     const { page, browserContext, mutations, errors } = await makePage({ width, routePath: "/login" });
-    assert.equal(await page.getByRole("textbox", { name: /e-?mail/i }).isDisabled(), true); assert.equal(await page.getByLabel(/senha/i).isDisabled(), true);
-    assert.equal(await page.getByRole("button", { name: "Entrar", exact: true }).isDisabled(), true);
+    assert.equal(await page.getByRole("textbox", { name: /e-?mail/i }).isEnabled(), true); assert.equal(await page.getByLabel("Senha", { exact: true }).isEnabled(), true);
+    assert.equal(await page.getByRole("button", { name: "Entrar", exact: true }).isEnabled(), true);
+    assert.equal(await page.getByRole("button", { name: "Continuar com Google", exact: true }).isEnabled(), true);
     assert.ok((await overflow(page)).document <= width + 1); assert.match(await page.locator("main").evaluate(el => getComputedStyle(el).fontFamily), /Sora/i);
     assert.deepEqual(await loadedImages(page), []); await screenshot(page, `login-${width}`);
     if (width < 600) {

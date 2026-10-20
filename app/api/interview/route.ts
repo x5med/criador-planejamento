@@ -7,6 +7,7 @@ import {
 import { getDemoCoach, getDemoInterview } from "@/lib/demo";
 import { hasGeminiKey } from "@/lib/gemini";
 import { COACH_PROMPT, INTERVIEW_PROMPT } from "@/lib/method";
+import { getCurrentUser } from "@/lib/supabase/server";
 import {
   coachOutputSchema,
   interviewRequestSchema,
@@ -27,6 +28,14 @@ function demoMetadata(aiConfigured: boolean) {
 
 export async function POST(request: Request) {
   try {
+    const user = await getCurrentUser();
+    if (!user) {
+      return NextResponse.json(
+        { error: "Faça login para continuar." },
+        { status: 401 },
+      );
+    }
+
     const raw = await request.json();
     if (JSON.stringify(raw).length > 100_000) {
       return NextResponse.json({ error: "Contexto muito grande." }, { status: 413 });
