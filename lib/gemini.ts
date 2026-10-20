@@ -10,11 +10,11 @@ export function hasGeminiKey() {
 }
 
 export function getGeminiModel() {
-  return process.env.GEMINI_MODEL?.trim() || "gemini-3.6-flash";
+  return process.env.GEMINI_MODEL?.trim() || "gemini-3.8-flash";
 }
 
 export function getGeminiFallbackModel() {
-  return process.env.GEMINI_FALLBACK_MODEL?.trim() || "gemini-3.5-flash";
+  return process.env.GEMINI_FALLBACK_MODEL?.trim() || "gemini-3.5-flash-lite";
 }
 
 function errorStatus(error: unknown) {
