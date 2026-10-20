@@ -9,26 +9,14 @@ export function hasGeminiKey() {
   return Boolean(process.env.GEMINI_API_KEY?.trim());
 }
 
+export function getGeminiModel() {
+  return process.env.GEMINI_MODEL?.trim() || "gemini-3.6-flash";
+}
+
 function errorStatus(error: unknown) {
   if (!error || typeof error !== "object") return null;
   const status = Reflect.get(error, "status");
   return typeof status === "number" ? status : null;
-}
-
-export function isTransientAiError(error: unknown) {
-  const status = errorStatus(error);
-  if (status && [408, 429, 500, 502, 503, 504].includes(status)) return true;
-
-  const message = error instanceof Error ? error.message.toLowerCase() : "";
-  return [
-    "high demand",
-    "temporarily unavailable",
-    "unavailable",
-    "resource exhausted",
-    "rate limit",
-    "tempo limite",
-    "timeout",
-  ].some((term) => message.includes(term));
 }
 
 function shouldRetry(error: unknown) {
@@ -67,19 +55,23 @@ export async function generateStructured<T>(options: {
   prompt: string;
   schema: z.ZodType<T>;
   temperature?: number;
+  attempts?: number;
+  timeoutMs?: number;
 }): Promise<T> {
   const apiKey = process.env.GEMINI_API_KEY?.trim();
   if (!apiKey) throw new Error("GEMINI_API_KEY não configurada");
 
   const ai = new GoogleGenAI({ apiKey });
-  const model = process.env.GEMINI_MODEL?.trim() || "gemini-3.6-flash";
+  const model = getGeminiModel();
   const responseJsonSchema = cleanJsonSchema(z.toJSONSchema(options.schema));
+  const attempts = Math.max(1, options.attempts ?? 1);
+  const timeoutMs = Math.max(5_000, options.timeoutMs ?? 35_000);
 
   let lastError: unknown;
 
-  for (let attempt = 0; attempt < 3; attempt += 1) {
+  for (let attempt = 0; attempt < attempts; attempt += 1) {
     try {
-      const request = ai.models.generateContent({
+      const response = await ai.models.generateContent({
         model,
         contents: options.prompt,
         config: {
@@ -87,24 +79,15 @@ export async function generateStructured<T>(options: {
           temperature: options.temperature ?? 0.25,
           responseMimeType: "application/json",
           responseJsonSchema,
+          abortSignal: AbortSignal.timeout(timeoutMs),
         },
       });
-
-      const response = await Promise.race([
-        request,
-        new Promise<never>((_, reject) =>
-          setTimeout(
-            () => reject(new Error("Tempo limite da IA excedido")),
-            55_000,
-          ),
-        ),
-      ]);
 
       if (!response.text) throw new Error("A IA não retornou conteúdo");
       return options.schema.parse(JSON.parse(response.text));
     } catch (error) {
       lastError = error;
-      if (attempt === 2 || !shouldRetry(error)) throw error;
+      if (attempt === attempts - 1 || !shouldRetry(error)) throw error;
       await wait(attempt === 0 ? 750 : 1_750);
     }
   }

@@ -19,13 +19,13 @@ export function ProductLanding({ onCreate }: { onCreate?: () => void }) {
   const openPreview = (screen: Preview) => { setPreview(screen); dialog.current?.showModal(); };
   const startAction = (className = "primary-button") => onCreate
     ? <button type="button" className={className} onClick={onCreate}>Criar meu planejamento <ArrowRight size={18} aria-hidden="true" /></button>
-    : <Link className={className} href="/inicio">Explorar demonstração <ArrowRight size={18} aria-hidden="true" /></Link>;
+    : <Link className={className} href="/inicio">Experimentar o criador <ArrowRight size={18} aria-hidden="true" /></Link>;
 
-  return <main className="product-home">
+  return <main className="product-home view-enter">
     <header className="product-nav">
       <Link href="/" className="product-brand" aria-label="Grupo X5 Planejamento — início"><Brand /></Link>
       <nav className="product-sections" aria-label="Sobre o sistema"><a href="#como-funciona">Como funciona</a><a href="#por-dentro">Por dentro do sistema</a></nav>
-      <nav className="product-account" aria-label="Acesso à conta"><Link href="/login">Login</Link><Link href="/cadastro" className="primary-button">Criar conta</Link></nav>
+      <nav className="product-account" aria-label="Acesso à conta"><Link href="/login">Login em breve</Link><Link href="/cadastro" className="primary-button">Cadastro em breve</Link></nav>
     </header>
 
     <section className="product-hero" aria-labelledby="product-title">
@@ -34,7 +34,7 @@ export function ProductLanding({ onCreate }: { onCreate?: () => void }) {
         <h1 id="product-title">Crie seu planejamento estratégico.</h1>
         <p className="product-lead">Crie o planejamento estratégico da sua organização: entenda o cenário, escolha prioridades e transforme objetivos em ações com responsáveis e prazos.</p>
         <div className="product-actions">{startAction()}<a href="#por-dentro" className="product-text-link">Conhecer o sistema</a></div>
-        <p className="product-demo-note">Explore a demonstração antes de começar.</p>
+        <p className="product-demo-note">Nesta versão, não é preciso criar conta: o progresso fica salvo somente neste navegador.</p>
         <ul className="product-outcomes"><li><Check size={15} />Diagnóstico e prioridades</li><li><Check size={15} />Objetivos e KRs</li><li><Check size={15} />Plano de ação</li></ul>
       </div>
       <figure className="product-hero-visual">
@@ -48,11 +48,11 @@ export function ProductLanding({ onCreate }: { onCreate?: () => void }) {
     </section>
 
     <section className="product-process" id="como-funciona" aria-labelledby="process-title">
-      <div><h2 id="process-title">Da primeira pergunta<br />à próxima decisão.</h2><p>Um processo guiado para construir o plano com o contexto da sua organização.</p></div>
+      <div><h2 id="process-title">Da primeira pergunta<br />à próxima decisão.</h2><p>São cinco etapas adaptativas: a quantidade de perguntas varia conforme as lacunas encontradas. Após 5 respostas, você pode gerar uma primeira versão preliminar e continuar refinando o plano.</p></div>
       <ol>
-        <li><span>1</span><div><h3>Conte sua realidade</h3><p>Responda à entrevista sobre desafios, evidências, capacidade e ambição.</p></div></li>
-        <li><span>2</span><div><h3>Construa a estratégia</h3><p>Organize o diagnóstico, as escolhas e os resultados que você quer alcançar.</p></div></li>
-        <li><span>3</span><div><h3>Prepare a execução</h3><p>Revise iniciativas, responsáveis e prazos. Exporte o plano para compartilhar.</p></div></li>
+        <li><span>1</span><div><h3>Informe o contexto</h3><p>Defina organização, setor, horizonte e desafio central.</p></div></li>
+        <li><span>2</span><div><h3>Responda à entrevista</h3><p>Percorra contexto, diagnóstico, escolhas, execução e governança.</p></div></li>
+        <li><span>3</span><div><h3>Revise, refine e exporte</h3><p>Valide lacunas, volte à entrevista quando necessário e exporte o plano.</p></div></li>
       </ol>
     </section>
 
@@ -67,8 +67,8 @@ export function ProductLanding({ onCreate }: { onCreate?: () => void }) {
       </article>)}</div>
     </section>
 
-    <section className="product-closing" aria-labelledby="closing-title"><div><h2 id="closing-title">Qual é o próximo passo<br />da sua organização?</h2><p>Comece com uma boa pergunta. Construa as decisões que vêm depois.</p></div><div>{startAction()}<Link href="/cadastro" className="product-text-link">Quero criar uma conta</Link></div></section>
-    <footer className="product-footer"><Brand /><p>Estratégia com clareza. Execução com direção.</p><Link href="/login">Acessar minha conta</Link></footer>
+    <section className="product-closing" aria-labelledby="closing-title"><div><h2 id="closing-title">Qual é o próximo passo<br />da sua organização?</h2><p>Comece com uma boa pergunta. Construa as decisões que vêm depois.</p></div><div>{startAction()}<Link href="/cadastro" className="product-text-link">Cadastro em breve</Link></div></section>
+    <footer className="product-footer"><Brand /><p>Estratégia com clareza. Execução com direção.</p><Link href="/login">Login em breve</Link></footer>
 
     <dialog ref={dialog} className="product-preview" aria-labelledby="product-preview-title" onClose={() => setPreview(null)} onClick={event => { if (event.target === event.currentTarget) dialog.current?.close(); }}>
       <header><h2 id="product-preview-title">{preview?.title ?? "Tela do sistema"}</h2><button type="button" aria-label="Fechar imagem" onClick={() => dialog.current?.close()}><X size={22} /></button></header>

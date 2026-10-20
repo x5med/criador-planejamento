@@ -2,11 +2,14 @@
 
 import Image from "next/image";
 import type { CSSProperties } from "react";
+import type { AiProvider } from "@/lib/types";
 
 export type ProviderStatus = {
   configured: boolean;
-  provider: "gemini" | "demo";
+  provider: AiProvider;
   model: string;
+  fallbackConfigured?: boolean;
+  providerNote?: string | null;
 };
 
 export function Brand({ compact = false, theme = "light" }: { compact?: boolean; theme?: "light" | "dark" }) {
@@ -19,12 +22,21 @@ export function Brand({ compact = false, theme = "light" }: { compact?: boolean;
 }
 
 export function AiBadge({ status }: { status: ProviderStatus | null }) {
-  const live = status?.configured;
+  const provider = status?.provider ?? "demo";
+  const live = Boolean(status?.configured && provider !== "demo");
+  const label = provider === "gemini"
+    ? "Gemini conectado"
+    : provider === "gateway"
+      ? "IA de contingência"
+      : "Demonstração";
+  const title = status?.providerNote || (live
+    ? `${provider === "gemini" ? "Gemini" : "Vercel AI Gateway"} · ${status?.model}${status?.fallbackConfigured ? " · contingência ativa" : ""}`
+    : "Conteúdo demonstrativo. Valide dados e recomendações antes de decidir.");
   return (
     <span className={`ai-badge ${live ? "is-live" : "is-demo"}`}
-      title={live ? `Gemini · ${status.model}` : "Plano demonstrativo. Valide dados e recomendações antes de decidir."}>
+      title={title}>
       <span className="ai-dot" aria-hidden="true" />
-      {live ? "Gemini conectado" : "Demonstração"}
+      {label}
     </span>
   );
 }

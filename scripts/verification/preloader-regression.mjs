@@ -50,7 +50,7 @@ await check("Real font loading keeps official SVG looping beyond 3s; completion 
 });
 await check("Ready cached resources do not wait for a 2.4s brand cycle", async () => {
   const { page, media, errors, posts } = await makePage(); await waitLoad(page); await page.reload({ waitUntil: "load" }); const loaded = Date.now(); await released(page); const releasedAfterLoadMs = Date.now() - loaded; assert.ok(releasedAfterLoadMs < 1000);
-  await page.getByRole("link", { name: "Explorar demonstração", exact: true }).click(); await page.getByRole("button", { name: "Gerar planejamento", exact: true }).first().waitFor(); assert.equal(await page.locator(".x5-preloader").count(), 0); assert.equal(await page.evaluate(() => localStorage.length), 0); assert.deepEqual(media, []); assert.deepEqual(errors, []); assert.deepEqual(posts, []); return { releasedAfterLoadMs };
+  await page.getByRole("link", { name: "Experimentar o criador", exact: true }).click(); await page.getByRole("button", { name: "Criar meu planejamento", exact: true }).first().waitFor(); assert.equal(await page.locator(".x5-preloader").count(), 0); assert.equal(await page.evaluate(() => localStorage.length), 0); assert.deepEqual(media, []); assert.deepEqual(errors, []); assert.deepEqual(posts, []); return { releasedAfterLoadMs };
 });
 await check("Reduced motion displays a static official SVG during real mobile loading", async () => {
   const { page, heldFonts, releaseFont, media, errors } = await makePage({ width: 390, reducedMotion: "reduce", holdFont: true }); const logo = page.locator(`.x5-preloader ${logoSelector}`); await logo.waitFor(); await official(logo);
@@ -63,7 +63,7 @@ await check("Reduced motion displays a static official SVG during real mobile lo
 await check("Pending interview API uses same SVG until response resolves", async () => {
   const { page, media, errors } = await makePage({ route: "/inicio" }); await waitLoad(page); let resolveAPI; const apiGate = new Promise(resolve => { resolveAPI = resolve; });
   const response = demo.exports.getDemoInterview("context", [], []); await page.route("**/api/interview", async request => { await apiGate; await request.fulfill({ json: response }); });
-  await page.getByRole("button", { name: "Gerar planejamento", exact: true }).first().click(); await page.getByRole("textbox", { name: /organização/i }).fill("Grupo QA"); await page.getByRole("textbox", { name: /setor/i }).fill("Saúde"); await page.getByRole("textbox", { name: /desafio central/i }).fill("Crescer com margem"); await page.getByRole("button", { name: "Começar planejamento", exact: true }).click();
+  await page.getByRole("button", { name: "Criar meu planejamento", exact: true }).first().click(); await page.getByRole("textbox", { name: /organização/i }).fill("Grupo QA"); await page.getByRole("textbox", { name: /setor/i }).fill("Saúde"); await page.getByRole("textbox", { name: /desafio central/i }).fill("Crescer com margem"); await page.getByRole("button", { name: "Começar planejamento", exact: true }).click();
   const logo = page.locator(`.question-loading ${logoSelector}`); await logo.waitFor(); await official(logo);
   await page.waitForFunction(() => [...document.querySelectorAll(".question-loading .x5-logo-fill")].every(path => parseFloat(getComputedStyle(path).opacity) > 0.99));
   await page.screenshot({ path: path.join(output, "interview-api-pending.png") }); assert.equal(await page.locator(".question-loading").isVisible(), true);

@@ -4,7 +4,6 @@ const fontMap=new Map();
 for(const t of page.findAllWithCriteria({types:['TEXT']}))for(const s of t.getStyledTextSegments(['fontName']))fontMap.set(JSON.stringify(s.fontName),s.fontName);
 await Promise.all([...fontMap.values()].map(f=>figma.loadFontAsync(f)));
 const created=[],removed=[],mutated=[],replacements=[],familySets=[];
-const vars=await figma.variables.getLocalVariablesAsync(),vm=Object.fromEntries(vars.map(v=>[v.name,v]));
 const colls=await figma.variables.getLocalVariableCollectionsAsync(),sem=colls.find(c=>c.name==='X5 · Semantic');
 const darkRoot=await figma.getNodeByIdAsync('6:2463'),darkIds=new Set(darkRoot.findAll().map(n=>n.id));
 const rgb=h=>({r:parseInt(h.slice(1,3),16)/255,g:parseInt(h.slice(3,5),16)/255,b:parseInt(h.slice(5,7),16)/255});
@@ -20,10 +19,10 @@ for(const src of buttonSources){
  const icon=src.children.find(n=>n.type==='FRAME'&&n.name==='Frame');if(!icon)continue;const key=sigIcon(icon);
  if(!iconMap.has(key)){const clone=icon.clone();page.appendChild(clone);const comp=figma.createComponentFromNode(clone);const label=src.findAllWithCriteria({types:['TEXT']})[0].characters;comp.name='Icon='+(iconNames[label]||'Arrow right')+', Ink='+(darkIds.has(src.id)?'Petrol':src.name.includes('/black/')?'Inverse':'Default');comp.description='Ícone vetorial Lucide; tamanho 18 px. Troque pela propriedade Icon dos botões.';iconMap.set(key,comp);iconRecords.push(comp);created.push(comp.id,...comp.findAll().map(n=>n.id));}
 }
-function addSet(name,components,desc,columns=4,width=300,height=72){
+function addSet(name,components,desc,columns=4,height=72){
  text(name,24);const set=figma.combineAsVariants(components,library);set.name='X5/'+name;set.description=desc;set.fills=[];set.strokes=[];set.layoutMode='NONE';set.resize(1344,Math.ceil(components.length/columns)*height+24);components.forEach((c,i)=>{c.x=(i%columns)*(1344/columns);c.y=Math.floor(i/columns)*height+12;});created.push(set.id);familySets.push({id:set.id,name:set.name,variants:components.length});return set;
 }
-addSet('Icon',iconRecords,'Ícones vetoriais em tinta padrão, inversa e petróleo.',8,150,48);
+addSet('Icon',iconRecords,'Ícones vetoriais em tinta padrão, inversa e petróleo.',8,48);
 const buttonMap=new Map(),buttonRecords=[],badgeMap=new Map(),badgeRecords=[],brandMap=new Map(),brandRecords=[];
 function replace(src,master,properties){
  const parent=src.parent,index=parent.children.indexOf(src),w=src.width,h=src.height,x=src.x,y=src.y,hs=src.layoutSizingHorizontal,vs=src.layoutSizingVertical,position=src.layoutPositioning,grow=src.layoutGrow,align=src.layoutAlign;
@@ -53,7 +52,7 @@ for(const src of buttonSources){
  }
  replace(src,entry.master,{[entry.lp]:label.characters,[entry.ip]:iconComp.id,[entry.vp]:!!icon});
 }
-addSet('Button',buttonRecords,'Ações com Label, Icon e Show icon. Variantes de tom e estado. Todas com altura mínima de 44 px.',4,300,80);
+addSet('Button',buttonRecords,'Ações com Label, Icon e Show icon. Variantes de tom e estado. Todas com altura mínima de 44 px.',4,80);
 for(const src of sources.filter(n=>!n.removed&&n.name.startsWith('DS/Badge/'))){
  const t=src.findAllWithCriteria({types:['TEXT']})[0];const key=JSON.stringify([src.fills,t.fills,t.fontSize]);
  let entry=badgeMap.get(key);if(!entry){const copy=src.clone();page.appendChild(copy);const m=figma.createComponentFromNode(copy);const fill=src.fills[0]?.color;const hx=fill?Object.values(fill).map(v=>Math.round(v*255).toString(16).padStart(2,'0')).join(''):'none';
@@ -64,11 +63,11 @@ for(const src of sources.filter(n=>!n.removed&&n.name.startsWith('DS/Badge/'))){
  entry={master:m,lp};badgeMap.set(key,entry);badgeRecords.push(m);created.push(m.id,...m.findAll().map(n=>n.id));}
  replace(src,entry.master,{[entry.lp]:t.characters});
 }
-addSet('Badge',badgeRecords,'Status com rótulo editável. Lima para evidência/ação; lilás para hipótese; coral para lacuna.',4,300,56);
+addSet('Badge',badgeRecords,'Status com rótulo editável. Lima para evidência/ação; lilás para hipótese; coral para lacuna.',4,56);
 for(const src of sources.filter(n=>!n.removed&&n.name==='DS/Brand/X5')){
  const key=darkIds.has(src.id)?'Dark':'Light';let m=brandMap.get(key);if(!m){const cp=src.clone();page.appendChild(cp);m=figma.createComponentFromNode(cp);m.name='Theme='+key;m.description='Assinatura X5 Planejamento em texto e vetor.';if(key==='Dark')m.setExplicitVariableModeForCollection(sem,sem.modes.find(v=>v.name==='Dark').modeId);brandMap.set(key,m);brandRecords.push(m);created.push(m.id,...m.findAll().map(n=>n.id));}
  replace(src,m);
 }
-addSet('Brand',brandRecords,'Assinatura do produto; temas Light e Dark.',4,300,64);
+addSet('Brand',brandRecords,'Assinatura do produto; temas Light e Dark.',4,64);
 text('Uso',24);text('Arraste os componentes do painel Assets. As telas usam instâncias vinculadas à biblioteca.\nA coleção X5 · Semantic permite alternar Light / Dark; Geometry contém espaçamentos e raios.');
 return {libraryId:library.id,sets:familySets,replacements,createdCount:created.length,deletedNodeIds:removed,mutatedNodeIds:[...new Set(mutated)],createdNodeIds:created};

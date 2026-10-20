@@ -5,7 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Landing, Interview } from "@/components/PlannerJourney";
 import { PlanDashboard } from "@/components/PlannerResults";
 import type { ProviderStatus } from "@/components/PlannerPrimitives";
-import type { AnswerEntry, CoachResponse, InterviewResponse, PlannerSession, StrategicPlan } from "@/lib/types";
+import type { AiProvider, AnswerEntry, CoachResponse, InterviewResponse, PlannerSession, StrategicPlan } from "@/lib/types";
 
 const STORAGE_KEY = "x5-strategic-planner-session-v1";
 
@@ -81,6 +81,8 @@ export function StrategicPlanner() {
           readiness: data.readiness,
           missingTopics: data.missingTopics,
           provider: data.provider,
+          model: data.model,
+          providerNote: data.providerNote ?? null,
           updatedAt: new Date().toISOString(),
         });
       } catch (caught) {
@@ -114,6 +116,8 @@ export function StrategicPlanner() {
         "escolhas e renúncias",
       ],
       provider: null,
+      model: null,
+      providerNote: null,
       createdAt: now,
       updatedAt: now,
       plan: null,
@@ -196,7 +200,9 @@ export function StrategicPlanner() {
       });
       const data = (await response.json()) as {
         plan?: StrategicPlan;
-        provider?: "gemini" | "demo";
+        provider?: AiProvider;
+        model?: string;
+        providerNote?: string | null;
         error?: string;
       };
       if (!response.ok || !data.plan) {
@@ -206,6 +212,8 @@ export function StrategicPlanner() {
         ...session,
         plan: data.plan,
         provider: data.provider ?? session.provider,
+        model: data.model ?? session.model,
+        providerNote: data.providerNote ?? null,
         updatedAt: new Date().toISOString(),
       });
     } catch (caught) {
@@ -238,11 +246,19 @@ export function StrategicPlanner() {
   if (!session) {
     return <Landing status={status} onStart={start} loading={loading} />;
   }
+  const sessionStatus: ProviderStatus | null = session.provider
+    ? {
+        configured: session.provider !== "demo",
+        provider: session.provider,
+        model: session.model || (session.provider === "demo" ? "demonstração local" : "modelo não informado"),
+        providerNote: session.providerNote,
+      }
+    : status;
   if (session.plan) {
     return (
       <PlanDashboard
         session={session}
-        status={status}
+        status={sessionStatus}
         onBack={backToInterview}
         onNew={newPlan}
       />
@@ -252,7 +268,7 @@ export function StrategicPlanner() {
     <Interview
       key={session.question?.id ?? "loading"}
       session={session}
-      status={status}
+      status={sessionStatus}
       loading={loading}
       error={error}
       onAnswer={answer}

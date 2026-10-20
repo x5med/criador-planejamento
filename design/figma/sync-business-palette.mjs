@@ -1,6 +1,4 @@
 import fs from 'node:fs';
-import path from 'node:path';
-const dir=path.dirname(new URL(import.meta.url).pathname); // Path resolution below uses URLs.
 const here=new URL('./',import.meta.url);const read=n=>JSON.parse(fs.readFileSync(new URL(n,here),'utf8').replace(/^\uFEFF/,''));const write=(n,v)=>fs.writeFileSync(new URL(n,here),JSON.stringify(v,null,2)+'\n');
 const map=read('business-palette-map.json');
 const token=read('tokens.json');token.name='X5 Business';token.version='0.3';for(const [k,v]of Object.entries(token.colors))token.colors[k]=map[v.toUpperCase()]||v;token.colors.goldLight='#E8CD8D';token.colors.darkSurface='#1D1E18';write('tokens.json',token);

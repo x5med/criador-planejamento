@@ -236,6 +236,7 @@ export function getDemoInterview(
     readiness: Math.min(96, Math.round((answers.length / 15) * 100)),
     missingTopics: missingTopics.slice(0, 5),
     provider: "demo",
+    model: "demonstração local",
   };
 }
 
@@ -253,6 +254,7 @@ export function getDemoCoach(question: InterviewQuestion | null): CoachResponse 
       ? `Não transforme exemplos do campo “${question.title}” em dados reais da organização.`
       : "Não invente números para completar a resposta.",
     provider: "demo",
+    model: "demonstração local",
   };
 }
 

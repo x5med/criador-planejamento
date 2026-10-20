@@ -135,9 +135,9 @@ if(!gallery){
  gallery=figma.createAutoLayout("VERTICAL",{name:"14 · Cards chip — X5",itemSpacing:28});created.add(gallery.id);page.appendChild(gallery);gallery.x=4800;gallery.y=2600;gallery.resize(1440,740);gallery.primaryAxisSizingMode="AUTO";gallery.counterAxisSizingMode="FIXED";gallery.cornerRadius=48;gallery.fills=[{type:"SOLID",color:rgb("#CDD2C8")}];
  for(const f of ["paddingTop","paddingBottom","paddingLeft","paddingRight"])gap(gallery,f,48);
  const title=await text(gallery,"Heading","Cards que encaixam.",type.title,"text/on-accent","#111111");title.fontName={family:"Inter",style:"Extra Bold"};title.fontSize=40;title.lineHeight={unit:"PIXELS",value:48};
- const intro=await text(gallery,"Description","Recorte no topo, números condensados e dados em chips neon.",type.detail,"text/on-accent","#111111");
+ await text(gallery,"Description","Recorte no topo, números condensados e dados em chips neon.",type.detail,"text/on-accent","#111111");
  for(const size of ["Desktop","Mobile"]){
-  const label=await text(gallery,"Size label",size==="Desktop"?"DESKTOP · 275 × 210":"MOBILE · 169 × 178",type.meta,"text/on-accent","#111111");
+  await text(gallery,"Size label",size==="Desktop"?"DESKTOP · 275 × 210":"MOBILE · 169 × 178",type.meta,"text/on-accent","#111111");
   const row=figma.createAutoLayout("HORIZONTAL",{name:"Chip review / "+size,itemSpacing:24});created.add(row.id);gallery.appendChild(row);row.fills=[];
   for(const d of data){const inst=variants.find(c=>c.name==="Metric="+d.role+", Size="+size).createInstance();created.add(inst.id);row.appendChild(inst);}
  }

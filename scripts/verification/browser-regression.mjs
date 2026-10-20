@@ -2,7 +2,6 @@ import fs from "node:fs";
 import path from "node:path";
 import assert from "node:assert/strict";
 import { createRequire } from "node:module";
-import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
 
 const require = createRequire(import.meta.url);
@@ -74,39 +73,38 @@ async function overflow(page) {
 async function screenshot(page, name) { await page.screenshot({ path: path.join(output, `${name}.png`), fullPage: true, animations: "disabled" }); }
 async function loadedImages(page) {
   const images = page.locator("main img").filter({ visible: true });
-  for (let index = 0; index < await images.count(); index++) await images.nth(index).scrollIntoViewIfNeeded();
+  for (let index = 0; index < await images.count(); index++) {
+    await images.nth(index).evaluate(image => image.scrollIntoView({ block: "center", behavior: "instant" }));
+  }
   await page.waitForFunction(() => [...document.querySelectorAll("main img")].filter(image => image.getClientRects().length).every(image => image.complete));
   return images.evaluateAll(items => items.filter(image => !image.naturalWidth).map(image => image.getAttribute("src")));
 }
 
-await check("Backend and library SHA256 unchanged", async () => {
-  const baseline = JSON.parse(fs.readFileSync(path.join(root, "scripts/verification/backend-baseline.json"), "utf8").replace(/^\uFEFF/, ""));
-  for (const item of baseline) assert.equal(crypto.createHash("sha256").update(fs.readFileSync(path.join(root, item.path))).digest("hex").toUpperCase(), item.sha256, item.path);
-  return `${baseline.length} files`;
-});
-await check("Session persistence and request logic preserved", async () => {
-  const before = fs.readFileSync(path.join(root, "design/implementation/baseline/StrategicPlanner.tsx.txt"), "utf8");
-  const after = fs.readFileSync(path.join(root, "components/StrategicPlanner.tsx"), "utf8");
-  const marker = "export function StrategicPlanner()";
-  const logic = source => source.slice(source.indexOf(marker), source.indexOf("  if (!hydrated)")).replace(/\r\n/g, "\n");
-  assert.equal(logic(after), logic(before));
-  return "Original session, persistence and request logic unchanged; loading presentation follows the approved UI";
+await check("AI routes include cross-provider fallback and expose the actual provider", async () => {
+  const ai = fs.readFileSync(path.join(root, "lib/ai.ts"), "utf8");
+  const planner = fs.readFileSync(path.join(root, "components/StrategicPlanner.tsx"), "utf8");
+  assert.match(ai, /Gemini indisponível; tentando a IA de contingência/);
+  assert.match(ai, /provider: "gateway"/);
+  assert.match(planner, /providerNote: data\.providerNote/);
+  assert.match(planner, /configured: session\.provider !== "demo"/);
+  return "Gemini → AI Gateway → demonstração, com origem persistida e exibida";
 });
 await check("Product home access, screenshot previews and demonstration preserve session", async () => {
   const { page, browserContext, mutations, errors } = await makePage({ routePath: "/", reducedMotion: "reduce" });
   assert.equal(new URL(page.url()).pathname, "/");
   await page.getByRole("heading", { name: "Crie seu planejamento estratégico." }).waitFor();
-  assert.equal(await page.getByRole("link", { name: "Login", exact: true }).getAttribute("href"), "/login");
+  assert.equal(await page.getByRole("link", { name: "Login em breve", exact: true }).first().getAttribute("href"), "/login");
+  await visibleText(page, "São cinco etapas adaptativas:");
   await page.getByRole("button", { name: "Ampliar tela de diagnóstico", exact: true }).click();
   await page.getByRole("dialog").waitFor(); await page.keyboard.press("Escape");
   assert.equal(await page.getByRole("button", { name: "Ampliar tela de diagnóstico", exact: true }).evaluate(el => document.activeElement === el), true);
-  await page.getByRole("link", { name: "Criar conta", exact: true }).click();
-  await page.getByRole("heading", { name: "Crie sua conta" }).waitFor();
+  await page.getByRole("link", { name: "Cadastro em breve", exact: true }).first().click();
+  await page.getByRole("heading", { name: "Cadastro em breve" }).waitFor();
   assert.equal(await page.getByLabel("Nome completo").isDisabled(), true);
   assert.equal(await page.getByRole("button", { name: "Criar conta", exact: true }).isDisabled(), true);
   await page.getByRole("link", { name: "Já tem uma conta? Fazer login", exact: true }).click();
-  await page.getByRole("heading", { name: "Entre na sua conta" }).waitFor();
-  await page.getByRole("link", { name: "Explorar demonstração", exact: true }).click();
+  await page.getByRole("heading", { name: "Login em breve" }).waitFor();
+  await page.getByRole("link", { name: "Experimentar o criador", exact: true }).click();
   await page.getByRole("button", { name: "Criar meu planejamento", exact: true }).first().waitFor();
   assert.equal(await savedSession(page), null); assert.deepEqual(mutations, []); assert.deepEqual(errors, []);
   await browserContext.close();
@@ -246,17 +244,19 @@ await check("Malformed stored JSON is discarded safely", async () => {
   await page.getByRole("button", { name: "Criar meu planejamento", exact: true }).first().waitFor();
   assert.equal(await savedSession(page), null); assert.equal(errors.length, 0); await browserContext.close();
 });
-await check("Generation gate, failure state, successful plan payload", async () => {
-  const { page, browserContext, requests } = await makePage({ saved: { ...session, answers: seedAnswers.slice(0, 4) } });
+await check("Generation gate, failure state, successful plan payload and actual provider", async () => {
+  const { page, browserContext, requests } = await makePage({ saved: { ...session, answers: seedAnswers.slice(0, 4) }, provider: "gemini" });
   assert.equal(await page.getByRole("button", { name: /Gerar plano agora/ }).isDisabled(), true);
   await page.evaluate(({ key, value }) => localStorage.setItem(key, JSON.stringify(value)), { key: storageKey, value: session });
   await page.reload();
   await page.route("**/api/plan", route => route.fulfill({ status: 502, json: { error: "Falha controlada de plano" } }));
   await page.getByRole("button", { name: /Gerar plano agora/ }).click(); await visibleText(page, "Falha controlada de plano");
   assert.equal((await savedSession(page)).plan, null); assert.deepEqual((await savedSession(page)).answers, seedAnswers);
-  await page.route("**/api/plan", route => { requests.push(route.request().postDataJSON()); return route.fulfill({ json: { plan, provider: "demo" } }); });
+  await page.route("**/api/plan", route => { requests.push(route.request().postDataJSON()); return route.fulfill({ json: { plan, provider: "demo", model: "demonstração local", providerNote: "As IAs configuradas não responderam; este plano foi gerado pela demonstração local." } }); });
   await page.getByRole("button", { name: /Gerar plano agora/ }).click(); await visibleText(page, plan.executiveSummary);
   assert.deepEqual(requests.at(-1), { context: contextData, answers: seedAnswers }); assert.deepEqual((await savedSession(page)).plan, plan);
+  await page.getByText("Demonstração", { exact: true }).first().waitFor();
+  await visibleText(page, "As IAs configuradas não responderam; este plano foi gerado pela demonstração local.");
   await browserContext.close();
 });
 const tabContent = {

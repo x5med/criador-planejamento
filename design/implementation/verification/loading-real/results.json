@@ -1,21 +1,21 @@
 {
-  "date": "2026-09-30T17:17:18.497Z",
+  "date": "2026-10-20T11:48:37.670Z",
   "baseURL": "http://localhost:3000",
   "results": [
-    {
-      "name": "Ready cached resources do not wait for a 2.4s brand cycle",
-      "pass": true,
-      "evidence": {
-        "releasedAfterLoadMs": 33
-      }
-    },
     {
       "name": "Real font loading keeps official SVG looping beyond 3s; completion releases immediately",
       "pass": true,
       "evidence": {
         "heldFontCount": 1,
-        "pendingMs": 3107.899999976158,
-        "releasedAfterMs": 319
+        "pendingMs": 3123.100000023842,
+        "releasedAfterMs": 386
+      }
+    },
+    {
+      "name": "Ready cached resources do not wait for a 2.4s brand cycle",
+      "pass": true,
+      "evidence": {
+        "releasedAfterLoadMs": 64
       }
     },
     {

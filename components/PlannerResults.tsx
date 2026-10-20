@@ -47,7 +47,12 @@ export function PlanDashboard({ session, status, onBack, onNew }: { session: Pla
   const drawerRef = useRef<HTMLDialogElement>(null);
   const methodRef = useRef<HTMLDialogElement>(null);
   const navId = useId();
-  const demo = session.provider !== "gemini";
+  const demo = session.provider === "demo";
+  const generationNotice = session.providerNote
+    ? `${session.providerNote} Valide evidências, metas e recomendações antes de decidir.`
+    : demo
+      ? "Plano ilustrativo. As informações e recomendações precisam de validação antes de qualquer decisão."
+      : "Valide evidências, metas e recomendações com os responsáveis antes de qualquer decisão.";
   const chooseTab = (id: PlanTab) => { setTab(id); if (drawer) { drawerRef.current?.close(); setDrawer(false); } };
   const download = (format: "json" | "md", source: HTMLButtonElement) => {
     const safeName = plan.meta.organization.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -89,7 +94,7 @@ export function PlanDashboard({ session, status, onBack, onNew }: { session: Pla
             {tab === "governance" && <GovernanceTab plan={plan} />}
           </section>
           <div className="result-mobile-export">{tab === "overview" && exportControl}</div>
-          <div className="result-notice"><Asset name="edaeb" /><span>{demo ? "Plano ilustrativo. As informações e recomendações precisam de validação antes de qualquer decisão." : "Valide evidências, metas e recomendações com os responsáveis antes de qualquer decisão."}</span></div>
+          <div className="result-notice"><Asset name="edaeb" /><span>{generationNotice}</span></div>
           <button type="button" className="result-back" onClick={onBack}><ArrowLeft size={16} /> Voltar à entrevista</button>
         </div>
       </div>

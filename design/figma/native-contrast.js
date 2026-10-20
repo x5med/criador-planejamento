@@ -1,5 +1,5 @@
 
-const page=figma.currentPage,changed=[],created=[];
+const changed=[],created=[];
 const ids=['6:1056','6:1193','6:699','6:715','6:725','6:732','6:739','6:746','6:817','6:831','6:836','6:841','6:1013','6:1375','6:1579','6:1580','6:1645','6:1836','6:1918','6:2161','6:2234','6:2379','6:2386','6:2953'];
 const variables=await figma.variables.getLocalVariablesAsync(),vm=Object.fromEntries(variables.map(v=>[v.name,v]));
 const colls=await figma.variables.getLocalVariableCollectionsAsync(),sem=colls.find(c=>c.name==='X5 · Semantic');

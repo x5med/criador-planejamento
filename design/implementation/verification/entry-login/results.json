@@ -1,16 +1,43 @@
 {
-  "testedAt": "2026-09-30T15:30:02.754Z",
+  "testedAt": "2026-10-20T11:46:12.544Z",
   "baseURL": "http://localhost:3000",
   "results": [
     {
-      "name": "Backend and library SHA256 unchanged",
+      "name": "AI routes include cross-provider fallback and expose the actual provider",
       "pass": true,
-      "evidence": "9 files"
+      "evidence": "Gemini → AI Gateway → demonstração, com origem persistida e exibida"
     },
     {
-      "name": "Session controller preserved exactly",
-      "pass": true,
-      "evidence": "Exact original controller after normalizing line endings and only the explicitly requested loading-logo SVG path"
+      "name": "Product home access, screenshot previews and demonstration preserve session",
+      "pass": true
+    },
+    {
+      "name": "Product home responsive 1440px images and preview",
+      "pass": true
+    },
+    {
+      "name": "Product home responsive 390px images and preview",
+      "pass": true
+    },
+    {
+      "name": "Product home responsive 320px images and preview",
+      "pass": true
+    },
+    {
+      "name": "Visual login responsive 1440px has disabled credentials and no overflow",
+      "pass": true
+    },
+    {
+      "name": "Visual login responsive 390px has disabled credentials and no overflow",
+      "pass": true
+    },
+    {
+      "name": "Visual login responsive 320px has disabled credentials and no overflow",
+      "pass": true
+    },
+    {
+      "name": "Login module popovers fit desktop transition widths",
+      "pass": true
     },
     {
       "name": "Homepage explains product before CTA; modal cancellation/focus and all horizons remain local",
@@ -38,7 +65,7 @@
       "pass": true
     },
     {
-      "name": "Generation gate, failure state, successful plan payload",
+      "name": "Generation gate, failure state, successful plan payload and actual provider",
       "pass": true
     },
     {
@@ -66,7 +93,7 @@
       "pass": true
     },
     {
-      "name": "Dashboard keyboard tabs, theme and mobile menu keep session data",
+      "name": "Dashboard keyboard tabs and mobile menu keep session data in light theme",
       "pass": true
     },
     {
@@ -82,15 +109,15 @@
       }
     },
     {
-      "name": "All rendered image assets load in journey, five tabs and dark theme",
+      "name": "All rendered image assets load in journey and five light theme tabs",
       "pass": true
     },
     {
-      "name": "Final dark actions remain legible and mobile surface stays transparent",
+      "name": "Final light actions remain legible without a dark mode option",
       "pass": true,
       "evidence": {
-        "newPlanColor": "rgb(247, 249, 243)",
-        "newPlanHoverContrast": 9.819703018247312
+        "newPlanColor": "rgb(17, 17, 17)",
+        "newPlanHoverContrast": 16.89496228058455
       }
     },
     {
@@ -99,26 +126,6 @@
     },
     {
       "name": "Homepage and Figma workspace comparison viewports captured",
-      "pass": true
-    },
-    {
-      "name": "Root redirects to visual login without authentication or persistence; demo link opens homepage",
-      "pass": true
-    },
-    {
-      "name": "Visual login responsive 1440px has disabled credentials and no overflow",
-      "pass": true
-    },
-    {
-      "name": "Visual login responsive 390px has disabled credentials and no overflow",
-      "pass": true
-    },
-    {
-      "name": "Visual login responsive 320px has disabled credentials and no overflow",
-      "pass": true
-    },
-    {
-      "name": "Login module popovers fit desktop transition widths",
       "pass": true
     }
   ],

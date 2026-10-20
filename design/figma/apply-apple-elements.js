@@ -7,7 +7,7 @@ await Promise.all([...fonts.values()].map(f=>figma.loadFontAsync(f)));
 await figma.loadFontAsync({family:"Inter",style:"Medium"});
 const rgb=h=>({r:parseInt(h.slice(1,3),16)/255,g:parseInt(h.slice(3,5),16)/255,b:parseInt(h.slice(5,7),16)/255});
 const variables=await figma.variables.getLocalVariablesAsync(),collections=await figma.variables.getLocalVariableCollectionsAsync();
-const pc=collections.find(c=>c.name==="X5 · Primitives"),sc=collections.find(c=>c.name==="X5 · Semantic"),gc=collections.find(c=>c.name==="X5 · Geometry");
+const pc=collections.find(c=>c.name==="X5 · Primitives"),sc=collections.find(c=>c.name==="X5 · Semantic");
 const light=sc.modes.find(m=>m.name==="Light").modeId,dark=sc.modes.find(m=>m.name==="Dark").modeId;
 const vm=new Map(variables.map(v=>[v.name,v]));
 function primitive(name,color,alpha){

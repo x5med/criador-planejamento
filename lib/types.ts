@@ -33,6 +33,7 @@ export const PHASES = [
 
 export type PhaseId = (typeof PHASES)[number]["id"];
 export type QuestionType = "textarea" | "text" | "number" | "select";
+export type AiProvider = "gemini" | "gateway" | "demo";
 
 export type InterviewQuestion = {
   id: string;
@@ -58,14 +59,18 @@ export type InterviewResponse = {
   insight: string;
   readiness: number;
   missingTopics: string[];
-  provider: "gemini" | "demo";
+  provider: AiProvider;
+  model: string;
+  providerNote?: string | null;
 };
 
 export type CoachResponse = {
   guidance: string;
   suggestedStructure: string[];
   caution: string;
-  provider: "gemini" | "demo";
+  provider: AiProvider;
+  model: string;
+  providerNote?: string | null;
 };
 
 export type PlannerSession = {
@@ -80,7 +85,9 @@ export type PlannerSession = {
   askedQuestionIds: string[];
   readiness: number;
   missingTopics: string[];
-  provider: "gemini" | "demo" | null;
+  provider: AiProvider | null;
+  model?: string | null;
+  providerNote?: string | null;
   createdAt: string;
   updatedAt: string;
   plan: StrategicPlan | null;

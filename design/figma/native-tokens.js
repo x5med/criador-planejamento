@@ -1,6 +1,6 @@
 
 const page=figma.currentPage;
-const changed=new Set(),created=[];
+const changed=new Set();
 const texts=page.findAllWithCriteria({types:['TEXT']});
 const fontMap=new Map();
 for(const n of texts)for(const s of n.getStyledTextSegments(['fontName']))fontMap.set(JSON.stringify(s.fontName),s.fontName);

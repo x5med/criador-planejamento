@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-30T15:54:55.133Z",
+  "date": "2026-10-20T11:48:08.844Z",
   "baseURL": "http://localhost:3000",
   "results": [
     {
@@ -11,10 +11,10 @@
       "pass": true
     },
     {
-      "name": "WebM alpha final preloader frame has visible black logo and no rectangular background",
+      "name": "Official Grupo X5 SVG final frame has visible black logo and no rectangular background",
       "pass": true,
       "evidence": {
-        "src": "http://localhost:3000/brand/preloader/x5-reveal.webm",
+        "brand": "grupo-x5",
         "corners": [
           [
             231,
@@ -41,41 +41,7 @@
             255
           ]
         ],
-        "darkPixels": 25991
-      }
-    },
-    {
-      "name": "MP4 fallback final preloader frame has visible black logo and no rectangular background",
-      "pass": true,
-      "evidence": {
-        "src": "http://localhost:3000/brand/preloader/x5-reveal.mp4",
-        "corners": [
-          [
-            231,
-            235,
-            228,
-            255
-          ],
-          [
-            231,
-            235,
-            228,
-            255
-          ],
-          [
-            231,
-            235,
-            228,
-            255
-          ],
-          [
-            231,
-            235,
-            228,
-            255
-          ]
-        ],
-        "darkPixels": 26077
+        "darkPixels": 30236
       }
     },
     {
