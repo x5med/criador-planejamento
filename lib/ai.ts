@@ -34,8 +34,7 @@ export function getGatewayModel(task: AiTask) {
     task === "plan"
       ? process.env.AI_GATEWAY_PLAN_MODEL
       : process.env.AI_GATEWAY_INTERVIEW_MODEL;
-  return configured?.trim() ||
-    (task === "plan" ? "openai/gpt-6.1-sol" : "openai/gpt-6-luna");
+  return configured?.trim() || "reflection/beam";
 }
 
 async function generateWithGateway<T>(options: {
@@ -46,10 +45,6 @@ async function generateWithGateway<T>(options: {
   timeoutMs: number;
 }) {
   const model = getGatewayModel(options.task);
-  const fallbackModels =
-    options.task === "plan"
-      ? ["google/gemini-3.6-flash"]
-      : ["google/gemini-3.5-flash"];
   const result = await generateText({
     model,
     system: METHOD_SYSTEM_PROMPT,
@@ -59,7 +54,6 @@ async function generateWithGateway<T>(options: {
     timeout: { totalMs: options.timeoutMs },
     providerOptions: {
       gateway: {
-        models: fallbackModels,
         has: ["structured-output"],
         disallowPromptTraining: true,
         tags: ["x5-planejamento", options.task],
