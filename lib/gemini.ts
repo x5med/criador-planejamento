@@ -13,6 +13,10 @@ export function getGeminiModel() {
   return process.env.GEMINI_MODEL?.trim() || "gemini-3.6-flash";
 }
 
+export function getGeminiFallbackModel() {
+  return process.env.GEMINI_FALLBACK_MODEL?.trim() || "gemini-3.5-flash";
+}
+
 function errorStatus(error: unknown) {
   if (!error || typeof error !== "object") return null;
   const status = Reflect.get(error, "status");
@@ -20,6 +24,7 @@ function errorStatus(error: unknown) {
 }
 
 function shouldRetry(error: unknown) {
+  if (error instanceof SyntaxError || error instanceof z.ZodError) return true;
   const status = errorStatus(error);
   if (status && [429, 500, 502, 503, 504].includes(status)) return true;
 
@@ -57,12 +62,13 @@ export async function generateStructured<T>(options: {
   temperature?: number;
   attempts?: number;
   timeoutMs?: number;
+  model?: string;
 }): Promise<T> {
   const apiKey = process.env.GEMINI_API_KEY?.trim();
   if (!apiKey) throw new Error("GEMINI_API_KEY não configurada");
 
   const ai = new GoogleGenAI({ apiKey });
-  const model = getGeminiModel();
+  const model = options.model?.trim() || getGeminiModel();
   const responseJsonSchema = cleanJsonSchema(z.toJSONSchema(options.schema));
   const attempts = Math.max(1, options.attempts ?? 1);
   const timeoutMs = Math.max(5_000, options.timeoutMs ?? 35_000);

@@ -83,7 +83,8 @@ async function loadedImages(page) {
 await check("AI routes include cross-provider fallback and expose the actual provider", async () => {
   const ai = fs.readFileSync(path.join(root, "lib/ai.ts"), "utf8");
   const planner = fs.readFileSync(path.join(root, "components/StrategicPlanner.tsx"), "utf8");
-  assert.match(ai, /Gemini indisponível; tentando a IA de contingência/);
+  assert.match(ai, /getGeminiFallbackModel/);
+  assert.match(ai, /Modelo Gemini de contingência indisponível/);
   assert.match(ai, /provider: "gateway"/);
   assert.match(planner, /providerNote: data\.providerNote/);
   assert.match(planner, /configured: session\.provider !== "demo"/);

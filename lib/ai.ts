@@ -5,6 +5,7 @@ import { z } from "zod";
 
 import {
   generateStructured,
+  getGeminiFallbackModel,
   getGeminiModel,
   hasGeminiKey,
 } from "@/lib/gemini";
@@ -81,23 +82,47 @@ export async function generateReliableStructured<T>(options: {
   let geminiFailed = false;
 
   if (hasGeminiKey()) {
+    const primaryModel = getGeminiModel();
     try {
       const data = await generateStructured({
         prompt: options.prompt,
         schema: options.schema,
         temperature: options.temperature,
-        attempts: options.task === "interview" ? 2 : 1,
-        timeoutMs: options.task === "interview" ? 22_000 : 42_000,
+        attempts: 1,
+        timeoutMs: options.task === "interview" ? 20_000 : 38_000,
+        model: primaryModel,
       });
       return {
         data,
         provider: "gemini",
-        model: getGeminiModel(),
+        model: primaryModel,
         providerNote: null,
       };
     } catch (error) {
       geminiFailed = true;
-      console.warn("Gemini indisponível; tentando a IA de contingência", error);
+      console.warn("Modelo Gemini principal indisponível", error);
+    }
+
+    const fallbackModel = getGeminiFallbackModel();
+    if (fallbackModel !== primaryModel) {
+      try {
+        const data = await generateStructured({
+          prompt: options.prompt,
+          schema: options.schema,
+          temperature: options.temperature,
+          attempts: 1,
+          timeoutMs: options.task === "interview" ? 20_000 : 38_000,
+          model: fallbackModel,
+        });
+        return {
+          data,
+          provider: "gemini",
+          model: fallbackModel,
+          providerNote: `O modelo ${primaryModel} não respondeu; usamos ${fallbackModel}.`,
+        };
+      } catch (error) {
+        console.warn("Modelo Gemini de contingência indisponível", error);
+      }
     }
   }
 
@@ -105,13 +130,13 @@ export async function generateReliableStructured<T>(options: {
     try {
       const result = await generateWithGateway({
         ...options,
-        timeoutMs: options.task === "interview" ? 35_000 : 55_000,
+        timeoutMs: options.task === "interview" ? 30_000 : 38_000,
       });
       return {
         ...result,
         provider: "gateway",
         providerNote: geminiFailed
-          ? "O Gemini não respondeu; esta versão foi gerada pela IA de contingência."
+          ? "Os modelos Gemini não responderam; esta versão foi gerada pela IA de contingência."
           : null,
       };
     } catch (error) {

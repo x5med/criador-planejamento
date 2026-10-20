@@ -17,6 +17,6 @@ export async function GET() {
       : gateway
         ? getGatewayModel("interview")
         : "demonstração local",
-    fallbackConfigured: gemini && gateway,
+    fallbackConfigured: gemini || gateway,
   });
 }
